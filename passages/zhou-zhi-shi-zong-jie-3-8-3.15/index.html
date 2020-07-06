@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>周知识总结（3.8~3.15） - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="Artificial Intelligence">
+  
+  
+    <meta name="description" content="周知识总结">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/zhou-zhi-shi-zong-jie-3-8-3.15/">
+      周知识总结（3.8~3.15）
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>周知识总结</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 15, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>周知识总结</p>
+<a id="more"></a>
+
+<h3 id="3月8日"><a href="#3月8日" class="headerlink" title="3月8日"></a>3月8日</h3><h4 id="简述向量、标量、矩阵、张量的内涵以及它们之间的联系"><a href="#简述向量、标量、矩阵、张量的内涵以及它们之间的联系" class="headerlink" title="简述向量、标量、矩阵、张量的内涵以及它们之间的联系"></a>简述向量、标量、矩阵、张量的内涵以及它们之间的联系</h4><ul>
+<li><strong>向量</strong><ul>
+<li>又称矢量，是指具有大小和方向的量。在计算机中，向量具有多个维度，每个数表示向量在该维度上的值。例如: <code>[1, 2, 3, 4]</code></li>
+</ul>
+</li>
+<li><strong>标量</strong><ul>
+<li>与向量相对应，是一个单独的数</li>
+</ul>
+</li>
+<li><strong>矩阵</strong><ul>
+<li>指一组具有相同特征和维度的对象的集合，形式上表现为一个二维的表格。在意义上，一个对象是矩阵中的一行；一个特征是矩阵中的一列。</li>
+</ul>
+</li>
+<li><strong>张量</strong><ul>
+<li>通常是一个广义的矩阵，可以是一个更高维的结构，张量的维数叫做它的秩。在深度学习中经常见到张量，即<code>Tensor</code></li>
+</ul>
+</li>
+<li><strong>联系</strong><ul>
+<li>标量可以看作是0阶张量</li>
+<li>向量可以看作是一阶张量</li>
+</ul>
+</li>
+</ul>
+<vr>
+
+<h4 id="试归纳向量的范数"><a href="#试归纳向量的范数" class="headerlink" title="试归纳向量的范数"></a>试归纳向量的范数</h4><ul>
+<li><p>向量的范数是用来衡量空间中向量的大小的量，常见的有以下计算方式：</p>
+<ul>
+<li><p><strong>向量的1范数</strong>：向量的各个元素的绝对值之和<br>$$<br>  \Vert\vec{x}\Vert_1=\sum_{i=1}^N\vert{x_i}\vert<br>$$</p>
+</li>
+<li><p><strong>向量的2范数</strong>：向量的每个元素的平方和在开平方<br>$$<br>\Vert\vec{x}\Vert_2=\sqrt{\sum_{i=1}^N{\vert{x_i}\vert}^2}<br>$$</p>
+</li>
+<li><p><strong>向量的负无穷范数</strong>：向量的所有元素中绝对值最小的</p>
+</li>
+</ul>
+<p>$$<br>\Vert\vec{x}\Vert_{-\infty}=\min{|{x_i}|}<br>$$</p>
+<ul>
+<li><strong>向量的正无穷范数</strong>：向量的所有元素中绝对值最大的</li>
+</ul>
+<p>$$<br>\Vert\vec{x}\Vert_{+\infty}=\max{|{x_i}|}<br>$$</p>
+</li>
+</ul>
+<ul>
+<li>总得来说，向量的范数可以表示为：<br>$$<br>L_p=\Vert\vec{x}\Vert_p=\sqrt[p]{\sum_{i=1}^{N}|{x_i}|^p}<br>$$</li>
+</ul>
+<br>
+
+<h4 id="简述导数与偏导数的区别"><a href="#简述导数与偏导数的区别" class="headerlink" title="简述导数与偏导数的区别"></a>简述导数与偏导数的区别</h4><ul>
+<li>导数和偏导数本身并无本质区别，都是在极限存在的情况下自变量变化量趋于0时，函数值的变化量与自变量变化量的比值<ul>
+<li>对于一元函数<code>y = ax+b</code>，导数只有一个</li>
+<li>对于二元函数<code>z = x + y</code>，导数有两个，分别是<code>z</code>关于<code>x</code>的导数和<code>z</code>关于<code>y</code>的导数，称之为偏导数</li>
+</ul>
+</li>
+<li>注意在多元函数求偏导时，要将求偏导之外的变量视为常数</li>
+</ul>
+<br>
+
+<h4 id="简述随机变量与变量的区别"><a href="#简述随机变量与变量的区别" class="headerlink" title="简述随机变量与变量的区别"></a>简述随机变量与变量的区别</h4><ul>
+<li>随机变量表示随机试验各种结果的实值单值函数。</li>
+<li>区别<ul>
+<li>当变量的取值概率不为1时，变量就是随机变量；相对应的，随机变量取值的概率为1时，随机变量就变成了变量</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月9日"><a href="#3月9日" class="headerlink" title="3月9日"></a>3月9日</h3><h4 id="试简述概率分布与随机变量存在的联系"><a href="#试简述概率分布与随机变量存在的联系" class="headerlink" title="试简述概率分布与随机变量存在的联系"></a>试简述概率分布与随机变量存在的联系</h4><ul>
+<li>一个随机变量表示的是一个可能取得的状态</li>
+<li>而概率分布表示的是一个随机变量取得每个状态的可能性大小</li>
+<li>随机变量分为<strong>离散型</strong>和<strong>连续型</strong></li>
+</ul>
+<br>
+
+<h4 id="概率分布如何描述"><a href="#概率分布如何描述" class="headerlink" title="概率分布如何描述"></a>概率分布如何描述</h4><ul>
+<li><p>用来描述概率分布的函数有两种</p>
+<ul>
+<li><strong>概率质量函数</strong>：描述离散型随机变量的概率分布</li>
+<li><strong>概率密度函数</strong>：描述连续性随机变量的概率分布</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="什么是条件概率"><a href="#什么是条件概率" class="headerlink" title="什么是条件概率"></a>什么是条件概率</h4><ul>
+<li><p>在某种情况（<code>A， A&lt;S</code>）下，情况<code>B</code>发生的概率，记作：<br>$$<br>P(B|A) = \frac{P(AB)}{P(A)}<br>$$</p>
+</li>
+<li><p>且当<code>A=S</code>时，<code>P(B|A)=P(B)</code>，即情况A的作用是缩小了样本空间</p>
+</li>
+</ul>
+<br>
+
+<h4 id="边缘概率与联合概率的内涵与区别"><a href="#边缘概率与联合概率的内涵与区别" class="headerlink" title="边缘概率与联合概率的内涵与区别"></a>边缘概率与联合概率的内涵与区别</h4><ul>
+<li><strong>边缘概率</strong><ul>
+<li>与联合概率相对应，指的是某个事件发生的概率，与其他事件无关，例如：<code>P(X=1)</code></li>
+</ul>
+</li>
+<li><strong>联合概率</strong>：<ul>
+<li>指的是多个事件的同时发生，例如：<code>P(X=1, Y=2)</code></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="简述期望、方差、协方差、相关系数"><a href="#简述期望、方差、协方差、相关系数" class="headerlink" title="简述期望、方差、协方差、相关系数"></a>简述期望、方差、协方差、相关系数</h4><ul>
+<li><p><strong>期望</strong>：</p>
+<ul>
+<li>指的是每个结果的概率乘以结果的总和</li>
+</ul>
+</li>
+<li><p><strong>方差</strong></p>
+<ul>
+<li>用来度量随机变量与其数学期望之间的偏离程度</li>
+</ul>
+<p>$$<br>Var(x) = E((x-E(x))^2)<br>$$</p>
+</li>
+</ul>
+<ul>
+<li>可以用来衡量数据的<strong>离散程度</strong></li>
+</ul>
+<ul>
+<li><p><strong>协方差</strong></p>
+<ul>
+<li>衡量两个变量（变化趋势）的相关性大小</li>
+</ul>
+<p>$$<br>Cov(x,y)=E((x-E(x))(y-E(y)))<br>$$</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>相关系数</strong></p>
+<ul>
+<li>衡量变量之间线性相关程度</li>
+<li>而且不受变量变化幅度的影响，反映两个变量每单位变化时</li>
+</ul>
+<p>$$<br>Corr(x,y) = \frac{Cov(x,y)}{\sqrt{Var(x)Var(y)}}<br>$$</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月10日"><a href="#3月10日" class="headerlink" title="3月10日"></a>3月10日</h3><h4 id="试简述机器学习的内涵"><a href="#试简述机器学习的内涵" class="headerlink" title="试简述机器学习的内涵"></a>试简述机器学习的内涵</h4><ul>
+<li>机器学习，顾名思义，是一种让机器进行学习的技术。这里的机器指的是计算机，是算法运行的载体。</li>
+<li>另一个角度来看，也可以讲算法本身视作一个”机器“，接受出入，产生输出</li>
+<li>对于一个任务，设计一种算法，使算法能够提取出任务相关的数据中蕴含的规律，这就是是机器学习。</li>
+<li>根绝输入机器的数据是否带有标记可以分为监督学习和无监督学习。</li>
+</ul>
+<br>
+
+<h4 id="试简述什么是神经网络"><a href="#试简述什么是神经网络" class="headerlink" title="试简述什么是神经网络"></a>试简述什么是神经网络</h4><ul>
+<li>按照一定的规则将多个神经元起来的网络成为神经网络。对于不同的网络，连接规则会有所差异。</li>
+<li>一般来说，神经网络要包含三种层：输入层、输出层、隐藏层</li>
+</ul>
+<br>
+
+<h4 id="局部最优和全局最优的内涵及区别"><a href="#局部最优和全局最优的内涵及区别" class="headerlink" title="局部最优和全局最优的内涵及区别"></a>局部最优和全局最优的内涵及区别</h4><ul>
+<li>优化问题的解一般分为两种：局部最优、全局最优</li>
+<li><strong>局部最优</strong>指的是在函数值空间的一个有限区域内的最值</li>
+<li><strong>全局最优</strong>指的是在函数整个取值空间上的最值</li>
+</ul>
+<br>
+
+<h4 id="试简述机器学习的主要学习方式"><a href="#试简述机器学习的主要学习方式" class="headerlink" title="试简述机器学习的主要学习方式"></a>试简述机器学习的主要学习方式</h4><ul>
+<li><strong>监督学习</strong>：使用有标签（正确答案）的数据来训练模型。训练得到的模型可以将数据映射到给定标签范围内的一个标签。常见的监督学习算法有：支持向量机、逻辑回归、决策树等</li>
+<li><strong>无监督学习</strong>：与监督学习相对应，无监督学习使用的数据并没有被特别标识出类别。训练出的模型一般用于推断数据本身存在的一些结构。常见的无监督学习有：聚类等。</li>
+<li><strong>半监督学习</strong>：使用的数据部分有标签，部分没有标签。属于半监督学习的算法有：拉普拉斯支持向量机等</li>
+<li><strong>弱监督学习</strong>：使用的数据可以看作是有多个标签的数据（没有标签、一个标签、多个标签）。一般用于将输入数据映射到一组更强的标签。</li>
+</ul>
+<br>
+
+<h4 id="评估标准中的正确率是否能较好的反映算法的性能"><a href="#评估标准中的正确率是否能较好的反映算法的性能" class="headerlink" title="评估标准中的正确率是否能较好的反映算法的性能"></a>评估标准中的正确率是否能较好的反映算法的性能</h4><ul>
+<li><p>一般情况下正确率能直观的反映分类算法的性能，但是各类数据数量悬殊较大时并不可靠。</p>
+</li>
+<li><p>比如：1000个样本，正样本990，负样本10.（例如预测一个地区的地震概率）</p>
+<ul>
+<li><p>如果将所有的结果预测为正，可以达到99%的正确率，但这样并不合适</p>
+</li>
+<li><p>在这里，样本数量较少的标签才是我们关注的</p>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月11日"><a href="#3月11日" class="headerlink" title="3月11日"></a>3月11日</h3><h4 id="逻辑回归可以用在那些问题上？"><a href="#逻辑回归可以用在那些问题上？" class="headerlink" title="逻辑回归可以用在那些问题上？"></a>逻辑回归可以用在那些问题上？</h4><ul>
+<li>用于分类。用作分类任务时，关键在于设定一个阈值。</li>
+<li>用于概率预测。</li>
+<li>注意，逻辑回归仅能用于线性问题。即目标和特征之间时线性关系时才能使用，<ul>
+<li>在目标和特征之间不是线性关系时不使用</li>
+<li>在使用时要挑选与目标为线性关系的特征</li>
+</ul>
+</li>
+<li>特征之间不需要满足条件独立性假设</li>
+</ul>
+<br>
+
+<h4 id="逻辑回归与朴素贝叶斯有何区别？"><a href="#逻辑回归与朴素贝叶斯有何区别？" class="headerlink" title="逻辑回归与朴素贝叶斯有何区别？"></a>逻辑回归与朴素贝叶斯有何区别？</h4><ul>
+<li>逻辑回归属于判别模型，计算的是条件概率，即根据特征得到最终的目标</li>
+<li>朴素贝叶斯属于生成模型，计算的是联合概率</li>
+<li>朴素贝叶斯属于贝叶斯，逻辑回归属于最大似然，是两种不同的概率哲学</li>
+<li>使用朴素贝叶斯需要特征满足条件独立性假设，即各特征之间相互独立，而逻辑回归无此要求</li>
+</ul>
+<br>
+
+<h4 id="逻辑回归与线性回归的区别有哪些？"><a href="#逻辑回归与线性回归的区别有哪些？" class="headerlink" title="逻辑回归与线性回归的区别有哪些？"></a>逻辑回归与线性回归的区别有哪些？</h4><ul>
+<li>线性回归的目的是预测，而逻辑回归是用于分类</li>
+<li>线性回归<code>y</code>的范围不确定，而逻辑回归中<code>y</code>的范围是<code>(0, 1)</code></li>
+<li>线性回归参数的计算方式是最小二乘法（计算误差），而逻辑回归是极大似然估计（计算使目标出现概率最大的参数）</li>
+</ul>
+<br>
+
+<h4 id="简要描述梯度下降的步骤"><a href="#简要描述梯度下降的步骤" class="headerlink" title="简要描述梯度下降的步骤"></a>简要描述梯度下降的步骤</h4><ul>
+<li>初始化参数，可以随机取值</li>
+<li>迭代操作：<ul>
+<li>计算当前梯度</li>
+<li>修改新的变量</li>
+<li>向梯度最大的方向前进一步</li>
+<li>判断是否终止</li>
+</ul>
+</li>
+<li>结果一般为全局最优或局部最优</li>
+</ul>
+<br>
+
+<h4 id="梯度下降有哪些关键参数？"><a href="#梯度下降有哪些关键参数？" class="headerlink" title="梯度下降有哪些关键参数？"></a>梯度下降有哪些关键参数？</h4><ul>
+<li>迭代的步长<ul>
+<li>步长太小，迭代速度过慢</li>
+<li>步长太大，迭代太快，易错过最优解</li>
+</ul>
+</li>
+<li>参数的初始值<ul>
+<li>初始值选取不当可能会导致得到的是局部最优解</li>
+</ul>
+</li>
+<li>标准化处理<ul>
+<li>对各个特征进行标准化处理，防止特征的取值范围不同而导致梯度下降速度变慢</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="梯度下降会有什么缺陷？"><a href="#梯度下降会有什么缺陷？" class="headerlink" title="梯度下降会有什么缺陷？"></a>梯度下降会有什么缺陷？</h4><ul>
+<li>在接近极小值是收敛速度变慢</li>
+<li>可能会出现<code>之</code>字行下降</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月12日"><a href="#3月12日" class="headerlink" title="3月12日"></a>3月12日</h3><h4 id="试简要描述主成分分析（PCA）的主要思想"><a href="#试简要描述主成分分析（PCA）的主要思想" class="headerlink" title="试简要描述主成分分析（PCA）的主要思想"></a>试简要描述主成分分析（PCA）的主要思想</h4><ul>
+<li>PCA的作用是将<strong>高维数据通过线性变换投影到低维空间</strong>上去，从而可以在计算时减小计算压力，同时不会影响太多性能（被舍弃的维度是噪声或者冗余信息）<ul>
+<li>去冗余信息：当向量可以被其他向量线性表示时，该特征是多余的</li>
+<li>去噪声：去除较小的特征值对应的特征向量，特征值的大小反映了变换后在特征向量方向上的变换幅度，幅度越大，表示该特征包含的信息量越多，多以要保留特征值较大的。</li>
+</ul>
+</li>
+<li>对角化矩阵，寻找极大线性无关组，保留较大的特征值，组成一个投影矩阵对原始样本矩阵进行投影，投影后得到新样本矩阵。</li>
+</ul>
+<br>
+
+<h4 id="简要总结PCA的算法流程"><a href="#简要总结PCA的算法流程" class="headerlink" title="简要总结PCA的算法流程"></a>简要总结PCA的算法流程</h4><ul>
+<li>对所有样本进行<strong>中心化</strong></li>
+<li>计算样本的<strong>协方差矩阵</strong></li>
+<li>对协方差矩阵进行<strong>特征值分解</strong></li>
+<li>取最大的<code>n</code>个特征值对应的特征向量</li>
+<li>标准化特征向量，得到<strong>特征向量矩阵</strong></li>
+<li>转化样本集中的每个样本，得到降维后的样本矩阵</li>
+</ul>
+<br>
+
+<h4 id="试分析PCA的主要优缺点"><a href="#试分析PCA的主要优缺点" class="headerlink" title="试分析PCA的主要优缺点"></a>试分析PCA的主要优缺点</h4><ul>
+<li><p><strong>优点</strong></p>
+<ul>
+<li><p>只利用样本本身的方差衡量信息量，不受外界因素影响</p>
+</li>
+<li><p>得到的各主成分之间正交（无线性关系），可消除原始数据中各特征之间的影响</p>
+</li>
+<li><p>主要使用特征值分解实现，易于实现和计算</p>
+</li>
+</ul>
+</li>
+<li><p><strong>缺点</strong></p>
+<ul>
+<li>降维后的各个特征的含义有一定模糊性，可解释性降低</li>
+<li>被丢弃掉的非主成分可能包含重要信息，丢弃掉会对数据处理有影响</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+<h3 id="3月13日"><a href="#3月13日" class="headerlink" title="3月13日"></a>3月13日</h3><h4 id="试描述过拟合和欠拟合的区别"><a href="#试描述过拟合和欠拟合的区别" class="headerlink" title="试描述过拟合和欠拟合的区别"></a>试描述过拟合和欠拟合的区别</h4><p><img src="/passages/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%883-8-3/%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%883-8-3-15%EF%BC%89%5C1.jpg" alt></p>
+<ul>
+<li><p>上图中，横坐标为训练样本数量，纵坐标为误差</p>
+</li>
+<li><p>从上图中我们可以直观的看出：</p>
+<ul>
+<li><strong>欠拟合</strong>：在训练集以及测试集上同时具有较高的误差，此时模型具有较高的误差。简言之就是模型还没训练好</li>
+<li><strong>过拟合</strong>：在训练集上具有较低的误差，但是在测试集上的误差较大，此时模型的方差较大。检验之就是对训练数据拟合的太好了，不能很好的泛华到其他数据上</li>
+<li><strong>正常</strong>：在训练集和测试集上，同时具有相对较低的偏差及方差</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="如何解决过拟合和欠拟合问题"><a href="#如何解决过拟合和欠拟合问题" class="headerlink" title="如何解决过拟合和欠拟合问题"></a>如何解决过拟合和欠拟合问题</h4><ul>
+<li><strong>解决欠拟合问题</strong><ul>
+<li>添加特征项。通过组合，泛华，上下文特征等增加特征，有时特征数量较少也会导致模型欠拟合</li>
+<li>添加多项式特征</li>
+<li>增加模型的复杂程度</li>
+<li>减少正则化系数（正则化系数是用来放置过拟合的）</li>
+</ul>
+</li>
+<li><strong>解决过拟合问题</strong><ul>
+<li>重新清洗数据（数据不纯可能导致过拟合）</li>
+<li>增加训练样本的数量</li>
+<li>降低模型的复杂程度</li>
+<li>增大正则项系数</li>
+<li><code>dropout</code></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月14日"><a href="#3月14日" class="headerlink" title="3月14日"></a>3月14日</h3><h4 id="试解释误差、偏差、方差的区别和联系"><a href="#试解释误差、偏差、方差的区别和联系" class="headerlink" title="试解释误差、偏差、方差的区别和联系"></a>试解释误差、偏差、方差的区别和联系</h4><ul>
+<li><strong>误差（Error）</strong><ul>
+<li>误差一般用来描述学习器的实际预测结果与样本的真实结果之间的差异</li>
+<li>误差 = 偏差 + 方差 + 噪声，换言之，误差描述的是整个模型的准确程度</li>
+</ul>
+</li>
+<li><strong>偏差（Bias）</strong><ul>
+<li>偏差描述的是模型拟合训练数据的能力，表示的是模型在样本上的输出与真实值之间的误差，是模型本身的精确程度</li>
+<li>偏差越小，表示模型的拟合能力越强（可能产生过拟合）；偏差越大，模型的拟合能力越差（可能产生欠拟合）</li>
+</ul>
+</li>
+<li><strong>方差（Variance）</strong><ul>
+<li>方差表示的是预测值的变化范围，方差越大，数据的分布越分散，模型的稳定性会越差</li>
+<li>方差可以用来衡量模型的稳定性</li>
+<li>方差越小，说明模型越稳定，模型的泛化能力就更高；方差越大，则模型的泛化能力越差</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="什么事经验误差和泛化误差"><a href="#什么事经验误差和泛化误差" class="headerlink" title="什么事经验误差和泛化误差"></a>什么事经验误差和泛化误差</h4><ul>
+<li><strong>经验误差</strong>：又叫训练误差，指的是模型在<strong>训练集</strong>上的误差</li>
+<li><strong>泛化误差</strong>：指的是模型在<strong>测试集</strong>上的误差</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="3月15日"><a href="#3月15日" class="headerlink" title="3月15日"></a>3月15日</h3><h4 id="相较于方差，使用标准差表示数据离散程度有哪些好处"><a href="#相较于方差，使用标准差表示数据离散程度有哪些好处" class="headerlink" title="相较于方差，使用标准差表示数据离散程度有哪些好处"></a>相较于方差，使用标准差表示数据离散程度有哪些好处</h4><ul>
+<li>表示离散程度的数字与样本数据点的数量级一致，更适合对数据样本形成感性认知</li>
+<li>表示离散程度的数字单位与样本数据的单位一致，方便做后续的分析运算</li>
+<li>在样本数据大致符合正态分布的情况下，标准差更方便估算</li>
+</ul>
+<br>
+
+<h4 id="训练数据类别不平衡会导致哪些问题"><a href="#训练数据类别不平衡会导致哪些问题" class="headerlink" title="训练数据类别不平衡会导致哪些问题"></a>训练数据类别不平衡会导致哪些问题</h4><ul>
+<li>类别不平衡指<strong>分类</strong>任务中不同类别的训练样例数目差别很大的情况</li>
+<li>分类算法在使用类别不平衡的数据进行训练时，会影响学习结果，测试结果会变差。</li>
+<li>比如：二分类问题中有998个反例，正例有2个，那学习方法只需返回一个永远将新样本预测为反例的分类器，就能达到99.8%的精度；然而这样的分类器没有价值。</li>
+</ul>
+<br>
+
+<h4 id="常见的类别不平衡问题解决方法"><a href="#常见的类别不平衡问题解决方法" class="headerlink" title="常见的类别不平衡问题解决方法"></a>常见的类别不平衡问题解决方法</h4><ul>
+<li><p><strong>扩大数据集</strong></p>
+<ul>
+<li>增加包含小类样本数据的数据</li>
+</ul>
+</li>
+<li><p><strong>欠采样</strong></p>
+<ul>
+<li>对<strong>大类数据</strong>进行欠采样，使之与小样本数据个数相近</li>
+<li>例如：<code>EasyEnsemble</code>算法</li>
+</ul>
+</li>
+<li><p><strong>过采样</strong></p>
+<ul>
+<li>对<strong>小类数据</strong>进行过采样，以增加小类的数据样本的个数</li>
+<li>例如：<code>SMOTE</code>和<code>ADASYN</code>算法</li>
+</ul>
+</li>
+<li><p><strong>使用新的评测指标</strong></p>
+<ul>
+<li>在类别不均衡分类任务中，不适合用正确率来评测</li>
+</ul>
+</li>
+<li><p><strong>数据代价加权</strong></p>
+<ul>
+<li>如果任务本身是要识别小类样本，可以对分类器的小类样本增加权值，对大类样本降低权值，从而让分类器更关注小类样本</li>
+</ul>
+</li>
+<li><p><strong>转化思路</strong></p>
+<ul>
+<li>例如将小类样本当作异常点，将分类任务转化为异常点检测任务</li>
+</ul>
+</li>
+<li><p><strong>将类别再细分</strong></p>
+<ul>
+<li>将大类样本分成多个类别</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<br>
+
+</vr>
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/zhou-zhi-shi-zong-jie-3-8-3.15/>http://zivblog.top/passages/zhou-zhi-shi-zong-jie-3-8-3.15/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:49:12+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 6, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Artificial-Intelligence/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Artificial Intelligence</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/zhou-zhi-shi-zong-jie-3-8-3.15/&title=周知识总结（3.8~3.15） - Ziv（瓶子）&summary=周知识总结"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/zhou-zhi-shi-zong-jie-3-8-3.15/&title=周知识总结（3.8~3.15） - Ziv（瓶子）&summary=周知识总结"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/zhou-zhi-shi-zong-jie-3-8-3.15/&title=周知识总结（3.8~3.15） - Ziv（瓶子）&summary=周知识总结"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/leetcode-zhi-quan-pai-lie/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Leetcode之全排列</p>
+                <p class='content'>Permutations
+
+
+Permutations
+code with Python
+title number：046
+
+读题
+给定一个没有重复数字的序列，返回其所有可能的全排列
+
+思路一
+...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/leetcode-zhi-zu-he-zong-he-ii/'>
+                <p class='title'>Leetcode之组合总和Ⅱ<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Combination Sum Ⅱ
+
+
+Combination Sum Ⅱ
+code with Python
+title number：040
+
+读题
+给定一个数组candidates和一个目标...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '周知识总结（3.8~3.15）',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3月8日"><span class="toc-text">3月8日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简述向量、标量、矩阵、张量的内涵以及它们之间的联系"><span class="toc-text">简述向量、标量、矩阵、张量的内涵以及它们之间的联系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#试归纳向量的范数"><span class="toc-text">试归纳向量的范数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简述导数与偏导数的区别"><span class="toc-text">简述导数与偏导数的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简述随机变量与变量的区别"><span class="toc-text">简述随机变量与变量的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月9日"><span class="toc-text">3月9日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#试简述概率分布与随机变量存在的联系"><span class="toc-text">试简述概率分布与随机变量存在的联系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#概率分布如何描述"><span class="toc-text">概率分布如何描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是条件概率"><span class="toc-text">什么是条件概率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#边缘概率与联合概率的内涵与区别"><span class="toc-text">边缘概率与联合概率的内涵与区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简述期望、方差、协方差、相关系数"><span class="toc-text">简述期望、方差、协方差、相关系数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月10日"><span class="toc-text">3月10日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#试简述机器学习的内涵"><span class="toc-text">试简述机器学习的内涵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#试简述什么是神经网络"><span class="toc-text">试简述什么是神经网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局部最优和全局最优的内涵及区别"><span class="toc-text">局部最优和全局最优的内涵及区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#试简述机器学习的主要学习方式"><span class="toc-text">试简述机器学习的主要学习方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#评估标准中的正确率是否能较好的反映算法的性能"><span class="toc-text">评估标准中的正确率是否能较好的反映算法的性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月11日"><span class="toc-text">3月11日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑回归可以用在那些问题上？"><span class="toc-text">逻辑回归可以用在那些问题上？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑回归与朴素贝叶斯有何区别？"><span class="toc-text">逻辑回归与朴素贝叶斯有何区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑回归与线性回归的区别有哪些？"><span class="toc-text">逻辑回归与线性回归的区别有哪些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简要描述梯度下降的步骤"><span class="toc-text">简要描述梯度下降的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度下降有哪些关键参数？"><span class="toc-text">梯度下降有哪些关键参数？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度下降会有什么缺陷？"><span class="toc-text">梯度下降会有什么缺陷？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月12日"><span class="toc-text">3月12日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#试简要描述主成分分析（PCA）的主要思想"><span class="toc-text">试简要描述主成分分析（PCA）的主要思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简要总结PCA的算法流程"><span class="toc-text">简要总结PCA的算法流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#试分析PCA的主要优缺点"><span class="toc-text">试分析PCA的主要优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月13日"><span class="toc-text">3月13日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#试描述过拟合和欠拟合的区别"><span class="toc-text">试描述过拟合和欠拟合的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何解决过拟合和欠拟合问题"><span class="toc-text">如何解决过拟合和欠拟合问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月14日"><span class="toc-text">3月14日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#试解释误差、偏差、方差的区别和联系"><span class="toc-text">试解释误差、偏差、方差的区别和联系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么事经验误差和泛化误差"><span class="toc-text">什么事经验误差和泛化误差</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3月15日"><span class="toc-text">3月15日</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#相较于方差，使用标准差表示数据离散程度有哪些好处"><span class="toc-text">相较于方差，使用标准差表示数据离散程度有哪些好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练数据类别不平衡会导致哪些问题"><span class="toc-text">训练数据类别不平衡会导致哪些问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的类别不平衡问题解决方法"><span class="toc-text">常见的类别不平衡问题解决方法</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

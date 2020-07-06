@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>机器学习之支持向量机 - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="Artificial Intelligence">
+  
+  
+    <meta name="description" content="支持向量机">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/">
+      机器学习之支持向量机
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>机器学习</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 2, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>支持向量机</p>
+<a id="more"></a>
+
+
+
+<h3 id="算法要点"><a href="#算法要点" class="headerlink" title="算法要点"></a>算法要点</h3><ul>
+<li>支持向量机学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面</li>
+<li>对训练数据集找到几何间隔最大的超平面意味着以充分大的置信度对训练数据进行分类</li>
+<li>支持向量机是：最大化分类间隔的线性分类器</li>
+<li>三种情况<ul>
+<li>训练数据线性可分时，通过硬间隔最大化，得到线性可分支持向量机</li>
+<li>训练数据近似线性可分时，通过软间隔最大化，得到线性支持向量机</li>
+<li>训练数据线性不可分时，通过使用核技巧及软间隔最大化，得到非线性支持向量机</li>
+</ul>
+</li>
+</ul>
+<h4 id="函数间隔和几何间隔"><a href="#函数间隔和几何间隔" class="headerlink" title="函数间隔和几何间隔"></a>函数间隔和几何间隔</h4><ul>
+<li>函数间隔<ul>
+<li>可以表示分类预测的正确性和确信度</li>
+<li>表示为$\gamma_i = y_i(w \cdot x_i + b)$</li>
+</ul>
+</li>
+<li>几何间隔，对函数间隔的法向量w进行规范化等约束，防止参数成比例改变带来的问题</li>
+<li>对函数间隔中的$w$和$b$进行归一化处理之后就是几何间隔了</li>
+<li>几何间隔表示为：$\gamma_i = y_i(\frac{w}{||w||} \cdot x_i + \frac{b}{||w||})$</li>
+</ul>
+<h4 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h4><ul>
+<li>训练数据集的样本点中与分离超平面距离最近的样本点的实例称为支持向量</li>
+<li>支持向量是使约束条件式等号成立的点</li>
+<li>决定分离超平面时，只有支持向量起作用</li>
+</ul>
+<h4 id="间隔边界"><a href="#间隔边界" class="headerlink" title="间隔边界"></a>间隔边界</h4><ul>
+<li>支持向量所在的两个超平面称为间隔边界</li>
+<li>间隔依赖于分离超平面的法向量$w$，等于$\frac{2}{||w||}$</li>
+</ul>
+<h4 id="松弛变量"><a href="#松弛变量" class="headerlink" title="松弛变量"></a>松弛变量</h4><ul>
+<li>在线性支持向量机中，会存在某些样本点无法满足函数间隔大于等于1的约束条件</li>
+<li>为了解决这个问题，对每个点引入松弛变量，使函数间隔加上松弛变量大于等于1</li>
+<li>约束条件变为：$y_i(w \cdot x_i + b) &gt;= 1 - \xi_i$</li>
+</ul>
+<h4 id="惩罚因子"><a href="#惩罚因子" class="headerlink" title="惩罚因子"></a>惩罚因子</h4><ul>
+<li>因为引入了松弛变量的样本点分类的置信度是不足够大的，所以对于每个松弛变量，支付一个代价（乘以一个系数）</li>
+<li>$C &gt; 0$</li>
+<li>C值大时对误分类的惩罚增大，C值小时对误分类的惩罚减小</li>
+</ul>
+<h4 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h4><ul>
+<li>非线性分类问题无法在当前的空间内实现分类，需要映射到更高维的空间来寻找分割超平面</li>
+<li>所采用的方法是进行一个非线性变换，将非线性问题转换为线性问题<ul>
+<li>首先使用一个变换将原空间的数据映射到新空间</li>
+<li>在新空间中使用线性分类学习方法从训练数据中学习分类模型</li>
+</ul>
+</li>
+<li>核技巧的思想是：在学习和预测过程中，只定义核函数$K(x, z)$，而不显式地定义映射函数</li>
+<li>在SVM中的应用就是将目标函数和决策函数中的实例与实例之间的内积使用核函数代替</li>
+</ul>
+<h4 id="SMO算法（sequential-minimal-optimization，序列最小优化算法）"><a href="#SMO算法（sequential-minimal-optimization，序列最小优化算法）" class="headerlink" title="SMO算法（sequential minimal optimization，序列最小优化算法）"></a>SMO算法（sequential minimal optimization，序列最小优化算法）</h4><ul>
+<li>SMO算法是支持向量机学习的一种快速算法</li>
+<li>不断将原二次规划问题分解为只有两个变量的二次规划子问题，并对子问题进行解析求解，直到所有变量满足KKT条件为止</li>
+<li>通过启发式的方法得到原二次规划问题的最优解</li>
+</ul>
+<h3 id="SVM算法理解"><a href="#SVM算法理解" class="headerlink" title="SVM算法理解"></a>SVM算法理解</h3><ul>
+<li>SVM脉络图</li>
+</ul>
+<p><img src="/.top//%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%5Csvm.jpg" alt></p>
+<p>​                                         图片来源：公众号SIGAI</p>
+<h4 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h4><ul>
+<li>SVM可以说是起源于线性分类器，所以理解线性分类器对理解SVM是有很大帮助的</li>
+<li>线性分类器是在n维空间中的分类超平面，将空间分割成两个部分</li>
+<li>对于二维空间，线性分类器是一条直线；对于三维空间，线性分类器是一个平面</li>
+<li>线性分类器的超平面方程为：$w^Tx + b = 0$，其中$w和b$是通过训练得到的参数</li>
+</ul>
+<h4 id="最大化分类间隔（线性可分支持向量机）"><a href="#最大化分类间隔（线性可分支持向量机）" class="headerlink" title="最大化分类间隔（线性可分支持向量机）"></a>最大化分类间隔（线性可分支持向量机）</h4><ul>
+<li><p>一般情况下，给定一组训练样本，可行的线性分类器不止一个</p>
+</li>
+<li><p>如何在所有可行的线性分类器中选择效果（泛化能力）最好的分类器呢？（有一下几点考虑）</p>
+<ul>
+<li>分类平面不应该偏向任何一类</li>
+<li>距离两个类别的样本都要尽可能的远</li>
+</ul>
+</li>
+<li><p>这样，就是我们最大化间隔的基本就形成了；最大化间隔就是SVM的基本思想</p>
+</li>
+<li><p>如何衡量间隔是最大的呢？</p>
+<ul>
+<li><p>假设：给定训练样本集I，特征向量有n维，类别标签为-1和+1</p>
+</li>
+<li><p>SVM为该分类任务寻找最优分类超平面：$w^Tx + b = 0$</p>
+</li>
+<li><p>首先，保证每个样本被正确的分类，即：</p>
+<ul>
+<li>对于正样本，$w^Tx + b &gt;= 0$</li>
+<li>对于负样本，$w^Tx + b &lt;= 0$</li>
+<li>可以统一写成：$y_i(w^Tx_i + b) &gt;= 0$，其中$y_i$是训练集样本的标签</li>
+</ul>
+</li>
+<li><p>其次，超平面距离两类样本的距离要尽可能大，</p>
+<ul>
+<li><p>每个样本点到超平面的举例为：$d = \frac{|w^Tx_i + b|}{||w||}$</p>
+</li>
+<li><p>$||w||$是向量的L2范数，是一个常数（范数是对向量长度的一种度量）</p>
+</li>
+<li><p>对于超平面方程，两边同乘不等于0的常数，还是用一个超平面，根据此特性可以化简求解问题</p>
+</li>
+<li><p>给$w$和$b$加上如下约束，$min_{x_i}|w^Tx_i + b|=1$</p>
+</li>
+<li><p>消掉此冗余并化简点到超平面距离计算公式，分类超平面的约束变成：$y_i(w^Tx_i + b)&gt;=1$</p>
+</li>
+<li><p>分类超平面与两类样本之间的间隔为：</p>
+<p>$d(w, b) = min_{x_i,y_i=-1}d(w, b; x_i)+min_{x_i, y_i=1}d(w, b; x_i)= \frac{2}{||w||}$</p>
+</li>
+</ul>
+</li>
+<li><p>目标是使该间隔最大化，这与最小化$||w||$等价，同时也与最小化$\frac{1}{2}||w||^2$等价</p>
+</li>
+</ul>
+</li>
+<li><p>于是，优化问题最后变成</p>
+<blockquote>
+<p>$$min \frac{1}{2}w^Tw$$</p>
+<p>$$y_i(w^Tx_i+b) &gt;= 1$$</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="这是一个凸优化问题，并且满足Slater条件"><a href="#这是一个凸优化问题，并且满足Slater条件" class="headerlink" title="这是一个凸优化问题，并且满足Slater条件"></a>这是一个凸优化问题，并且满足Slater条件</h4><ul>
+<li>凸优化问题意味着我们可以得到全局最优解</li>
+<li>满足Slater条件意味着我们可以用拉格朗日对偶将其转化为对偶问题（对偶问题的求解会更加简单）进行求解</li>
+</ul>
+<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h4><ul>
+<li><p>之前的优化问题中，包含许多的不等式约束，因此通过拉格朗日对偶将其转化成对偶问题，对偶问题为：</p>
+<blockquote>
+<p>$$min_\alpha \frac{1}{2}\sum^l_{i=1}\sum^l_{j=1}\alpha_i\alpha_jy_iy_jx_i^Tx_j - \sum^l_{i=1}\alpha_i$$</p>
+<p>$$\alpha_i &gt;= 0, i=1,…,l$$</p>
+<p>$$\sum^l_{i=1}\alpha_iy_i = 0$$</p>
+</blockquote>
+</li>
+<li><p>这里的$\alpha$是拉个朗日乘子变量，在对偶问题中，它们是优化变量</p>
+</li>
+<li><p>值得注意的是，只有问题满足强对偶条件，也就是原问题与对偶问题有相同的最优解</p>
+</li>
+<li><p>强对偶成立的判断依据是Slater条件</p>
+</li>
+</ul>
+<h4 id="梳理一下"><a href="#梳理一下" class="headerlink" title="梳理一下"></a>梳理一下</h4><ul>
+<li><p>初始是最大化间隔：$\frac{1}{2} ||w||^2，s.t. y_i(w \cdot x_i + b) - 1 &gt;= 0$</p>
+</li>
+<li><p>应用拉格朗日对偶性构建拉格朗日函数（引入拉格朗日乘子$\alpha $）</p>
+<p>$L(w, b, \alpha) = \frac{1}{2} ||w||^2 - \sum^N_{i=1}\alpha_iy_i(w \cdot x_i + b) + \sum^N_{i=1}\alpha_i$</p>
+</li>
+<li><p>根据拉格朗日对偶性，原始问题的对偶问题是极大极小问题：$max_\alpha min_{w, b}L(w, b, \alpha)$</p>
+<ul>
+<li><p>对于该问题，我们先求对$w$和$b$的极小，再对$\alpha $求极大</p>
+</li>
+<li><p>求极小的方法就是将$L(w, b, \alpha )$对$w$和$b$求偏导并令其等于0</p>
+</li>
+<li><p>将偏导数等于0代会，可得：</p>
+<p>$min_{w, b} L(w, b, \alpha ) = -\frac{1}{2} \sum^N_{i=1}\sum^N_{j=1} \alpha_i \alpha_j y_i y_j(x_i \cdot x_j) + \sum^N_{i=1} \alpha_i$</p>
+</li>
+<li><p>下一步是对上式再对$\alpha $再求极大，但是我们可以对上式两边同乘-1转化为求极小的问题，即：</p>
+<p>$$max_\alpha min_{w, b} L(w, b, \alpha) = min_\alpha \frac{1}{2} \sum^N_{i=1}\sum^N_{j=1} \alpha_i \alpha_j y_i y_j(x_i \cdot x_j) + \sum^N_{i=1} \alpha_i$$</p>
+</li>
+<li><p>求得最优解$\alpha^{*} = (\alpha^{*}_i, …, \alpha^{*}_N)$</p>
+</li>
+<li><p>计算</p>
+<blockquote>
+<p>$w^{*} = \sum^N_{i=1}\alpha^{*}_iy_ix_i$</p>
+<p>$b^{*} = y_i - \sum^N_{i=1}\alpha^{*}_iy_i(x_i \cdot x_j)$</p>
+</blockquote>
+</li>
+<li><p>求得分离超平面：$w^{*} \cdot x + b^{*} = 0$</p>
+</li>
+<li><p>决策函数：$f(x) = sign(w^{*} \cdot x + b^{*})$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h4><ul>
+<li><p>引入了惩罚因子和松弛变量</p>
+</li>
+<li><p>也可以通过转化为对偶问题解决</p>
+</li>
+<li><p>如下：</p>
+<blockquote>
+<p>$$min_\alpha \frac{1}{2}\sum^l_{i=1}\sum^l_{j=1}\alpha_i\alpha_jy_iy_jx_i^Tx_j - \sum^l_{i=1}\alpha_i$$</p>
+<p>$$0 &lt;= \alpha_i &lt;= C$$</p>
+<p>$$\sum^l_{j=1}\alpha_jy_j = 0$$</p>
+</blockquote>
+</li>
+<li><p>相比于线性可分的对偶问题，多了个$\alpha_i &lt;= C$的约束</p>
+</li>
+<li><p>分离超平面$\sum^N_{i=1}\alpha^{*}_iy_i(x \cdot x_i) +b^{*} = 0$</p>
+</li>
+<li><p>决策函数为$f(x) = sign(\sum^l_{i=1}\alpha_i^{*}y_i(x \cdot x_i) + b^{*})$</p>
+</li>
+</ul>
+<h4 id="非线性可分支持向量"><a href="#非线性可分支持向量" class="headerlink" title="非线性可分支持向量"></a>非线性可分支持向量</h4><ul>
+<li><p>使用的核技巧，还是线性可分的问题</p>
+</li>
+<li><p>对偶问题变为</p>
+<blockquote>
+<p>$$min_\alpha \frac{1}{2}\sum^l_{i=1}\sum^l_{j=1}\alpha_i\alpha_jy_iy_j\phi(x_i)^T\phi(x_j) - \sum^l_{i=1}\alpha_i$$ = $$min_\alpha \frac{1}{2}\sum^l_{i=1}\sum^l_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j) - \sum^l_{i=1}\alpha_i$$</p>
+<p>$$0 &lt;= \alpha_i &lt;= C$$</p>
+<p>$$\sum^l_{j=1}\alpha_jy_j = 0$$</p>
+</blockquote>
+</li>
+<li><p>决策函数为$f(x) = sign(\sum^l_{i=1}\alpha^{*}_iy_iK(x , x_i) + b^{*})$，其中$K(x, x_i)= \phi(x) \cdot \phi(x)$</p>
+</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span>  train_test_split</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_data</span><span class="params">()</span>:</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line"></span><br><span class="line">    df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">    df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">    df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line"></span><br><span class="line">    data = np.array(df.iloc[:<span class="number">100</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>]])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将三类转化成两类：（1，-1）</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="keyword">if</span> data[i, <span class="number">-1</span>] == <span class="number">0</span>:</span><br><span class="line">            data[i, <span class="number">-1</span>] == <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> data[:, :<span class="number">2</span>], data[:, <span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SVM</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max_iter=<span class="number">100</span>, kernel=<span class="string">'linear'</span>)</span>:</span></span><br><span class="line">        self.max_iter = max_iter</span><br><span class="line">        self._kernel = kernel</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_args</span><span class="params">(self, features, labels)</span>:</span></span><br><span class="line">        self.m, self.n = features.shape</span><br><span class="line">        self.X = features</span><br><span class="line">        self.Y = labels</span><br><span class="line">        self.b = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将Ei保存在一个列表中</span></span><br><span class="line">        self.alpha = np.ones(self.m)</span><br><span class="line">        self.E = [self._E(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(self.m)]</span><br><span class="line">        <span class="comment"># 松弛变量</span></span><br><span class="line">        self.C = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_KKT</span><span class="params">(self, i)</span>:</span></span><br><span class="line">        y_g = self._g(i) * self.Y[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.alpha[i] == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> y_g &gt;= <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">0</span> &lt; self.alpha[i] &lt;self.C:</span><br><span class="line">            <span class="keyword">return</span> y_g == <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> y_g &lt;= <span class="number">1</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_g</span><span class="params">(self, i)</span>:</span></span><br><span class="line">        <span class="comment"># g(x)预测值，输入xi(X[i])</span></span><br><span class="line">        r = self.b</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(self.m):</span><br><span class="line">            r += self.alpha[j] * self.Y[j] * self.kernel(self.X[i], self.X[j])</span><br><span class="line">        <span class="keyword">return</span> r</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">kernel</span><span class="params">(self, x1, x2)</span>:</span></span><br><span class="line">        <span class="comment"># 核函数</span></span><br><span class="line">        <span class="keyword">if</span> self._kernel == <span class="string">'linear'</span>:</span><br><span class="line">            <span class="keyword">return</span> sum([ x1[k] * x2[k] <span class="keyword">for</span> k <span class="keyword">in</span> range(self.n)])</span><br><span class="line">        <span class="keyword">elif</span> self._kernel == <span class="string">'poly'</span>:</span><br><span class="line">            <span class="keyword">return</span> (sum([ x1[k] * x2[k] <span class="keyword">for</span> k <span class="keyword">in</span> range(self.n)]) + <span class="number">1</span>) **<span class="number">2</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_E</span><span class="params">(self, i)</span>:</span></span><br><span class="line">        <span class="comment"># E(x)为g(x)对输入x的预测值和y的差</span></span><br><span class="line">        <span class="keyword">return</span> self._g(i) - self.Y[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_init_alpha</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 外层循环遍历所有满足0&lt;a&lt;C的样本点， 检验是否满足KKT</span></span><br><span class="line">        index_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(self.m) <span class="keyword">if</span> <span class="number">0</span> &lt; self.alpha[i] &lt; self.C]</span><br><span class="line">        <span class="comment"># 否则遍历整个训练集</span></span><br><span class="line">        non_satisfy_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(self.m) <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> index_list]</span><br><span class="line">        index_list.extend(non_satisfy_list)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> index_list:</span><br><span class="line">            <span class="keyword">if</span> self._KKT(i):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            E1 = self.E[i]</span><br><span class="line">            <span class="comment"># 如果E2是+，选择最小的；如果E2是负的，选择最大的</span></span><br><span class="line">            <span class="keyword">if</span> E1 &gt;= <span class="number">0</span>:</span><br><span class="line">                j = min(range(self.m), key=<span class="keyword">lambda</span> x: self.E[x])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j = min(range(self.m), key=<span class="keyword">lambda</span> x: self.E[x])</span><br><span class="line">            <span class="keyword">return</span> i, j</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_compare</span><span class="params">(self, _alpha, L, H)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> _alpha &gt; H:</span><br><span class="line">            <span class="keyword">return</span> H</span><br><span class="line">        <span class="keyword">elif</span> _alpha &lt; L:</span><br><span class="line">            <span class="keyword">return</span> L</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> _alpha</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, features, labels)</span>:</span></span><br><span class="line">        self.init_args(features, labels)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(self.max_iter):</span><br><span class="line">            <span class="comment"># train</span></span><br><span class="line">            i1, i2 = self._init_alpha()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 边界</span></span><br><span class="line">            <span class="keyword">if</span> self.Y[i1] == self.Y[i2]:</span><br><span class="line">                L = max(<span class="number">0</span>, self.alpha[i1] + self.alpha[i2] - self.C)</span><br><span class="line">                H = min(self.C, self.alpha[i1] + self.alpha[i2])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                L = max(<span class="number">0</span>, self.alpha[i2] - self.alpha[i1])</span><br><span class="line">                H = min(self.C, self.C + self.alpha[i2] - self.alpha[i1])</span><br><span class="line"></span><br><span class="line">            E1 = self.E[i1]</span><br><span class="line">            E2 = self.E[i2]</span><br><span class="line"></span><br><span class="line">            <span class="comment"># eta = k11 + k22 - 2k12</span></span><br><span class="line">            eta = self.kernel(self.X[i1], self.X[i1]) + self.kernel(</span><br><span class="line">                self.X[i2],</span><br><span class="line">                self.X[i2]) - <span class="number">2</span>*self.kernel(self.X[i1], self.X[i2])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> eta &lt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            alpha2_new_unc = self.alpha[i2] + self.Y[i2] * (E1 - E2)/eta</span><br><span class="line">            alpha2_new = self._compare(alpha2_new_unc, L, H)</span><br><span class="line"></span><br><span class="line">            alpha1_new = self.alpha[i1] + self.Y[i1] * self.Y[i2] * (</span><br><span class="line">                self.alpha[i2] - alpha2_new)</span><br><span class="line"></span><br><span class="line">            b1_new = -E1 - self.Y[i1] * self.kernel(self.X[i1], self.X[i1]) * (</span><br><span class="line">                alpha1_new - self.alpha[i1]) - self.Y[i2] * self.kernel(</span><br><span class="line">                    self.X[i2],</span><br><span class="line">                    self.X[i1]) * (alpha2_new - self.alpha[i2]) + self.b</span><br><span class="line">            b2_new = -E2 - self.Y[i1] * self.kernel(self.X[i1], self.X[i2]) * (</span><br><span class="line">                alpha1_new - self.alpha[i1]) - self.Y[i2] * self.kernel(</span><br><span class="line">                    self.X[i2],</span><br><span class="line">                    self.X[i2]) * (alpha2_new - self.alpha[i2]) + self.b</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt; alpha1_new &lt; self.C:</span><br><span class="line">                b_new = b1_new</span><br><span class="line">            <span class="keyword">elif</span> <span class="number">0</span> &lt; alpha2_new &lt; self.C:</span><br><span class="line">                b_new = b2_new</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 选择中点</span></span><br><span class="line">                b_new = (b1_new + b2_new)/<span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 更新参数</span></span><br><span class="line">            self.alpha[i1] = alpha1_new</span><br><span class="line">            self.alpha[i2] = alpha2_new</span><br><span class="line">            self.b = b_new</span><br><span class="line"></span><br><span class="line">            self.E[i1] = self._E(i1)</span><br><span class="line">            self.E[i2] = self._E(i2)</span><br><span class="line"></span><br><span class="line">        print(<span class="string">"train_done!"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        r = self.b</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.m):</span><br><span class="line">            r += self.alpha[i] * self.Y[i] * self.kernel(data, self.X[i])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> r &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self, X_test, y_test)</span>:</span></span><br><span class="line">        right_count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(X_test)):</span><br><span class="line">            result = self.predict(X_test[i])</span><br><span class="line">            <span class="keyword">if</span> result == y_test[i]:</span><br><span class="line">                right_count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> right_count / len(X_test)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_weight</span><span class="params">(self)</span>:</span></span><br><span class="line">        yx = self.Y.reshape(<span class="number">-1</span>, <span class="number">1</span>) * self.X</span><br><span class="line">        self.w = np.dot(yx.T, self.alpha)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.w</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    X, y = create_data()</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>)</span><br><span class="line"></span><br><span class="line">    plt.scatter(X[:<span class="number">50</span>,<span class="number">0</span>],X[:<span class="number">50</span>,<span class="number">1</span>], label=<span class="string">'0'</span>)</span><br><span class="line">    plt.scatter(X[<span class="number">50</span>:,<span class="number">0</span>],X[<span class="number">50</span>:,<span class="number">1</span>], label=<span class="string">'1'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    svm = SVM(max_iter=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">    svm.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    score = svm.score(X_test, y_test)</span><br><span class="line"></span><br><span class="line">    print(score)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理"><a href="#关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理" class="headerlink" title="关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理"></a>关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理</h4><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li>《统计学习方法（第二版）》</li>
+<li><a href="https://github.com/fengdu78/lihang-code" target="_blank" rel="noopener">黄海广博士的代码</a></li>
+</ul>
+<p>欢迎转载交流，拒绝一切形式的复制抄袭。</p>
+<p>欢迎来信交流||指教。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/>http://zivblog.top/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:45:16+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 6, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Artificial-Intelligence/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Artificial Intelligence</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/&title=机器学习之支持向量机 - Ziv（瓶子）&summary=支持向量机"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/&title=机器学习之支持向量机 - Ziv（瓶子）&summary=支持向量机"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/&title=机器学习之支持向量机 - Ziv（瓶子）&summary=支持向量机"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/ren-jian-shi-ge/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>人间失格</p>
+                <p class='content'>见即所望，相遇即美好。
+
+
+&emsp;&emsp;看这本书之前，看到的一些评论，对于这本书可谓毁誉参半，有些人将其吹捧到了天上，有些人将其踩到了脚底。
+&emsp;&emsp;别人眼中平淡安逸...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/rnn-ji-lstm-li-jie/'>
+                <p class='title'>RNN及LSTM理解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>RNN &amp; LSTM 
+
+
+写在前面为什么要使用神经网络呢？
+自动提取特征
+
+很多人可能会有类似的疑问，机器学习已经可以解决绝大部分问题了，为什么还要使用多种神经网络呢？
+​    我们...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '机器学习之支持向量机',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法要点"><span class="toc-text">算法要点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数间隔和几何间隔"><span class="toc-text">函数间隔和几何间隔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#支持向量"><span class="toc-text">支持向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#间隔边界"><span class="toc-text">间隔边界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#松弛变量"><span class="toc-text">松弛变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#惩罚因子"><span class="toc-text">惩罚因子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核函数"><span class="toc-text">核函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SMO算法（sequential-minimal-optimization，序列最小优化算法）"><span class="toc-text">SMO算法（sequential minimal optimization，序列最小优化算法）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVM算法理解"><span class="toc-text">SVM算法理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线性分类器"><span class="toc-text">线性分类器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最大化分类间隔（线性可分支持向量机）"><span class="toc-text">最大化分类间隔（线性可分支持向量机）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这是一个凸优化问题，并且满足Slater条件"><span class="toc-text">这是一个凸优化问题，并且满足Slater条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对偶问题"><span class="toc-text">对偶问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梳理一下"><span class="toc-text">梳理一下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线性支持向量机"><span class="toc-text">线性支持向量机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非线性可分支持向量"><span class="toc-text">非线性可分支持向量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理"><span class="toc-text">关于凸优化问题、拉格朗日乘子法、slater条件、KKT条件、SMO会在另一篇文章中进行整理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

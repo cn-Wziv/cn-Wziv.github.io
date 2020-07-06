@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Word_Representation综述 - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="NLP,论文笔记">
+  
+  
+    <meta name="description" content="One-Hot、词袋模型、TF-IDF、n-gram、word2vec、GloVe、ELMo、GPT、BERT、XLNet">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/word-representation-zong-shu/">
+      Word_Representation综述
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>自然语言处理</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Nov 2, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>One-Hot、词袋模型、TF-IDF、n-gram、word2vec、GloVe、ELMo、GPT、BERT、XLNet</p>
+<a id="more"></a>
+
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
+<li>一直计划要写一篇综述，奈何知识储备不够，最近在看过相关的论文之后有了一些想法</li>
+<li>我们都知道，文本是无法直接放入到模型来训练的，所以就需要将其转化为模型能够识别的形式，也就是向量，这就是文本表征的工作</li>
+<li>本文主要是梳理文本表征的常见模型和一些最近表现比较好的模型，作为之前针对每个模型文章的补充</li>
+<li>在这里，我会尽量使用比较简短的语言描述各个模型的大体思路，进步以及存在的缺陷</li>
+<li>如果您发现有错误，欢迎来信<code>指教&amp;讨论</code></li>
+</ul>
+<h3 id="纲要"><a href="#纲要" class="headerlink" title="纲要"></a>纲要</h3><ul>
+<li><p>离散式的文本表征（忽略词与词之间的关系）</p>
+<blockquote>
+<ul>
+<li><p>One-Hot编码</p>
+</li>
+<li><p>词袋模型</p>
+</li>
+<li><p>TF-IDF</p>
+</li>
+<li><p>N-gram</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>分布式的文本表征</p>
+<blockquote>
+<ul>
+<li><p>word2vec</p>
+</li>
+<li><p>GloVe</p>
+</li>
+<li><p>ELMo</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>两段式（预训练+微调）</p>
+<blockquote>
+<ul>
+<li><p>GPT</p>
+</li>
+<li><p>BERT</p>
+</li>
+<li><p>XLNet</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="One-Hot编码"><a href="#One-Hot编码" class="headerlink" title="One-Hot编码"></a>One-Hot编码</h3><ul>
+<li><p>对分词后的词构造无重复的集合，每个词占一位，值为0或1</p>
+</li>
+<li><p>编码时，整个向量中，该词的位置为1，其他位置为0</p>
+</li>
+<li><p>例如</p>
+<blockquote>
+<p>文本：篇章分析可能是我喜欢的方向</p>
+<p>分词结果：篇章分析、可能、是、我、喜欢、的、方向</p>
+<p>对于词“篇章分析”，编码为 : [1, 0, 0, 0, 0, 0, 0]</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：形式简单，易于理解和计算</p>
+<p>缺点：忽略了词与词之间的关系，向量维度会随词的增多而快速增长</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="词袋模型"><a href="#词袋模型" class="headerlink" title="词袋模型"></a>词袋模型</h3><ul>
+<li><p>对文本进行分词，统计每个词出现的次数，构建词袋（可以想像成<code>词：次数</code>的键值对组成的字典）</p>
+</li>
+<li><p>可以对句子进行编码，每个词的位置是其在文档中出现的次数</p>
+</li>
+<li><p>例如</p>
+<blockquote>
+<p>文本：NLP is my favorite direction. I will invest time in this direction</p>
+<p>词袋：{NLP : 1, is : 1, my : 1, favorite : 1, direction : 2, I : 1, will : 1, invest : 1, time : 1, in : 1, this : 1]</p>
+<p>该句的编码为：[1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2]</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：易于理解</p>
+<p>缺点：没有考虑词与词之间的关系</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h3><ul>
+<li><p>TF、IDF的含义</p>
+<blockquote>
+<p>TF表示的是词频，可以表示为：$TF = \frac{某文本中w出现的次数}{文本中所有词的个数}$</p>
+<p>IDF表示的事逆文档频率指数，可以表示为：$IDF= log \frac{文档总数}{包含w的文档数+1}$</p>
+</blockquote>
+<blockquote>
+<p>基本思想为：一个词在一个文档中出现的次数越多表示这个词越能表示这个文档；一个词在越多的文档中，则这个词对于文档分类的贡献越小</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：简单快速，结果符合实际情况</p>
+<p>缺点：单纯以词频衡量词的重要性，不够全面，而且没有考虑词的位置信息</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="N-gram"><a href="#N-gram" class="headerlink" title="N-gram"></a>N-gram</h3><ul>
+<li><p>使用滑动窗口的方式来进行分词，N表示的是窗口的大小</p>
+</li>
+<li><p>比如2-gram，就是把两个词当作一组来处理，然后向后移动一个词的长度，再次组成另一组词，然后统计词频生成字典</p>
+</li>
+<li><p>这种模型一定程度上考虑了词的顺序</p>
+</li>
+<li><p>例如</p>
+<blockquote>
+<p>文本：</p>
+<p>John likes to watch movies. Mary likes too.</p>
+<p>John also likes to watch football games.</p>
+<p>若构造的词典为：</p>
+<p>{“John likes”: 1, “likes to”: 2, “to watch”: 3, “watch movies”: 4, “Mary likes”: 5, “likes too”: 6, “John also”: 7, “also likes”: 8, “watch football”: 9, “football games”: 10}</p>
+<p>则第一句话的编码为</p>
+<p>[1, 2, 3, 4]</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：一定程度上利用了词的顺序关系</p>
+<p>缺点：向量维度会增长非常快</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a>word2vec</h3><ul>
+<li><p>有两种：CBOW和Skip-gram</p>
+</li>
+<li><p>CBOW</p>
+<blockquote>
+<p>获得中间词两边的上下文，利用上下文来预测中间的单词</p>
+<p>把窗口中的中间词作为y，其他词当作x输入</p>
+<p>x输入经过one-hot编码，然后通过一个隐层求和操作，最后通过激活函数softmax，计算每个词的生成概率</p>
+<p>训练圣经网络得到的权重矩阵就是文本表示词向量的结果</p>
+</blockquote>
+</li>
+<li><p>Skip-gram</p>
+<blockquote>
+<p>通过当前词来预测窗口中上下文词的出现概率</p>
+<p>把当前词作为x，把窗口中的其他词当作y，通过一个隐层接一个softmax激活函数来预测其他词的概率</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：分布式的word representation，更大程度上利用了文本内在的信息</p>
+<p>缺点：</p>
+<ul>
+<li>对每个词只是在windows中进行训练，并没有使用全局信息</li>
+<li>每个词的向量表示在训练结束后就确定了，对多义词并不能有有效的进行表示和处理         </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="GloVe"><a href="#GloVe" class="headerlink" title="GloVe"></a>GloVe</h3><ul>
+<li><p>Global Vectors for Word Representation</p>
+</li>
+<li><p>它是一个基于全局词频统计的词表征</p>
+</li>
+<li><p>共现矩阵</p>
+<blockquote>
+<p>顾名思义，共现就是共同出现的意思</p>
+<p>在矩阵中，$X_{ij}$表示的事词j在词i的上下文中出现的次数</p>
+<p>论文中用以下公式近似的表达两者之间的关系</p>
+<p>$$w^T_iw_j + b_i + b_j = log(X_{ij})$$</p>
+<p>其中$w^T_iw_j$即我们最终要求解的词向量，$b_i$和$b_j$是bias，$X_{ij}$是共现矩阵中的值</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>结合了LSA和word2vec两者的特征，既使用了全局特征的矩阵分解方法，也了用了局部上下文特征（统计上下文中的出现次数时使用了滑动窗口）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><ul>
+<li><p>双层语言模型的深层上下文的词表示</p>
+</li>
+<li><p>主要想法</p>
+<blockquote>
+<p>使用双向LSTM作为语言模型在语料上训练出词的向量表示</p>
+<p>在下游任务重会根据词的上下文对词的向量表示进行调整</p>
+<p>使用了三层的双向LSTM（AR语言模型），每层向量表示的内涵是不同的</p>
+<ul>
+<li>底层的可以捕获语法等方面的特征</li>
+<li>高层的可以捕获语境相关的特征</li>
+</ul>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>因为可以在应用的时候动态调整词向量的值，解决了多义词、歧义等问题</li>
+<li>学习的范围更广，一定程度上更能表示一个词的意思</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>特征提取器使用的是LSTM而不是transformer，特征提取能力可能不是很高</li>
+<li>虽然说的是使用了上下文信息，但是只是对双向LSTM的hidden state进行简单的拼接，并不能有效的整合上下文信息</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><ul>
+<li><p>GPT 1.0</p>
+<blockquote>
+<ul>
+<li>两段式的过程：Pre-training和fine-tuning<ul>
+<li>先通过无标签的文本去训练生成语言模型</li>
+<li>在下游任务中再使用有标签的数据进行监督式的微调</li>
+</ul>
+</li>
+<li>相比于ELMo，改动有两点<ul>
+<li>特征抽取器使用的是transformer的decoder</li>
+<li>采用的是单向语言模型（AR）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>GPT 2.0</p>
+<blockquote>
+<ul>
+<li>两段式的过程：Pre-training和fine-tuning<ul>
+<li>先通过无标签的文本去训练生成语言模型</li>
+<li>在下游任务中使用<strong>无监督</strong>的方式进行微调</li>
+</ul>
+</li>
+<li>仍然使用的是transformer的decoder作为特征抽取器</li>
+<li>使用的是单向语言模型（不是很了解其中的内涵）</li>
+<li>主要的改进：<ul>
+<li>扩大了transformer的模型容量（加深了层数，增加了参数个数）</li>
+<li>使用了更大且很有质量的数据集来进行训练</li>
+</ul>
+</li>
+<li>给出了一种新的生成式任务的做法<ul>
+<li>即一个词一个词往外蹦，然后根据时间顺序组合起来作为结果</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><ul>
+<li><p>两段式的过程：Pre-training和fine-tuning</p>
+<ul>
+<li>先通过无标签的文本去训练生成语言模型</li>
+<li>在下游任务中再使用有标签的数据进行监督式的微调</li>
+</ul>
+</li>
+<li><p>预训练过程中有两点创新</p>
+<ul>
+<li><p>MLM</p>
+<blockquote>
+<p>典型的AE语言模型，通过对输入序列mask掉一些token，然后使用其他的词去预测这些被mask掉的词</p>
+<p>正因如此，模型可以很好的利用上下文的信息，也即双向语言模型</p>
+<p>但是mask操作会导致预训练和微调存在差异，BERT通过对mask操作分为三种选择来减缓这种影响</p>
+</blockquote>
+</li>
+<li><p>NSP</p>
+<blockquote>
+<p>因为一些下游任务基于句子间的关系的理解，这些关系无法通过语言模型来捕获</p>
+<p>所以设计了这个<code>根据一个句子预测下一个句子</code>的任务</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：利用了上下文的信息，是一个双向的模型</p>
+<p>缺点：</p>
+<ul>
+<li>mask操作会导致预训练和微调存在差异</li>
+<li>mask的时候是假设被mask的词之间是相互独立的，而这样会丢失一些词之间的关系</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="XLNet"><a href="#XLNet" class="headerlink" title="XLNet"></a>XLNet</h3><ul>
+<li><p>基于AR语言模型，对生成式的任务有天生的优势</p>
+</li>
+<li><p>两段式的过程：Pre-training和fine-tuning</p>
+</li>
+<li><p>具体思路</p>
+<blockquote>
+<p>XLNet是基于AR语言模型的，但是我们知道AR语言模型只能看到词一侧的信息</p>
+<p>XLNet是如何让单向的AR语言模型看到上下文的信息的呢？（这也是XLNet的一个比较新颖的贡献）</p>
+<ul>
+<li>将待预测的单词固定，对其他的词进行排序</li>
+<li>这样就可以在单向的情况下看到后面的词了，也就达到了双向的效果</li>
+<li>具体的过程可以取<a href="http://www.zivblog.top/passages/xlnet-jian-dan-li-jie/" target="_blank" rel="noopener">XLNet简单理解</a>中看</li>
+</ul>
+<p>在此基础上，XLNet引入了transformer XL的机制，即段循环机制和相对位置编码，使得模型能够捕获更远距离的上下文依赖</p>
+</blockquote>
+</li>
+<li><p>优缺点</p>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>解决了BERT中mask操作带来的负面影响</li>
+<li>对于生成式的任务和长文档输入的NLP任务表现更加优秀</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><ul>
+<li>写完上面的内容之后还是有些意尤未尽，有很多地方描述的不够详尽，但是本身水平有限，在后续的时间里会随时纠正其中的错误和补充其中的不够全面的地方</li>
+<li>如果您对其中的内容有不同看法或者有好的想法，欢迎来信交流</li>
+<li>邮箱 : <a href="mailto:wjf850300210@163.com">wjf850300210@163.com</a></li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/word-representation-zong-shu/>http://zivblog.top/passages/word-representation-zong-shu/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-04T14:45:08+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Mar 4, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NLP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NLP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>论文笔记</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/word-representation-zong-shu/&title=Word_Representation综述 - Ziv（瓶子）&summary=One-Hot、词袋模型、TF-IDF、n-gram、word2vec、GloVe、ELMo、GPT、BERT、XLNet"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/word-representation-zong-shu/&title=Word_Representation综述 - Ziv（瓶子）&summary=One-Hot、词袋模型、TF-IDF、n-gram、word2vec、GloVe、ELMo、GPT、BERT、XLNet"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/word-representation-zong-shu/&title=Word_Representation综述 - Ziv（瓶子）&summary=One-Hot、词袋模型、TF-IDF、n-gram、word2vec、GloVe、ELMo、GPT、BERT、XLNet"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/ji-yu-attention-de-fen-ceng-shen-jing-wang-luo-de-pian-zhang-fen-xi/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>基于Attention的分层神经网络的篇章分析</p>
+                <p class='content'>《Discourse Parsing with Attention-based Hierarchical Neural Networks》论文笔记
+
+
+写在前面
+这篇文章发表在EMNLP 201...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/xlnet-jian-dan-li-jie/'>
+                <p class='title'>XLNet简单理解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>《XLNet-Generalized Autoregressive Pretrainingfor Language Understanding》论文笔记
+
+
+写在前面
+今年6月发布的XLNet，...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Word_Representation综述',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#纲要"><span class="toc-text">纲要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#One-Hot编码"><span class="toc-text">One-Hot编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词袋模型"><span class="toc-text">词袋模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TF-IDF"><span class="toc-text">TF-IDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N-gram"><span class="toc-text">N-gram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word2vec"><span class="toc-text">word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GloVe"><span class="toc-text">GloVe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ELMo"><span class="toc-text">ELMo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT"><span class="toc-text">GPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BERT"><span class="toc-text">BERT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XLNet"><span class="toc-text">XLNet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在后面"><span class="toc-text">写在后面</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

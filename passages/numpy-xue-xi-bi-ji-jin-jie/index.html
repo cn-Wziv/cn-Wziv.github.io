@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Numpy学习笔记（进阶） - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="Python">
+  
+  
+    <meta name="description" content="学习笔记
+参考资料：Numpy官方文档">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/numpy-xue-xi-bi-ji-jin-jie/">
+      Numpy学习笔记（进阶）
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>编程语言</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 14, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>学习笔记</p>
+<p>参考资料：Numpy官方文档</p>
+<a id="more"></a>
+
+<h3 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h3><h4 id="广播法则"><a href="#广播法则" class="headerlink" title="广播法则"></a>广播法则</h4><ul>
+<li>使用广播法则能使通用函数处理不具有相同形状的输入<ul>
+<li>广播第一法则：如果所有的输入数组维度均不相同，会填充<code>1</code>在较小维度的数组上，使所有的数组拥有一样的维度。</li>
+<li>广播第二法则：确定长度为1的数组沿着特殊的方向表现的好像它有沿着该方向最大形状的大小。对于数组来说，沿着该维度的数组元素的值理应相同。</li>
+<li>应用了广播法则之后，所有的数组的大小就会匹配了。</li>
+</ul>
+</li>
+</ul>
+<h4 id="索引技巧"><a href="#索引技巧" class="headerlink" title="索引技巧"></a>索引技巧</h4><ul>
+<li><p>除了Python本身提供的索引整数和切片，数组还可以被整数数组和布尔数组索引。</p>
+</li>
+<li><p>通过数组索引，例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建数组</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line">a = arange(<span class="number">12</span>)**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用一维数组索引，得到的结果也是一维数组</span></span><br><span class="line">i = array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>])</span><br><span class="line">a[i]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([ <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">9</span>, <span class="number">64</span>, <span class="number">25</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用二维数组索引，得到的结果也是二维数组</span></span><br><span class="line">j = array([[<span class="number">3</span>, <span class="number">4</span>], [<span class="number">9</span>, <span class="number">7</span>]])</span><br><span class="line">a[j]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">9</span>, <span class="number">16</span>],</span><br><span class="line">       [<span class="number">81</span>, <span class="number">49</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 若被索引的数组是多维时，每个索引数列指向a的第一维</span></span><br><span class="line"><span class="comment"># 在这里，每个索引数列中的元素指定其中的一行</span></span><br><span class="line">palette = array( [ [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],                </span><br><span class="line">                   [<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>],              </span><br><span class="line">                   [<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>],              </span><br><span class="line">                   [<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>],              </span><br><span class="line">                   [<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>] ] )       </span><br><span class="line">image = array( [ [ <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span> ],          </span><br><span class="line">                 [ <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span> ]  ] )</span><br><span class="line">palette[image]    </span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[[  <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>],</span><br><span class="line">        [<span class="number">255</span>,   <span class="number">0</span>,   <span class="number">0</span>],</span><br><span class="line">        [  <span class="number">0</span>, <span class="number">255</span>,   <span class="number">0</span>],</span><br><span class="line">        [  <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>]],</span><br><span class="line"></span><br><span class="line">       [[  <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>],</span><br><span class="line">        [  <span class="number">0</span>,   <span class="number">0</span>, <span class="number">255</span>],</span><br><span class="line">        [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>],</span><br><span class="line">        [  <span class="number">0</span>,   <span class="number">0</span>,   <span class="number">0</span>]]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>索引可以不止一维，但每一维的索引数组形状需要相同</p>
+</li>
+<li><p>例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建数组</span></span><br><span class="line">a = arange(<span class="number">12</span>).reshape(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">a</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</span><br><span class="line">       [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</span><br><span class="line">       [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多维索引</span></span><br><span class="line">i = array([[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line">j = array([[<span class="number">2</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line">a[i, j]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">2</span>,  <span class="number">5</span>],</span><br><span class="line">       [ <span class="number">7</span>, <span class="number">11</span>]])</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">得到的是a[0, 2],a[1, 1], a[1, 3], a[2, 3],</span></span><br><span class="line"><span class="string">且两个为一组</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">a[i, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">2</span>,  <span class="number">6</span>],</span><br><span class="line">       [ <span class="number">6</span>, <span class="number">10</span>]])</span><br><span class="line"></span><br><span class="line">a[:, j]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[[ <span class="number">2</span>,  <span class="number">1</span>],</span><br><span class="line">        [ <span class="number">3</span>,  <span class="number">3</span>]],</span><br><span class="line"></span><br><span class="line">       [[ <span class="number">6</span>,  <span class="number">5</span>],</span><br><span class="line">        [ <span class="number">7</span>,  <span class="number">7</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">10</span>,  <span class="number">9</span>],</span><br><span class="line">        [<span class="number">11</span>, <span class="number">11</span>]]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以借助列表先将两个索引组合起来，使用列表进行索引</span></span><br><span class="line">l = [i, j]</span><br><span class="line">a[l]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">2</span>,  <span class="number">5</span>],</span><br><span class="line">       [ <span class="number">7</span>, <span class="number">11</span>]])</span><br><span class="line"><span class="comment"># 这里不能使用数组将i，j组合起来，因为外层数组会被当作索引的第一维，报错或得到的结果不正确</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用数组索引作为目标来赋值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建数组</span></span><br><span class="line">a = arange(<span class="number">5</span>)</span><br><span class="line">a</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">a[[<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>]] = <span class="number">0</span></span><br><span class="line">a</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line"><span class="comment"># 多次赋值以最后一次赋值为结果</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过布尔数组索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建数组</span></span><br><span class="line">a = arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = a &gt; <span class="number">4</span></span><br><span class="line">b</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="literal">False</span>, <span class="literal">False</span>, <span class="literal">False</span>, <span class="literal">False</span>],</span><br><span class="line">       [<span class="literal">False</span>,  <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>],</span><br><span class="line">       [ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>]], dtype=bool)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际上是返回所有为True的位置的元素值</span></span><br><span class="line">a[b]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此功能可用于赋值，比如，将a中所有大于4的值赋值为0</span></span><br><span class="line">b = a &gt; <span class="number">4</span></span><br><span class="line">a[b] = <span class="number">0</span></span><br><span class="line">a</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对每一个维度给一个一维布尔数组来选择我们想要的切片</span></span><br><span class="line">a = arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b1 = array([<span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>])</span><br><span class="line">b2 = array([<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">False</span>])</span><br><span class="line">a[b1, :]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</span><br><span class="line">       [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]])</span><br><span class="line"></span><br><span class="line">a[b1]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</span><br><span class="line">       [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a[:, b2]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">2</span>],</span><br><span class="line">       [ <span class="number">4</span>,  <span class="number">6</span>],</span><br><span class="line">       [ <span class="number">8</span>, <span class="number">10</span>]])</span><br><span class="line"></span><br><span class="line">a[b1,b2]                                  </span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([ <span class="number">4</span>, <span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：<strong>一维数组的长度必须和想要切片的维度或轴的长度一致</strong>，前面的例子中，<code>b1</code>是一个秩为1长度为三的数组(a的行数)，<code>b2</code>(长度为4)与a的第二秩(列)相一致</p>
+</li>
+</ul>
+<h4 id="ix-函数"><a href="#ix-函数" class="headerlink" title="ix_()函数"></a>ix_()函数</h4><ul>
+<li><p><code>ix_()</code>函数可以组合不同向量以得到多元组的结果，例如使用向量a、b、c组成的三元组来计算<code>a+b*c</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建向量</span></span><br><span class="line">a = array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">b = array([<span class="number">8</span>, <span class="number">5</span>, <span class="number">4</span>])</span><br><span class="line">c = array([<span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">3</span>])</span><br><span class="line">ax, bx, cx = ix_(a, b, c)</span><br><span class="line"></span><br><span class="line">ax</span><br><span class="line">bx</span><br><span class="line">cx</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="comment"># 从形式上来看转化了向量的形状，使之符合计算的需求</span></span><br><span class="line">array([[[<span class="number">2</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">3</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">4</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">5</span>]]])</span><br><span class="line"></span><br><span class="line">array([[[<span class="number">8</span>],</span><br><span class="line">        [<span class="number">5</span>],</span><br><span class="line">        [<span class="number">4</span>]]])</span><br><span class="line"></span><br><span class="line">array([[[<span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">3</span>]]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax.shape</span><br><span class="line">bx.shape</span><br><span class="line">cx.shape</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">(<span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = ax + bx * cx</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[[<span class="number">42</span>, <span class="number">34</span>, <span class="number">50</span>, <span class="number">66</span>, <span class="number">26</span>],</span><br><span class="line">        [<span class="number">27</span>, <span class="number">22</span>, <span class="number">32</span>, <span class="number">42</span>, <span class="number">17</span>],</span><br><span class="line">        [<span class="number">22</span>, <span class="number">18</span>, <span class="number">26</span>, <span class="number">34</span>, <span class="number">14</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">43</span>, <span class="number">35</span>, <span class="number">51</span>, <span class="number">67</span>, <span class="number">27</span>],</span><br><span class="line">        [<span class="number">28</span>, <span class="number">23</span>, <span class="number">33</span>, <span class="number">43</span>, <span class="number">18</span>],</span><br><span class="line">        [<span class="number">23</span>, <span class="number">19</span>, <span class="number">27</span>, <span class="number">35</span>, <span class="number">15</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">44</span>, <span class="number">36</span>, <span class="number">52</span>, <span class="number">68</span>, <span class="number">28</span>],</span><br><span class="line">        [<span class="number">29</span>, <span class="number">24</span>, <span class="number">34</span>, <span class="number">44</span>, <span class="number">19</span>],</span><br><span class="line">        [<span class="number">24</span>, <span class="number">20</span>, <span class="number">28</span>, <span class="number">36</span>, <span class="number">16</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">45</span>, <span class="number">37</span>, <span class="number">53</span>, <span class="number">69</span>, <span class="number">29</span>],</span><br><span class="line">        [<span class="number">30</span>, <span class="number">25</span>, <span class="number">35</span>, <span class="number">45</span>, <span class="number">20</span>],</span><br><span class="line">        [<span class="number">25</span>, <span class="number">21</span>, <span class="number">29</span>, <span class="number">37</span>, <span class="number">17</span>]]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取结果中的一个元素</span></span><br><span class="line">result[<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="number">17</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用向量中的一个值进行计算</span></span><br><span class="line">a[<span class="number">3</span>] + b[<span class="number">2</span>] * c[<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="number">4</span> + <span class="number">5</span> * <span class="number">3</span> = <span class="number">17</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><ul>
+<li><p>数组运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数组计算的的包和函数</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数组</span></span><br><span class="line">a = array([[<span class="number">1.0</span>, <span class="number">2.0</span>], [<span class="number">3.0</span>, <span class="number">4.0</span>]])</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">2.</span>]</span><br><span class="line"> [ <span class="number">3.</span>  <span class="number">4.</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求转置</span></span><br><span class="line">a.transpose()</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[ <span class="number">1.</span>,  <span class="number">3.</span>],</span><br><span class="line">       [ <span class="number">2.</span>,  <span class="number">4.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求逆矩阵</span></span><br><span class="line">inv(a)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="number">-2.</span> ,  <span class="number">1.</span> ],</span><br><span class="line">       [ <span class="number">1.5</span>, <span class="number">-0.5</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成对角矩阵</span></span><br><span class="line">u = eye(<span class="number">2</span>)	<span class="comment"># 2*2</span></span><br><span class="line">u</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="number">1.</span>, <span class="number">0.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">1.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求点积</span></span><br><span class="line">j = array([[<span class="number">0.0</span>, <span class="number">-1.0</span>], [<span class="number">1.0</span>, <span class="number">0.0</span>]])</span><br><span class="line">dot (j, j)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="number">-1.</span>,  <span class="number">0.</span>],</span><br><span class="line">       [ <span class="number">0.</span>, <span class="number">-1.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求矩阵的迹（特征值之和）</span></span><br><span class="line">trace(u)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求解线性矩阵方程</span></span><br><span class="line">y = array([[<span class="number">5.</span>], [<span class="number">7.</span>]])</span><br><span class="line">solve(a, y)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">array([[<span class="number">-3.</span>],</span><br><span class="line">       [ <span class="number">4.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算矩阵特征值、特征向量</span></span><br><span class="line">eig(j)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">(array([ <span class="number">0.</span>+<span class="number">1.j</span>,  <span class="number">0.</span><span class="number">-1.j</span>]),</span><br><span class="line"> array([[ <span class="number">0.70710678</span>+<span class="number">0.j</span>        ,  <span class="number">0.70710678</span><span class="number">-0.j</span>        ],</span><br><span class="line">        [ <span class="number">0.00000000</span><span class="number">-0.70710678j</span>,  <span class="number">0.00000000</span>+<span class="number">0.70710678j</span>]]))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>矩阵类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建矩阵</span></span><br><span class="line">A = matrix(<span class="string">'1.0 2.0; 3.0 4.0'</span>)</span><br><span class="line">A</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">matrix([[ <span class="number">1.</span>,  <span class="number">2.</span>],</span><br><span class="line">        [ <span class="number">3.</span>,  <span class="number">4.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断类型</span></span><br><span class="line">type(A)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">numpy.matrixlib.defmatrix.matrix</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求矩阵的转置</span></span><br><span class="line">A.T</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">matrix([[ <span class="number">1.</span>,  <span class="number">3.</span>],</span><br><span class="line">        [ <span class="number">2.</span>,  <span class="number">4.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X = matrix(<span class="string">'5.0 7.0'</span>)</span><br><span class="line">Y = X.T</span><br><span class="line">Y</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">matrix([[ <span class="number">5.</span>],</span><br><span class="line">        [ <span class="number">7.</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 矩阵相乘</span></span><br><span class="line">print(A*Y)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[ <span class="number">19.</span>]</span><br><span class="line"> [ <span class="number">43.</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求逆矩阵</span></span><br><span class="line">print(A.I)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">-2.</span>   <span class="number">1.</span> ]</span><br><span class="line"> [ <span class="number">1.5</span> <span class="number">-0.5</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求解线性矩阵方程</span></span><br><span class="line">solve(A, Y)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">matrix([[<span class="number">-3.</span>],</span><br><span class="line">        [ <span class="number">4.</span>]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>注意</strong></p>
+<ul>
+<li><code>Numpy</code>的两个基本对象：N维数组对象，通用函数对象</li>
+<li>矩阵继承自数组对象的二维数组对象</li>
+</ul>
+</li>
+<li><p>直方图</p>
+<ul>
+<li>可以使用<code>histogram</code>函数应用到一个数组会返回：直方图数组和箱式向量</li>
+<li>注意这里只返回数据，并直接绘制出具体的图形</li>
+</ul>
+</li>
+</ul>
+<p>欢迎转载交流，拒绝一切形式的复制抄袭。</p>
+<p>欢迎来信交流||指教。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/numpy-xue-xi-bi-ji-jin-jie/>http://zivblog.top/passages/numpy-xue-xi-bi-ji-jin-jie/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-04T14:36:11+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Mar 4, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/numpy-xue-xi-bi-ji-jin-jie/&title=Numpy学习笔记（进阶） - Ziv（瓶子）&summary=学习笔记
+参考资料：Numpy官方文档"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/numpy-xue-xi-bi-ji-jin-jie/&title=Numpy学习笔记（进阶） - Ziv（瓶子）&summary=学习笔记
+参考资料：Numpy官方文档"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/numpy-xue-xi-bi-ji-jin-jie/&title=Numpy学习笔记（进阶） - Ziv（瓶子）&summary=学习笔记
+参考资料：Numpy官方文档"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/python-zhi-lambda-ni-ming-han-shu/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Python之lambda匿名函数</p>
+                <p class='content'>
+
+
+什么是匿名函数？
+
+匿名函数，顾名思义就是具体的函数名但是有函数功能的函数或子程序。lambda函数可以接收任意多个参数并且返回单个表达式的值。
+
+为什么要使用匿名函数？
+
+在函数功能不是...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/numpy-xue-xi-bi-ji-ji-chu/'>
+                <p class='title'>Numpy学习笔记（基础）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>笔记
+学习笔记
+参考资料：Numpy官方文档
+
+
+基础知识
+Numpy是用来处理多维数组的工具，在Numpy中，维度叫做轴，轴的个数叫做秩。
+
+例如，[1, 2, 3]是一个秩为1的数组，因为它...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Numpy学习笔记（进阶）',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#进阶操作"><span class="toc-text">进阶操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#广播法则"><span class="toc-text">广播法则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#索引技巧"><span class="toc-text">索引技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ix-函数"><span class="toc-text">ix_()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线性代数"><span class="toc-text">线性代数</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

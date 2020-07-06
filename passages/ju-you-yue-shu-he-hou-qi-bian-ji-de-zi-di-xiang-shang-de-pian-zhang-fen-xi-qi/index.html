@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>具有约束和后期编辑的自底向上的篇章分析器 - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="NLP,论文笔记">
+  
+  
+    <meta name="description" content="《A Linear-Time Bottom-Up Discourse Parser with Constraints and Post-Editing》论文笔记">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/">
+      具有约束和后期编辑的自底向上的篇章分析器
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>自然语言处理</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Nov 28, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>《A Linear-Time Bottom-Up Discourse Parser with Constraints and Post-Editing》论文笔记</p>
+<a id="more"></a>
+
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
+<li>本文已被<code>ACL 2014</code>收录</li>
+<li>作者是<code>Wei Feng</code>和<code>Graeme Hirst</code></li>
+<li>该模型目前还是<code>document level</code>上效果最好的模型，虽然近期发表了许多关于<code>encoder-decoder</code>架构的文章，但是只能在句子级别证明模型的可行性，模型虽然十分新颖，但并不具有很强的说服力</li>
+</ul>
+<h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h3><ul>
+<li>文本即的篇章分析仍然是一个挑战</li>
+<li><code>Joty et al 2013</code>提出的模型虽然效果比较不错了，但是由于<strong>模型的计算复杂度太高</strong>，并不具有很好的实践性</li>
+</ul>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ul>
+<li>先对<code>sentence level</code>建模，再对<code>document level</code>建模，这种分层次的建模过程从性能方面来说是可行的</li>
+<li>利用初步建成的树本身的特征对树的结构进行调整，可以使树形更加合理</li>
+<li>主要需要解决的问题是时间复杂度的问题</li>
+</ul>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp.png" alt="dp"></p>
+<blockquote>
+<p>模型的整体结构如上图所示</p>
+<ul>
+<li>先将<code>document</code>划分为多个<code>sentence</code>，<code>sentence</code>再被划分为多个<code>EDU</code></li>
+<li>单句子级别的处理<ul>
+<li>先使用句内建树模型$M_{instra}$，形成句子级别的<code>Discourse Tree</code></li>
+<li>使用$P_{intra}$对其进行<code>Post Editing</code></li>
+</ul>
+</li>
+<li>多句子级的处理<ul>
+<li>先使用多句子建树模型$M_{multi}$组合已经建成的句子级别的树，生成文本级别的<code>Discourse Tree</code></li>
+<li>使用$P_{multi}$对文本级别的<code>Discourse Tree</code>进行<code>Post Editing</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>下面分别对每个局部模型的结构进行分析</strong></p>
+</blockquote>
+<ul>
+<li><code>Intra-sentential</code>结构模型</li>
+</ul>
+<p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp1.png" alt="dp1"></p>
+<blockquote>
+<p>使用线性链CRF，CRF能更好的捕获上下文信息</p>
+<ul>
+<li><p>第一层是篇章结构$U_j$构成</p>
+</li>
+<li><p>第二层是二分类节点，表示两个一层节点之间结合的概率</p>
+</li>
+</ul>
+<p>为了提高模型的性能，在其维特比解码时添加了一些<code>commonsense constraints</code>（常识性约束）</p>
+<ul>
+<li>不允许两个相邻之间的<code>1-1 transition</code>（即每个Unit只能与唯一的另外一个Unit相结合）</li>
+<li>不允许全0序列（即至少有两个<code>Unit</code>会别<code>merge</code>）</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>Multi-sentential</code>结构模型</li>
+</ul>
+<p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp2.png" alt="dp2"></p>
+<blockquote>
+<p>与单句的结构模型相似</p>
+<p><strong>特别的</strong>，我们采用滑动窗口的方式来为特定成分形成局部CRF链</p>
+<p>例如（如上图所示），</p>
+<p>如果我们想计算$U_{j-1}$和$U_j$之间结合的概率，我们构建了三个局部链，每个链中包含两个上下文</p>
+<p> 之后我们会寻找具有最高<code>joint probability</code>的线性链，之后计算其边缘概率</p>
+<p>同样，我们对维特比解码阶段加入了<strong>常识性约束</strong>，这种约束只在<strong>结构模型</strong>的解码阶段添加</p>
+</blockquote>
+<ul>
+<li><code>Intra-sentential</code>关系模型</li>
+</ul>
+<p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp3.png" alt="dp3"></p>
+<blockquote>
+<p>线性链CRF</p>
+<ul>
+<li>第一层是所有篇章结构$U_j$</li>
+<li>第二层是多分类节点，是对第一层中成对篇章结构之间的关系概率的计算</li>
+</ul>
+<p>不同于<code>structure model</code>，<code>relation model</code>的第二层节点并不共享第一层的节点</p>
+</blockquote>
+<ul>
+<li><code>Multi-sentential</code>关系模型</li>
+</ul>
+<p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp4.png" alt="dp4"></p>
+<blockquote>
+<p>结构与单句的关系模型相似</p>
+<p>使用了滑动窗口</p>
+</blockquote>
+<h4 id="Post-Editing"><a href="#Post-Editing" class="headerlink" title="Post Editing"></a>Post Editing</h4><p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp5.png" alt="dp5"></p>
+<ul>
+<li>在<code>Discourse Tree</code>初步建立之后，使用树本身的信息对树的形状再进行调整</li>
+<li>事实证明，节点在树中的高度信息是有用的，因为有些<code>relation</code>只会在比较高的层次中才会出现</li>
+<li>后期编辑的实质的在添加了树结构的特征之后再进行一次树的构建</li>
+</ul>
+<blockquote>
+<p>为了完成该操作，我们维护了一个列表<code>L</code></p>
+<p>参照上图3——9，初始的时候L中会包含所有的Unit，之后会根据概率将其中的成对Unit合并</p>
+<p>参照10——12，若前序步骤提出了修改，使用$P^{struct}$和$P^{rel}$重新构建<code>discourse tree</code></p>
+</blockquote>
+<ul>
+<li>使用的是人工提取的特征，具体内容见论文</li>
+</ul>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h3><ul>
+<li>总结<ul>
+<li>提出了线性时间复杂度的model</li>
+<li>使用的是自底向上的建树方式，两个线性链CRF级联作为局部分类器</li>
+<li>在第一个CRF（结构模型）的<code>Viterbi</code>解码时添加了约束</li>
+<li>通过后期编辑的方法利用初次构建的树中的信息对<code>Discourse Tree</code>进行的微调</li>
+<li>对<code>relation</code>和<code>structure</code>分别建模</li>
+</ul>
+</li>
+<li><strong>CKY-like Bottom-up Parsing</strong></li>
+</ul>
+<p><img src="%E5%85%B7%E6%9C%89%E7%BA%A6%E6%9D%9F%E5%92%8C%E5%90%8E%E6%9C%9F%E7%BC%96%E8%BE%91%E7%9A%84%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%E5%99%A8%5Cdp1.png" alt=""></p>
+<blockquote>
+<p>给定一组篇章单元，用<code>linear-chain CRF</code>模型构建可能的内部节点$S_j$与孩子节点$U_{j-1},U_j$以及相邻的可能节点$S_{i+1}$之间的联系，构建一组状态序列</p>
+<p>对这组状态序列进行标注，1代表该内部节点成立，0代表不成立，即用序列标注的方式决定对应孩子节点是否应该合并</p>
+<p>例如，</p>
+<p>$S_2$如果成立，则变为${S_2, U_3,…., U_t}$</p>
+<p>$S_2$与$S_3$如果同时成立，则使用我们之前提到过的约束，选取其中的一个进行合并：可以是根据规则（具有更大合并概率）或者是根据随机</p>
+</blockquote>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/>http://zivblog.top/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-15T19:07:20+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 15, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NLP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NLP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>论文笔记</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/&title=具有约束和后期编辑的自底向上的篇章分析器 - Ziv（瓶子）&summary=《A Linear-Time Bottom-Up Discourse Parser with Constraints and Post-Editing》论文笔记"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/&title=具有约束和后期编辑的自底向上的篇章分析器 - Ziv（瓶子）&summary=《A Linear-Time Bottom-Up Discourse Parser with Constraints and Post-Editing》论文笔记"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/ju-you-yue-shu-he-hou-qi-bian-ji-de-zi-di-xiang-shang-de-pian-zhang-fen-xi-qi/&title=具有约束和后期编辑的自底向上的篇章分析器 - Ziv（瓶子）&summary=《A Linear-Time Bottom-Up Discourse Parser with Constraints and Post-Editing》论文笔记"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/bei-tao-yan-de-yong-qi/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>被讨厌的勇气</p>
+                <p class='content'>世界很单纯，人生也人生也一样。 不是世界复杂， 而是你把世界变复杂了。没有一个人是住在客观的世界里， 我们都居住在一个各自赋予其意义的主观的世界。
+
+
+《被讨厌的勇气》岸见一郞/古贺史健
+&em...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/fen-ceng-zhi-zhen-wang-luo-fen-xi/'>
+                <p class='title'>分层指针网络分析<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>《Hieraechical Pointer Net Parsing》论文笔记
+
+
+写在前面
+该论文被EMNLP 2019收录
+作者是南洋理工大学的Liu Linlin等人
+本文的分别在句内依存关...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '具有约束和后期编辑的自底向上的篇章分析器',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提出问题"><span class="toc-text">提出问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思考"><span class="toc-text">思考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型结构"><span class="toc-text">模型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Post-Editing"><span class="toc-text">Post Editing</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写在后面"><span class="toc-text">写在后面</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

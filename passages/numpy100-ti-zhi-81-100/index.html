@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Numpy100题之81~100 - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="Python">
+  
+  
+    <meta name="description" content="学习笔记
+答案整理
+原文地址：https://zhuanlan.zhihu.com/p/76186124
+总结：有些操作过分为了操作而操作，使用频率不高，不必花费过多时间在上面">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/numpy100-ti-zhi-81-100/">
+      Numpy100题之81~100
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>编程语言</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 1, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>学习笔记</p>
+<p>答案整理</p>
+<p>原文地址：<a href="https://zhuanlan.zhihu.com/p/76186124" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76186124</a></p>
+<p>总结：有些操作过分为了操作而操作，使用频率不高，不必花费过多时间在上面</p>
+<a id="more"></a>
+
+<ol>
+<li><p>考虑一个数组<code>Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]</code>，如何生成一个数组<code>R = [[1,2,3,4]， [2,3,4,5], [3,4,5,6], ...,[11,12,13,14]]</code>?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.stride_tricks.as_strided(x, shape, strides, subok, writeable) 按照shape对x进行分块</span></span><br><span class="line">Z = np.arange(<span class="number">1</span>, <span class="number">15</span>, dtype=np.uint32)</span><br><span class="line">R = np.lib.stride_tricks.as_strided(Z, (<span class="number">11</span>, <span class="number">4</span>), (<span class="number">4</span>, <span class="number">4</span>))</span><br><span class="line">print(R)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[ <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>]</span><br><span class="line"> [ <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>]</span><br><span class="line"> [ <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>]</span><br><span class="line"> [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>]</span><br><span class="line"> [ <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>]</span><br><span class="line"> [ <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>]</span><br><span class="line"> [ <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span>]</span><br><span class="line"> [ <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]</span><br><span class="line"> [ <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]</span><br><span class="line"> [<span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span>]</span><br><span class="line"> [<span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算一个矩阵的秩</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.linalg.svd() 奇异值分解，三个返回值，s的对角线是奇异值，由大到小排列</span></span><br><span class="line">Z = np.random.uniform(<span class="number">0</span>, <span class="number">1</span>, (<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">U, S, V = np.linalg.svd(Z)</span><br><span class="line">rank = np.sum(S &gt; <span class="number">1e-10</span>)</span><br><span class="line">print(rank)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何找到一个数组中出现频率最高的值？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.bincount(), argmax()</span></span><br><span class="line"><span class="comment"># 使用宾count()统计元素值的频率，argmax()返回的索引即为频率最高的元素</span></span><br><span class="line">Z = np.random.randint(<span class="number">0</span>, <span class="number">10</span>, <span class="number">50</span>)</span><br><span class="line">print(np.bincount(Z).argmax())</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从一个<code>10x10</code>的矩阵中提取出连续的<code>3x3</code>区块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.lib.stride_tricks.as_strided()</span></span><br><span class="line">Z = np.random.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">n = <span class="number">3</span></span><br><span class="line">i = <span class="number">1</span> + (Z.shape[<span class="number">0</span>]<span class="number">-3</span>)</span><br><span class="line">j = <span class="number">1</span> + (Z.shape[<span class="number">1</span>]<span class="number">-3</span>)</span><br><span class="line">C = np.lib.stride_tricks.as_strided(Z, shape=(i, j, n, n), strides=Z.strides + Z.strides)</span><br><span class="line">print(C)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">1</span> <span class="number">4</span> <span class="number">4</span> <span class="number">4</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">4</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">3</span> <span class="number">0</span> <span class="number">3</span> <span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">1</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">2</span> <span class="number">2</span> <span class="number">0</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span> <span class="number">2</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">2</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">3</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">1</span> <span class="number">0</span> <span class="number">4</span> <span class="number">4</span> <span class="number">4</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">0</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">3</span> <span class="number">0</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">0</span> <span class="number">3</span> <span class="number">2</span> <span class="number">0</span> <span class="number">4</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span> <span class="number">0</span> <span class="number">2</span> <span class="number">4</span> <span class="number">4</span> <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">[[[[<span class="number">1</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">   [<span class="number">4</span> <span class="number">3</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">0</span> <span class="number">2</span> <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">4</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">   [<span class="number">3</span> <span class="number">0</span> <span class="number">3</span>]</span><br><span class="line">   [<span class="number">2</span> <span class="number">2</span> <span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">4</span> <span class="number">4</span> <span class="number">3</span>]</span><br><span class="line">   [<span class="number">0</span> <span class="number">3</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">2</span> <span class="number">0</span> <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">4</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line">   [<span class="number">3</span> <span class="number">0</span> <span class="number">2</span>]</span><br><span class="line">   [<span class="number">0</span> <span class="number">2</span> <span class="number">4</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">3</span> <span class="number">4</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">0</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">   [<span class="number">2</span> <span class="number">4</span> <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">4</span> <span class="number">0</span> <span class="number">4</span>]</span><br><span class="line">   [<span class="number">2</span> <span class="number">3</span> <span class="number">1</span>]</span><br><span class="line">   [<span class="number">4</span> <span class="number">1</span> <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">  [[<span class="number">0</span> <span class="number">4</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">3</span> <span class="number">1</span> <span class="number">4</span>]</span><br><span class="line">   [<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  [[<span class="number">3</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line">   [<span class="number">4</span> <span class="number">4</span> <span class="number">2</span>]]]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个满足<code>Z[i,j]==Z[j,i]</code>的子类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类的定义</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Symetric</span><span class="params">(np.ndarray)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, index, value)</span>:</span></span><br><span class="line">        i, j = index</span><br><span class="line">        super(Symetric, self).__setitem__((i, j), value)</span><br><span class="line">        super(Symetric, self).__setitem__((j, i), value)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">symetric</span><span class="params">(Z)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.asarray(Z + Z.T - np.diag(Z.diagonal())).view(Symetric)</span><br><span class="line">    </span><br><span class="line">S = Symetric(np.random.randint(<span class="number">0</span>, <span class="number">10</span>, (<span class="number">5</span>, <span class="number">5</span>)))</span><br><span class="line">S[<span class="number">2</span>, <span class="number">3</span>] = <span class="number">42</span></span><br><span class="line">print(S)</span><br><span class="line"></span><br><span class="line">结果：</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑<code>p</code>个<code>nxn</code>矩阵和一组形状为<code>(n,1)</code>的向量，如何直接计算<code>p</code>个矩阵的乘积<code>(n,1)</code>？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.tensordot() 沿指定轴计算张量的点积</span></span><br><span class="line">p, n = <span class="number">10</span>, <span class="number">20</span></span><br><span class="line">M = np.ones((p, n, n))</span><br><span class="line">V = np.ones((p, n, <span class="number">1</span>))</span><br><span class="line">S = np.tensordot(M, V, axes=[[<span class="number">0</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">print(S)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]</span><br><span class="line"> [<span class="number">200.</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于一个<code>16x16</code>的数组，如何得到一个区域(block-sum)的和(区域大小为<code>4x4</code>)?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.add.reduceat() 功能等同于np.sum()，实际上np.sum()调用的就是前者</span></span><br><span class="line">Z = np.ones((<span class="number">16</span>, <span class="number">16</span>))</span><br><span class="line">k = <span class="number">4</span></span><br><span class="line">S = np.add.reduceat(np.add.reduceat(Z, np.arange(<span class="number">0</span>, Z.shape[<span class="number">0</span>], k), axis=<span class="number">0</span>), np.arange(<span class="number">0</span>, Z.shape[<span class="number">1</span>], k), axis=<span class="number">1</span>)</span><br><span class="line">print(S)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span>]</span><br><span class="line"> [<span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span>]</span><br><span class="line"> [<span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span>]</span><br><span class="line"> [<span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span> <span class="number">16.</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何利用<code>Numpy</code>数组实现<code>Game of Life</code>?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    生命游戏中，对于任意细胞：</span></span><br><span class="line"><span class="string">   每个细胞有两种状态：存活或死亡。每个细胞与以自身为中心的周围八格细胞产生互动。</span></span><br><span class="line"><span class="string">   1.当前细胞为存活状态时，当周围的活细胞低于2个时， 该细胞因孤独而死亡;</span></span><br><span class="line"><span class="string">   2.当前细胞为存活状态时，当周围有2个或3个活细胞时， 该细胞保持原样;</span></span><br><span class="line"><span class="string">   3.当前细胞为存活状态时，当周围有3个以上活细胞时，该细胞因资源匮乏而死亡;</span></span><br><span class="line"><span class="string">   4.当前细胞为死亡状态时，当周围有3个活细胞时，该细胞变成存活状态(模拟繁殖)。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterate</span><span class="params">(Z)</span>:</span></span><br><span class="line">	<span class="comment"># Count neighbours</span></span><br><span class="line">	N = (Z[<span class="number">0</span>:<span class="number">-2</span>,<span class="number">0</span>:<span class="number">-2</span>] + Z[<span class="number">0</span>:<span class="number">-2</span>,<span class="number">1</span>:<span class="number">-1</span>] + Z[<span class="number">0</span>:<span class="number">-2</span>,<span class="number">2</span>:] +</span><br><span class="line">	Z[<span class="number">1</span>:<span class="number">-1</span>,<span class="number">0</span>:<span class="number">-2</span>] + Z[<span class="number">1</span>:<span class="number">-1</span>,<span class="number">2</span>:] +</span><br><span class="line">	Z[<span class="number">2</span>: ,<span class="number">0</span>:<span class="number">-2</span>] + Z[<span class="number">2</span>: ,<span class="number">1</span>:<span class="number">-1</span>] + Z[<span class="number">2</span>: ,<span class="number">2</span>:])</span><br><span class="line"></span><br><span class="line">	<span class="comment"># Apply rules</span></span><br><span class="line">	birth = (N==<span class="number">3</span>) &amp; (Z[<span class="number">1</span>:<span class="number">-1</span>,<span class="number">1</span>:<span class="number">-1</span>]==<span class="number">0</span>)</span><br><span class="line">	survive = ((N==<span class="number">2</span>) | (N==<span class="number">3</span>)) &amp; (Z[<span class="number">1</span>:<span class="number">-1</span>,<span class="number">1</span>:<span class="number">-1</span>]==<span class="number">1</span>)</span><br><span class="line">	Z[...] = <span class="number">0</span></span><br><span class="line">	Z[<span class="number">1</span>:<span class="number">-1</span>,<span class="number">1</span>:<span class="number">-1</span>][birth | survive] = <span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> Z</span><br><span class="line"></span><br><span class="line">Z = np.random.randint(<span class="number">0</span>,<span class="number">2</span>,(<span class="number">50</span>,<span class="number">50</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>): Z = iterate(Z)</span><br><span class="line">	<span class="keyword">print</span> (Z)</span><br><span class="line">    </span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> ... <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何找到一个数组的第<code>n</code>个最大值?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># argsort()排序后读取倒数第n个值</span></span><br><span class="line">Z = np.arange(<span class="number">10000</span>)</span><br><span class="line">np.random.shuffle(Z)</span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">print(Z[np.argsort(Z)[-n:]])</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[<span class="number">9995</span> <span class="number">9996</span> <span class="number">9997</span> <span class="number">9998</span> <span class="number">9999</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给定任意个数向量，创建笛卡尔积(每一个元素的每一种组合)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 笛卡尔积：两个集合的组合</span></span><br><span class="line"><span class="comment"># np.indices()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cartesian</span><span class="params">(arrays)</span>:</span></span><br><span class="line">    arrays = [np.asarray(a) <span class="keyword">for</span> a <span class="keyword">in</span> arrays]</span><br><span class="line">    shape = (len(x) <span class="keyword">for</span> x <span class="keyword">in</span> arrays)</span><br><span class="line">    ix = np.indices(shape, dtype=int)</span><br><span class="line">    ix = ix.reshape(len(arrays), <span class="number">-1</span>).T</span><br><span class="line">    <span class="keyword">for</span> n, arr <span class="keyword">in</span> enumerate(arrays):</span><br><span class="line">        ix[:, n] = arrays[n][ix[:, n]]</span><br><span class="line">    <span class="keyword">return</span> ix</span><br><span class="line"></span><br><span class="line">print(cartesian(([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>])))</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">1</span> <span class="number">4</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">4</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">5</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">4</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">4</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">5</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">4</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">4</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">5</span> <span class="number">7</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何从一个正常数组创建记录数组(<code>record array</code>)?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.core.records.fromarrays()</span></span><br><span class="line">Z = np.array([(<span class="string">"Hello"</span>, <span class="number">2.5</span>, <span class="number">3</span>), (<span class="string">"World"</span>, <span class="number">3.6</span>, <span class="number">2</span>)])</span><br><span class="line">R = np.core.records.fromarrays(Z.T, names=<span class="string">'col1, col2, col3'</span>, formats=<span class="string">'S8, f8, i8'</span>)</span><br><span class="line">print(R)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[(<span class="string">b'Hello'</span>, <span class="number">2.5</span>, <span class="number">3</span>) (<span class="string">b'World'</span>, <span class="number">3.6</span>, <span class="number">2</span>)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑一个大向量<code>Z</code>, 用三种不同的方法计算它的立方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.power() 对列表、矩阵、数组等求n次方</span></span><br><span class="line"><span class="comment"># '*'</span></span><br><span class="line"><span class="comment"># np.einsum() 将向量插入某一行或列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法一</span></span><br><span class="line">x = np.random.rand()</span><br><span class="line">np.power(x, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line">x*x*x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法三</span></span><br><span class="line">np.einsum(<span class="string">'i, i, i-&gt;i'</span>, x,x,x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑两个形状分别为<code>(8,3)</code>和<code>(2,2)</code>的数组<code>A</code>和<code>B</code>. 如何在数组<code>A</code>中找到满足包含<code>B</code>中元素的行？(不考虑<code>B</code>中每行元素顺序)？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.where()</span></span><br><span class="line">A = np.random.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">8</span>, <span class="number">3</span>))</span><br><span class="line">B = np.random.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">C = (A[..., np.newaxis, np.newaxis] == B)</span><br><span class="line"></span><br><span class="line">rows = np.where(C.any((<span class="number">3</span>, <span class="number">1</span>)).all(<span class="number">1</span>))[<span class="number">0</span>]</span><br><span class="line">print(rows)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[<span class="number">6</span> <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑一个<code>10x3</code>的矩阵，分解出有不全相同值的行 (如<code>[2,2,3]</code>)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Z = np.random.randint(<span class="number">0</span>, <span class="number">5</span>, (<span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line">print(Z)</span><br><span class="line"></span><br><span class="line">E = np.all(Z[:,<span class="number">1</span>:] == Z[:,:<span class="number">-1</span>], axis=<span class="number">1</span>)</span><br><span class="line">U = Z[~E]</span><br><span class="line">print(U)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">Z：</span><br><span class="line">[[<span class="number">4</span> <span class="number">0</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">3</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">0</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">0</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">2</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">2</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">4</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">1</span> <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">U：</span><br><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">4</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">4</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">3</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">4</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">3</span> <span class="number">2</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">4</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将一个整数向量转换为二进制矩阵<code>matrix binary</code>的表现形式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.unpackbits() 把整数转化乘二进制</span></span><br><span class="line">I = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">32</span>, <span class="number">64</span>, <span class="number">128</span>])</span><br><span class="line">B = ((I.reshape(<span class="number">-1</span>, <span class="number">1</span>)&amp;(<span class="number">2</span>**np.arange(<span class="number">8</span>)))!=<span class="number">0</span>).astype(int)</span><br><span class="line">print(B[:,::<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给定一个二维数组，如何提取出唯一的(unique)行？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.ascontiguousarray() 将一个内存不连续存储的数组转化为内存连续存储的数组，加快运行速度</span></span><br><span class="line">Z = np.random.randint(<span class="number">0</span>,<span class="number">2</span>,(<span class="number">6</span>,<span class="number">3</span>))</span><br><span class="line">T = np.ascontiguousarray(Z).view(np.dtype((np.void, Z.dtype.itemsize * Z.shape[<span class="number">1</span>])))</span><br><span class="line"></span><br><span class="line">_, idx = np.unique(T, return_index=<span class="literal">True</span>)</span><br><span class="line">uZ = Z[idx]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (uZ)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">1</span> <span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑两个向量<code>A</code>和<code>B</code>，写出用<code>einsum</code>等式对应的<code>inner</code>, <code>outer</code>, <code>sum</code>, <code>mul</code>函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.einsum</span></span><br><span class="line">A = np.random.uniform(<span class="number">0</span>, <span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">B = np.random.uniform(<span class="number">0</span>, <span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'sum'</span>)</span><br><span class="line">print(np.einsum(<span class="string">'i-&gt;'</span>, A))</span><br><span class="line">结果：</span><br><span class="line">sum</span><br><span class="line"><span class="number">4.903677057922876</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'A * B'</span>)</span><br><span class="line">print(np.einsum(<span class="string">'i, i-&gt;i'</span>, A, B))</span><br><span class="line">结果：</span><br><span class="line">A * B</span><br><span class="line">[<span class="number">0.47153643</span> <span class="number">0.25317511</span> <span class="number">0.20142837</span> <span class="number">0.05835824</span> <span class="number">0.20308374</span> <span class="number">0.10641387</span></span><br><span class="line"> <span class="number">0.21122253</span> <span class="number">0.54794781</span> <span class="number">0.21782327</span> <span class="number">0.18996213</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">'inner'</span>)</span><br><span class="line">print(np.einsum(<span class="string">'i, i'</span>, A, B))</span><br><span class="line">结果:</span><br><span class="line">inner</span><br><span class="line"><span class="number">2.4609515005732665</span>   </span><br><span class="line">    </span><br><span class="line">print(<span class="string">'outer'</span>)</span><br><span class="line">print(np.einsum(<span class="string">'i, j-&gt;ij'</span>, A, B))</span><br><span class="line">结果：</span><br><span class="line">outer</span><br><span class="line">[[<span class="number">0.47153643</span> <span class="number">0.22882703</span> <span class="number">0.27068423</span> <span class="number">0.41698768</span> <span class="number">0.22448079</span> <span class="number">0.33164545</span></span><br><span class="line">  <span class="number">0.67680915</span> <span class="number">0.39473786</span> <span class="number">0.37198788</span> <span class="number">0.35538228</span>]</span><br><span class="line"> [<span class="number">0.52170974</span> <span class="number">0.25317511</span> <span class="number">0.29948609</span> <span class="number">0.46135679</span> <span class="number">0.24836641</span> <span class="number">0.36693382</span></span><br><span class="line">  <span class="number">0.74882428</span> <span class="number">0.4367395</span>  <span class="number">0.41156883</span> <span class="number">0.39319634</span>]</span><br><span class="line"> [<span class="number">0.35089156</span> <span class="number">0.17028053</span> <span class="number">0.20142837</span> <span class="number">0.31029937</span> <span class="number">0.16704629</span> <span class="number">0.24679237</span></span><br><span class="line">  <span class="number">0.50364427</span> <span class="number">0.29374228</span> <span class="number">0.27681298</span> <span class="number">0.26445601</span>]</span><br><span class="line"> [<span class="number">0.06599245</span> <span class="number">0.03202479</span> <span class="number">0.03788279</span> <span class="number">0.05835824</span> <span class="number">0.03141652</span> <span class="number">0.04641443</span></span><br><span class="line">  <span class="number">0.09472076</span> <span class="number">0.05524434</span> <span class="number">0.05206043</span> <span class="number">0.04973644</span>]</span><br><span class="line"> [<span class="number">0.42659055</span> <span class="number">0.20701571</span> <span class="number">0.24488317</span> <span class="number">0.37724128</span> <span class="number">0.20308374</span> <span class="number">0.3000337</span></span><br><span class="line">  <span class="number">0.6122971</span>  <span class="number">0.35711226</span> <span class="number">0.33653076</span> <span class="number">0.32150798</span>]</span><br><span class="line"> [<span class="number">0.15130018</span> <span class="number">0.0734229</span>  <span class="number">0.08685347</span> <span class="number">0.13379732</span> <span class="number">0.07202834</span> <span class="number">0.10641387</span></span><br><span class="line">  <span class="number">0.2171653</span>  <span class="number">0.1266581</span>  <span class="number">0.1193584</span>  <span class="number">0.11403022</span>]</span><br><span class="line"> [<span class="number">0.14715983</span> <span class="number">0.07141367</span> <span class="number">0.08447671</span> <span class="number">0.13013594</span> <span class="number">0.07005727</span> <span class="number">0.10350184</span></span><br><span class="line">  <span class="number">0.21122253</span> <span class="number">0.12319208</span> <span class="number">0.11609214</span> <span class="number">0.11090977</span>]</span><br><span class="line"> [<span class="number">0.65455427</span> <span class="number">0.31764186</span> <span class="number">0.37574514</span> <span class="number">0.57883347</span> <span class="number">0.31160871</span> <span class="number">0.46036729</span></span><br><span class="line">  <span class="number">0.93949967</span> <span class="number">0.54794781</span> <span class="number">0.51636785</span> <span class="number">0.49331711</span>]</span><br><span class="line"> [<span class="number">0.27611547</span> <span class="number">0.13399321</span> <span class="number">0.15850335</span> <span class="number">0.2441736</span>  <span class="number">0.1314482</span>  <span class="number">0.19420014</span></span><br><span class="line">  <span class="number">0.39631609</span> <span class="number">0.23114487</span> <span class="number">0.21782327</span> <span class="number">0.2080996</span> ]</span><br><span class="line"> [<span class="number">0.25204989</span> <span class="number">0.12231468</span> <span class="number">0.14468857</span> <span class="number">0.22289201</span> <span class="number">0.11999149</span> <span class="number">0.17727411</span></span><br><span class="line">  <span class="number">0.36177412</span> <span class="number">0.21099883</span> <span class="number">0.19883831</span> <span class="number">0.18996213</span>]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑一个由两个向量描述的路径<code>(X,Y)</code>，如何用等距样例(equidistant samples)对其进行采样(sample)?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.sumsum(), np.interp</span></span><br><span class="line">phi = np.arange(<span class="number">0</span>, <span class="number">10</span>*np.pi, <span class="number">0.1</span>)</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">x = a*phi*np.cos(phi)</span><br><span class="line">y = a*phi*np.sin(phi)</span><br><span class="line"></span><br><span class="line">dr =(np.diff(x)**<span class="number">2</span> + np.diff(y)**<span class="number">2</span>)**<span class="number">.5</span></span><br><span class="line">r = np.zeros_like(x)</span><br><span class="line">r[<span class="number">1</span>:] = np.cumsum(dr) <span class="comment"># integrate path</span></span><br><span class="line"></span><br><span class="line">r_int = np.linspace(<span class="number">0</span>, r.max(), <span class="number">200</span>) <span class="comment"># regular spaced path</span></span><br><span class="line">x_int = np.interp(r_int, r, x) <span class="comment"># integrate path</span></span><br><span class="line">y_int = np.interp(r_int, r, y)</span><br><span class="line"></span><br><span class="line">结果：</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="19">
+<li><p>给定整数<code>n</code>和<code>2D</code>数组<code>X</code>，从<code>X</code>中选择可以解释为具有<code>n</code>度的多项分布的绘制的行，即，仅包含整数并且总和为<code>n</code>的行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.logical_and.reduce(), np.mod()</span></span><br><span class="line">X = np.asarray([[<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">3.0</span>, <span class="number">8.0</span>], [<span class="number">2.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>], [<span class="number">1.5</span>, <span class="number">2.5</span>, <span class="number">1.0</span>, <span class="number">1.0</span>]])</span><br><span class="line">n = <span class="number">4</span></span><br><span class="line">M = np.logical_and.reduce(np.mod(X, <span class="number">1</span>) == <span class="number">0</span>, axis=<span class="number">-1</span>)</span><br><span class="line">M &amp;= (X.sum(axis=<span class="number">-1</span>) == n)</span><br><span class="line">print(X[M])</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[[<span class="number">2.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span>]]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="20">
+<li><p>计算<code>1D</code>阵列<code>X</code>的平均值的自举<code>95％</code>置信区间（即，对替换<code>N</code>次的阵列的元素进行重新采样，计算每个样本的平均值，然后计算均值上的百分位数）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.randn(<span class="number">100</span>) <span class="comment"># random 1D array</span></span><br><span class="line">N = <span class="number">1000</span> <span class="comment"># number of bootstrap samples</span></span><br><span class="line">idx = np.random.randint(<span class="number">0</span>, X.size, (N, X.size))</span><br><span class="line">means = X[idx].mean(axis=<span class="number">1</span>)</span><br><span class="line">confint = np.percentile(means, [<span class="number">2.5</span>, <span class="number">97.5</span>])</span><br><span class="line"><span class="keyword">print</span> (confint)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[<span class="number">0.06141008</span> <span class="number">0.46613253</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>欢迎转载交流，拒绝一切形式的复制抄袭。</p>
+<p>欢迎来信交流||指教。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/numpy100-ti-zhi-81-100/>http://zivblog.top/passages/numpy100-ti-zhi-81-100/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-04T14:35:28+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Mar 4, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/numpy100-ti-zhi-81-100/&title=Numpy100题之81~100 - Ziv（瓶子）&summary=学习笔记
+答案整理
+原文地址：https://zhuanlan.zhihu.com/p/76186124
+总结：有些操作过分为了操作而操作，使用频率不高，不必花费过多时间在上面"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/numpy100-ti-zhi-81-100/&title=Numpy100题之81~100 - Ziv（瓶子）&summary=学习笔记
+答案整理
+原文地址：https://zhuanlan.zhihu.com/p/76186124
+总结：有些操作过分为了操作而操作，使用频率不高，不必花费过多时间在上面"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/numpy100-ti-zhi-81-100/&title=Numpy100题之81~100 - Ziv（瓶子）&summary=学习笔记
+答案整理
+原文地址：https://zhuanlan.zhihu.com/p/76186124
+总结：有些操作过分为了操作而操作，使用频率不高，不必花费过多时间在上面"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/conda-xu-ni-huan-jing-chuang-jian/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>conda创建虚拟环境</p>
+                <p class='content'>conda创建虚拟环境
+
+
+
+conda是什么？
+
+简单来说，conda就是一个Python包的管理工具，用于管理Python的各种工具包；同时conda还可以用于虚拟环境之间的创建和切换，可以...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/numpy100-ti-zhi-61-80/'>
+                <p class='title'>Numpy100题之61-80<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>学习笔记
+答案整理
+原文地址：https://zhuanlan.zhihu.com/p/76186124
+
+
+
+从数组中的给定值中找出最近的值
+12345678910# 使用到abs()、fla...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Numpy100题之81~100',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

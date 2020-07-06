@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>RNN及LSTM理解 - Ziv（瓶子）</title>
+  
+    <meta name="keywords" content="Artificial Intelligence">
+  
+  
+    <meta name="description" content="RNN &amp; LSTM ">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Ziv（瓶子）">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/passages/rnn-ji-lstm-li-jie/">
+      RNN及LSTM理解
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="http://img2.imgtn.bdimg.com/it/u=2615171049,1404391067&fm=26&gp=0.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>深度学习</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 27, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>RNN &amp; LSTM </p>
+<a id="more"></a>
+
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h4 id="为什么要使用神经网络呢？"><a href="#为什么要使用神经网络呢？" class="headerlink" title="为什么要使用神经网络呢？"></a>为什么要使用神经网络呢？</h4><ul>
+<li><p>自动提取特征</p>
+<blockquote>
+<p>很多人可能会有类似的疑问，机器学习已经可以解决绝大部分问题了，为什么还要使用多种神经网络呢？</p>
+<p>​    我们来回想一下，在传统机器学习模型的搭建过程中，我们首先要把数据处理成能够输入到模型中的形式，这一步我们称作特征工程。而且在很多时候时候，特征工程占据了我们整个项目的绝大多数时间。特征数目过少，我们会无法精确的完成任务；特征数目过多，又会导致模型的泛化能力下降。也就是说，特征构造的好坏直接决定了我们模型的上限，最终还是由“人”来完成的绝大部分工作。</p>
+<p>​    神经网络的出现，使我们不需要做大量的特征工程的工作，我们只需要直接把数据灌进神经网络中，它就会在训练的过程中自我修正，自动学习到需要的特征。</p>
+</blockquote>
+</li>
+<li><p>数据格式的简易性</p>
+<blockquote>
+<p>​    传统的机器学习中，我们需要对数据进行一些处理，比如归一化、格式的转化等</p>
+<p>​    而在神经网络中，我们可以直接把数据投入其中，不需要对数据进行大量额外的处理</p>
+</blockquote>
+</li>
+<li><p>调参的工作量大大减小</p>
+<blockquote>
+<p>​    在机器学习中，每个参数的调整都拥有背后的理论依据，我们想要将参数调整到一个较好的状态，需要掌握很扎实的算法知识</p>
+<p>​    对于一个简单的三层神经网络来说，我们只需要随机初始化给每一个神经元一个权重和偏执项，大量的参数调整工作在网络的自学习过程中会自动实现</p>
+</blockquote>
+</li>
+<li><p>下面会简单记录一下在学习循环神经网络（RNN）及长短期记忆网络（LSTM）过程中的一些想法</p>
+</li>
+</ul>
+<h3 id="循环神经网络（RNN）"><a href="#循环神经网络（RNN）" class="headerlink" title="循环神经网络（RNN）"></a>循环神经网络（RNN）</h3><ul>
+<li><p>循环神经网络是由<code>John Hopfield</code>等人提出来的神经网络模型</p>
+</li>
+<li><p>它的最大不同之处就在于它的连接存在着大量的环路，信息在传递的过程中有很大概率在网络中保留；而人工神经网络和卷积神经网络，它们工作的前提是：元素之间相互独立，输入输出之间互不干扰，因此相比于<code>CNN</code>等，<code>RNN</code>就具有了“记忆”的功能，也就拥有了处理对序列信息敏感的数据，例如音频、文本等</p>
+</li>
+<li><p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5CRNN.jpg" alt></p>
+<blockquote>
+<p>​    如上图所示，循环神经网络的最大特点就是它的隐含层中包含大量的循环连接</p>
+<p>​    也就是说输入t时刻的输入$X_t$经过输入层（变为$X_tW_{Xt}$）进入隐含层，而隐含层节点当前时刻的输出$h_t$并不是仅仅与输入层过来的$X_tW_{Xt}$有关，还与上一时刻的输出$h_{t-1}$有关，也就是说这两项共同决定了隐藏层的输出</p>
+<p>​    在隐含层和输出层的最后一步运算都要经过一个非线性的映射，即激活函数，可以是sigmod或这其他函数</p>
+<p>​    S时刻的输出可以表示为：$S_t = softmax(softmax(W_{Xh}X_t + W_{hh}h_{t-1}) * W_{hY})$</p>
+<p>​    在这里$W_{Xh},  W_{hh}, W_{hY}$分别表示的是输入层到隐含层的权重，隐含层内上一时刻输出连接到当前时刻输出的权重，隐含层输出到输出层的权重</p>
+</blockquote>
+</li>
+<li><p>使用Pytorch实现简单的RNN</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleRNN</span><span class="params">(nn.module)</span>:</span></span><br><span class="line">    <span class="comment"># 初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input_size, hidden_size, output_size, num_layers=<span class="number">1</span>)</span>:</span></span><br><span class="line">        <span class="comment"># 定义</span></span><br><span class="line">        super(SimpleRNN, self).__init__()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 超参数定义</span></span><br><span class="line">        self.hidden_size = hidden_size</span><br><span class="line">        self.num_layers = num_layers</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 各层网络：三层，分别是embedding、rnn层、全连接输出层</span></span><br><span class="line">        self.embedding = nn.Embedding(input_size, hidden_size)</span><br><span class="line">        <span class="comment"># batch_size表示可以让输入张量的第一个维度表示batch指标，默认是时间</span></span><br><span class="line">        self.rnn = nn.RNN(hidden_size, hidden_size, num_layers, batch_first= <span class="literal">True</span>)  </span><br><span class="line">        self.fc = nn.Linear(hidden_size, output_size)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># logsoftmax层</span></span><br><span class="line">        self.softmax = nn.LogSoftmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 前向运算过程(当前的输入， 上一时刻的输出)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input, hidden)</span>:</span></span><br><span class="line">        <span class="comment"># embedding层的计算</span></span><br><span class="line">        <span class="comment"># input的尺寸是：(batch_size, num_step, data_dim)</span></span><br><span class="line">        x = self.embedding(input)</span><br><span class="line">        <span class="comment"># x的尺寸是：(batch_size, num_step, hidden_size)</span></span><br><span class="line">        output, hidden = self.rnn(x, hidden)</span><br><span class="line">        <span class="comment"># output的尺寸：(batch_size, num_step, hidden_size)</span></span><br><span class="line">        output = output[:, <span class="number">-1</span>, :]   <span class="comment"># 获取RNN最后一个时刻的隐含层状态作为这一层的输出</span></span><br><span class="line">        <span class="comment"># output的尺寸：(batch_size, hidden_size)</span></span><br><span class="line">        <span class="comment"># 输入最后一层全连接网络</span></span><br><span class="line">        output = self.fc(output)</span><br><span class="line">        <span class="comment"># output尺寸：(batch_size, output_size)</span></span><br><span class="line">        <span class="comment"># softmax函数</span></span><br><span class="line">        output = self.softmax(output)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> output, hidden</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化隐含层神经单元</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initHidden</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Variable(torch.zeros(self.num_layers, <span class="number">1</span>, self.hidden_size))</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">rnn层：当第一个维度的尺寸大于一的时候，RNN就会运行多步</span></span><br><span class="line"><span class="string">而RNN的输出output的维度是随着输入x变化的，也就是说，如果x执行的是t个步骤，那么output中就包含了t步的每一步RNN隐含层的输出</span></span><br><span class="line"><span class="string">所以要取最后一个时刻的隐含层状态作为该层的输出</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="keyword">if</span> __name__ = <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># 简单使用</span></span><br><span class="line">    rnn = SimpleRNN(input_size=<span class="number">1</span>, hidden_size=<span class="number">2</span>, output_size=<span class="number">26</span>)</span><br><span class="line">    <span class="comment"># 交叉熵损失函数</span></span><br><span class="line">    criterion = torch.nn.NLLLoss()</span><br><span class="line">    <span class="comment"># adam优化算法</span></span><br><span class="line">    optimizer = torch.optim.Adam(rnn.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">    loss = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 初始化隐含层神经单元</span></span><br><span class="line">    hidden = rnn.initHidden()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对每一个序列的所有字符进行循环</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(len(seq)<span class="number">-1</span>):</span><br><span class="line">        <span class="comment"># 当前自负作为输入，下一字符作为标签</span></span><br><span class="line">        x = Variable(torch.LongTensor([seq[t]]).unsqueeze(<span class="number">0</span>))</span><br><span class="line">        <span class="comment"># x尺寸：(batch_size=1, time_steps=1, data_dimension=1)</span></span><br><span class="line">        y = Variable(torch.LongTensor([seq[t+<span class="number">1</span>]]))</span><br><span class="line">        <span class="comment"># y尺寸：(batch_size=1, data_dimension=1)</span></span><br><span class="line">        output, hidden = rnn(x, hidden)</span><br><span class="line">        <span class="comment"># output尺寸：(batch_size, output_size=26)</span></span><br><span class="line">        <span class="comment"># hidden尺寸：(layer_size=1, batch_size=1, hidden_size)</span></span><br><span class="line">        loss += criterion(output, y)    <span class="comment"># 计算损失函数</span></span><br><span class="line">        loss = <span class="number">1.0</span> * loss/len(seq)      <span class="comment"># 计算每字符的损失数值</span></span><br><span class="line"></span><br><span class="line">        optimizer.zero_grad()       <span class="comment"># 梯度清空</span></span><br><span class="line">        loss.backward()     <span class="comment"># 反向传播</span></span><br><span class="line"></span><br><span class="line">        optimizer.step()</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="长短期记忆网络"><a href="#长短期记忆网络" class="headerlink" title="长短期记忆网络"></a>长短期记忆网络</h3><ul>
+<li><p>虽然<code>RNN</code>已经能解决记忆问题了，但是从实践运行的角度来看，<code>RNN</code>的记忆能力有限，只能记住几十部以内的模式，无法完成更长时间的记忆。</p>
+</li>
+<li><p>直观来讲，是因为每个隐含层单元计算的最后一步都要进过一个非线性激活函数，而这些函数大多输出一个位于[0, 1]之间的数，因此输入值只能保留一个分数进行输出，多步下来就会导致数值（信息）衰减的很快。</p>
+</li>
+<li><p><code>LSTM</code>与<code>RNN</code>的区别就是，<code>LSTM</code>使用的是经过改造的RNN的隐藏层单元。既然<code>RNN</code>爱忘事，那么我们就想些办法阻止它，也就是<code>LSTM</code>中加入的门控开关：<strong>输入门、输出门、遗忘门</strong>。</p>
+</li>
+<li><p>下面对<code>LSTM</code>的具体内部细节做一下讲解。</p>
+</li>
+<li><p>下面是简单<code>RNN</code>网络的架构图</p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm1.png" alt></p>
+</li>
+<li><p><code>LSTM</code>在<code>RNN</code>的基础上引入节点状态信息，并通过遗忘门和输入们更新节点状态，最后通过输出门控制更新后的节点状态信息输出，如下图</p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm2.png" alt></p>
+<blockquote>
+<p>贯穿在图上方的水平线为细胞状态，黄色的矩形是学习得到的网络层，粉色圈表示运算操作，黑色的箭头表示向量的传输</p>
+</blockquote>
+</li>
+<li><p>首先看一下<strong>遗忘门</strong></p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm3.png" alt></p>
+<blockquote>
+<p>​    遗忘门决定哪些信息需要从细胞状态中被遗忘</p>
+<p>​    遗忘门以上一层的输出$h_{t-1}$和本层的输入$x_t$作为输入，通过一个<code>sigmod</code>函数，得到输出$f_t$，输出值表示的是上一层的状态被遗忘的概率</p>
+<p>​    $f_t = sigmod(W_f \cdot [h_{t-1}, x_t] + b_f)$    </p>
+</blockquote>
+</li>
+<li><p>之后是<strong>输入门</strong></p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm4.png" alt></p>
+<blockquote>
+<p>​    输入门包含两部分，第一部分使用<code>sigmod</code>函数，输出为$i_t$；第二部分使用<code>tanh</code>函数，输出为$C_t$</p>
+<p>​    可以理解成$C^{“}_t$是网络中本层的输出，$i_t$是概率，表示的是$C^{“}_t$在网络中被保留的程度</p>
+<p>​    所以$i_t*C^{“}_t$表示的就是该层被保留的程度</p>
+<p>​    $i_t = sigmod(W_i \cdot [h_{t-1}, x_t] + b_i)$</p>
+<p>​    $C^{‘’}<em>t = tanh(W_c \cdot [h</em>{h-1}, x_t] +b_C)$</p>
+</blockquote>
+</li>
+<li><p>最后的是输出门</p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm6.png" alt></p>
+<blockquote>
+<p>​    输出门用来控制该层的细胞状态有多少被过滤。</p>
+<p>​    首先使用<code>sigmod</code>函数得到一个[0, 1]之间的概率$o_t$，接着将细胞状态$C_t$通过<code>tanh</code>函数处理后与$o_t$相乘，得到本层的输出（输出会传入下一个细胞作为下个细胞的一个输入，也会直接输出到下一层）</p>
+<p>​    $o_t = sigmod(W_o \cdot [h_{t-1}, x_t] + b_o)$</p>
+<p>​    $h_t = o_t * tanh(C_t)$    </p>
+</blockquote>
+</li>
+<li><p>另外</p>
+<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm5.png" alt></p>
+<blockquote>
+<p>​    接上面的知识，$f_t$是遗忘门的输出，控制着上层细胞状态$C_{t-1}$被遗忘的程度，即$f_t*C_{t-1}$表示上一个细胞状态在本细胞状态中的角色</p>
+<p>​    另外，$i_t * C_t$表示的是本细胞状态的另一部分</p>
+<p>​    所以，本细胞的细胞状态是$C_t = f_t * C_{t-1} + i_t * C^{“}_t$</p>
+</blockquote>
+</li>
+<li><p>使用<code>Pytorch</code>实现简单的<code>LSTM</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleLSTM</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input_size, hidden_size, output_size, num_layers=<span class="number">1</span>)</span>:</span></span><br><span class="line">        super(SimpleLSTM, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.hidden_size = hidden_size</span><br><span class="line">        self.num_layers = num_layers</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 三层神经网络</span></span><br><span class="line">        self.embedding = nn.Embedding(input_size, hidden_size)</span><br><span class="line">        self.lstm = nn.LSTM(hidden_size, hidden_size, num_layers, batch_first=<span class="literal">True</span>)</span><br><span class="line">        self.fc = nn.Linear(hidden_size, output_size)</span><br><span class="line">        self.softmax = nn.LogSoftmax(dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input, hidden_size)</span>:</span></span><br><span class="line">        x = self.embedding(input)</span><br><span class="line"></span><br><span class="line">        output, hidden = self.lstm(x, hidden)</span><br><span class="line">        output = output[:, <span class="number">-1</span>, :]</span><br><span class="line"></span><br><span class="line">        output = self.fc(output)</span><br><span class="line">        output = self.softmax(output)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> output, hidden</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initHidden</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 对隐含层单元的初始化</span></span><br><span class="line">        hidden = Variable(torch.zeros(self.num_layers, <span class="number">1</span>, self.num_layers))</span><br><span class="line">        <span class="comment"># 对隐含单元内部的状态cell的初始化</span></span><br><span class="line">        cell = Variable(torch.zeros(self.num_layers, <span class="number">1</span>, self.hidden_size))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (hidden, cell)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><p>《Pytorch深度学习原理与实战》</p>
+</li>
+<li><p>图片来源于网络</p>
+</li>
+</ul>
+<p>欢迎转载交流，拒绝一切形式的复制抄袭。</p>
+<p>欢迎来信交流||指教。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/rnn-ji-lstm-li-jie/>http://zivblog.top/passages/rnn-ji-lstm-li-jie/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:40:29+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 6, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Artificial-Intelligence/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Artificial Intelligence</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/rnn-ji-lstm-li-jie/&title=RNN及LSTM理解 - Ziv（瓶子）&summary=RNN &amp; LSTM "
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/rnn-ji-lstm-li-jie/&title=RNN及LSTM理解 - Ziv（瓶子）&summary=RNN &amp; LSTM "
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/rnn-ji-lstm-li-jie/&title=RNN及LSTM理解 - Ziv（瓶子）&summary=RNN &amp; LSTM "
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/passages/ji-qi-xue-xi-zhi-zhi-chi-xiang-liang-ji/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习之支持向量机</p>
+                <p class='content'>支持向量机
+
+
+
+
+算法要点
+支持向量机学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面
+对训练数据集找到几何间隔最大的超平面意味着以充分大的置信度对训练数据进行分类
+支持...</p>
+              </a>
+            
+            
+              <a class='next' href='/passages/ji-qi-xue-xi-zhi-luo-ji-hui-gui/'>
+                <p class='title'>机器学习之逻辑回归<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>逻辑回归
+
+
+逻辑回归
+逻辑回归，虽然名字中带有“回归”的字样，但是它并不是做回归任务的，而是用回归的思想来做分类
+
+根据数据对分类边界线建立回归公式，以此进行分类
+
+算法概述
+
+以二分类为例，...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'RNN及LSTM理解',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要使用神经网络呢？"><span class="toc-text">为什么要使用神经网络呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环神经网络（RNN）"><span class="toc-text">循环神经网络（RNN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长短期记忆网络"><span class="toc-text">长短期记忆网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:jfwang9@stu.suda.edu.cn"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/cn-Wziv"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作為主題，總訪問量為
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="http://zivblog.top">Copyright © 2017-2020 Mr. Pingzi</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
