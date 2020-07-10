@@ -16,12 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>Leetcode之不同的二叉搜索树Ⅱ - Ziv（瓶子）</title>
+    <title>Leetcode之第一个错误的版本 - Ziv（瓶子）</title>
   
     <meta name="keywords" content="leetcode,Algorithm">
   
-  
-    <meta name="description" content="Unique Binary Search Trees Ⅱ">
   
 
   <!-- feed -->
@@ -413,8 +411,8 @@
         
           
   <h1 class="title">
-    <a href="/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/">
-      Leetcode之不同的二叉搜索树Ⅱ
+    <a href="/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/">
+      Leetcode之第一个错误的版本
     </a>
   </h1>
 
@@ -452,7 +450,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 3, 2020</p>
+    <p>发布于：Jul 10, 2020</p>
   </a>
 </div>
 
@@ -476,51 +474,41 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <p>Unique Binary Search Trees Ⅱ</p>
-<a id="more"></a>
+          <a id="more"></a>
 
-<h3 id="Unique-Binary-Search-Trees-Ⅱ"><a href="#Unique-Binary-Search-Trees-Ⅱ" class="headerlink" title="Unique Binary Search Trees Ⅱ"></a>Unique Binary Search Trees Ⅱ</h3><ul>
+<h3 id="First-Bad-Version"><a href="#First-Bad-Version" class="headerlink" title="First Bad Version"></a>First Bad Version</h3><ul>
 <li>code with Python</li>
-<li>title number：095</li>
+<li>title number：278</li>
 </ul>
+<br>
+
 <h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
-<li><p>给定一个整数，生成由<code>1, ..., n</code>为结点的<strong>二叉搜索树</strong></p>
-</li>
-<li><p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：3</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">[</span><br><span class="line">	[1, null, 3, 2],</span><br><span class="line">	[3, 2, null, 1],</span><br><span class="line">	[3, 1, null, null, 2],</span><br><span class="line">	[2, 1, 3],</span><br><span class="line">	[1, null, 2, null, 3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对应于以下五种不同结构的二叉搜索树</p>
-<img src="/.top//1.png" style="zoom:100%;">
-
-</li>
+<li>给定一个长为<code>n</code>的序列，对应一个产品编号为<code>1~n</code>的<code>n</code>个版本</li>
+<li>其中有一个版本出错，会导致后续版本都有错误</li>
+<li>请找出第一个出现错误的版本，并尽量减少判断的次数</li>
 </ul>
+<br>
+
 <h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
-<li>首先，我们要了解<strong>二叉搜索树</strong>的一个比较好的性质，即在左右子树不为空时：<ul>
-<li>左子树中的值均小于根节点的值</li>
-<li>右子树中的值均大于根节点的值</li>
+<li>请原谅我第一反应竟然是顺序遍历，并依次判断当前版本是否为错误版本（很明显会超时）</li>
+<li>通过二分搜索来减少一半的搜索空间，以此来减少时间复杂度</li>
+<li>对于情况一：</li>
 </ul>
-</li>
-<li>根据二叉树的性质，我们可以使用<strong>递归</strong>的方式来构建二叉搜索树<ul>
-<li>遍历列表<code>1, ...,n</code>，尝试将每一个结点作为根节点，其左边的子列表作为左子树，右边的自列表作为右子树</li>
-<li>对左右子树进行同样的处理</li>
-<li>至列表只剩一个数或列表为空</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br><span class="line">G G G G G G B B B</span><br><span class="line">|       |       |</span><br><span class="line">l      mid      r</span><br><span class="line"></span><br><span class="line">对mid位置的判断为true，因此我们知道mid左边的一定全是未出现错误的版本，只需去右半部分进行搜索即可。即l = mid + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于情况二：</li>
 </ul>
-</li>
-<li>例如：把 1 作为根节点，[ ] 空作为左子树，[ 2 … n ] 的所有可能作为右子树；2 作为根节点，[ 1 ] 作为左子树，[ 3…n ] 的所有可能作为右子树</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br><span class="line">G G B B B B B B B</span><br><span class="line">|       |       |</span><br><span class="line">l      mid      r</span><br><span class="line">对mid位置的判断为false，因此我们知道右边的一定全是出现错误的版本，只需去左半部分进行搜索即可。即r = mid</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要注意的是，在初始时需要将<code>l=0, r=n</code>，当两个相等时，所指方向即为第一个错误的版本号</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generateTrees</span><span class="params">(self, n: int)</span> -&gt; List[TreeNode]:</span></span><br><span class="line">    <span class="comment"># n为0</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getAns</span><span class="params">(start, end)</span>:</span></span><br><span class="line">        ans = []</span><br><span class="line">  		<span class="comment"># 子列表为空格</span></span><br><span class="line">        <span class="keyword">if</span> start &gt; end:</span><br><span class="line">            <span class="keyword">return</span> [<span class="literal">None</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 遍历列表，尝试将每个元素都作为根结点</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, end+<span class="number">1</span>):</span><br><span class="line">            left_tree = getAns(start, i<span class="number">-1</span>)</span><br><span class="line">            right_tree = getAns(i+<span class="number">1</span>, end)</span><br><span class="line">            <span class="keyword">for</span> node_l <span class="keyword">in</span> left_tree:</span><br><span class="line">                <span class="keyword">for</span> node_r <span class="keyword">in</span> right_node:</span><br><span class="line">                    root = TreeNode(i)</span><br><span class="line">                    root.left = node_l</span><br><span class="line">                    root.right = node_r</span><br><span class="line">                    ans.append(root)</span><br><span class="line">		<span class="keyword">return</span> ans</span><br><span class="line">                    </span><br><span class="line">    <span class="keyword">return</span> getAns(<span class="number">1</span>, n)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">firstBadVersion</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">    left, right = <span class="number">0</span>, n</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> left != right:</span><br><span class="line">        mid = int(left + (right - left) / <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> isBadVersion(mid):</span><br><span class="line">            right = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h4><ul>
-<li>其实还可以用<strong>动态规划</strong>解决<ul>
-<li>定义<code>dp[i][j]</code>表示第<code>i~j</code>个数字的所有可能情况，所以<code>dp[1][n]</code>即为结果集</li>
-<li>初始化：若<code>i==j</code>则添加结点<code>val</code>，<code>i&gt;j</code>初始化为空列表，其他情况初始化为<code>[None]</code></li>
-<li>状态转移方程，<code>dp[i][j] = dp[i+1][j]+...dp[j[j]]</code>（<code>i~j</code>之间每个值为顶点的情况之和）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generateTrees</span><span class="params">(self, n: int)</span> -&gt; List[TreeNode]:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    dp = []</span><br><span class="line">    <span class="comment"># 初始化dp数组</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n+<span class="number">1</span>):</span><br><span class="line">        dp.append([])</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, n+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> i == j:</span><br><span class="line">                dp[i].append([TreeNode(i)])</span><br><span class="line">            <span class="keyword">elif</span> i &lt; j:</span><br><span class="line">                dp[i].append([])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dp[i].append([<span class="literal">None</span>])</span><br><span class="line">                </span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = [<span class="literal">None</span>]</span><br><span class="line">    <span class="comment"># 反向遍历</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">            <span class="comment"># i~j每个结点为顶点的情况</span></span><br><span class="line">            <span class="keyword">for</span> r <span class="keyword">in</span> range(i, j+<span class="number">1</span>):</span><br><span class="line">                <span class="comment"># 边界判断</span></span><br><span class="line">                left = r+<span class="number">1</span> <span class="keyword">if</span> r &lt; j <span class="keyword">else</span> r</span><br><span class="line">                <span class="comment"># 左右子树的排列组合</span></span><br><span class="line">                <span class="keyword">for</span> x <span class="keyword">in</span> dp[i][r<span class="number">-1</span>]:</span><br><span class="line">                    <span class="keyword">for</span> y <span class="keyword">in</span> dp[left][j]：</span><br><span class="line">                    	node = TreeNode(r)</span><br><span class="line">                    	node.left = x</span><br><span class="line">                    	node.right = y</span><br><span class="line">                        <span class="keyword">if</span> r == j:</span><br><span class="line">                            node.right = <span class="literal">None</span></span><br><span class="line">                        <span class="comment"># 添加结果</span></span><br><span class="line">                        dp[i][j].append(node)</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">1</span>][n]</span><br></pre></td></tr></table></figure>
+
           
             <div class='article_footer'>
               
@@ -556,7 +544,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://zivblog.top/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/>http://zivblog.top/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/</a></p>
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/>http://zivblog.top/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/</a></p>
           
         
       </blockquote>
@@ -607,10 +595,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:09:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-10T12:50:39+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 6, 2020</p>
+    <p>更新于：Jul 10, 2020</p>
   </a>
 </div>
 
@@ -637,7 +625,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/&title=Leetcode之不同的二叉搜索树Ⅱ - Ziv（瓶子）&summary=Unique Binary Search Trees Ⅱ"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/&title=Leetcode之第一个错误的版本 - Ziv（瓶子）&summary="
           
           >
           
@@ -649,7 +637,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/&title=Leetcode之不同的二叉搜索树Ⅱ - Ziv（瓶子）&summary=Unique Binary Search Trees Ⅱ"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/&title=Leetcode之第一个错误的版本 - Ziv（瓶子）&summary="
           
           >
           
@@ -661,7 +649,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu-ii/&title=Leetcode之不同的二叉搜索树Ⅱ - Ziv（瓶子）&summary=Unique Binary Search Trees Ⅱ"
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/&title=Leetcode之第一个错误的版本 - Ziv（瓶子）&summary="
           
           >
           
@@ -685,30 +673,20 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/passages/leetcode-zhi-bu-tong-de-er-cha-sou-suo-shu/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Leetcode之不同的二叉搜索树</p>
-                <p class='content'>Unique Binary Search Trees
+            
+              <a class='next' href='/passages/leetcode-zhi-sou-suo-er-wei-ju-zhen/'>
+                <p class='title'>Leetcode之搜索二维矩阵<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Search a 2D Matrix
 
 
-Unique Binary Search Trees
+Search a 2D Matrix
 code with Python
-title number：096
+title number：74
+
+
 
 读题
-给定一...</p>
-              </a>
-            
-            
-              <a class='next' href='/passages/leetcode-zhi-er-cha-shu-de-zhong-xu-bian-li/'>
-                <p class='title'>Leetcode之二叉树的中序遍历<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>Binary Tree Inorder Traversal
-
-
-Binary Tree Inorder Traversal
-code with Python
-title number：094
-
-...</p>
+编写算法，在二维矩阵中，判断是否存在...</p>
               </a>
             
           </div>
@@ -753,7 +731,7 @@ title number：094
 
   <script>
     window.subData = {
-      title: 'Leetcode之不同的二叉搜索树Ⅱ',
+      title: 'Leetcode之第一个错误的版本',
       tools: true
     }
   </script>
@@ -780,7 +758,7 @@ title number：094
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unique-Binary-Search-Trees-Ⅱ"><span class="toc-text">Unique Binary Search Trees Ⅱ</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路二"><span class="toc-text">思路二</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#First-Bad-Version"><span class="toc-text">First Bad Version</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li></ol></li></ol>
     </div>
   </section>
 
