@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>標籤：lintcode - Ziv（瓶子）</title>
+    <title>Tag: lintcode - Ziv（瓶子）</title>
   
   
 
@@ -491,34 +491,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h3 id="Search-For-Range"><a href="#Search-For-Range" class="headerlink" title="Search For Range"></a>Search For Range</h3><ul>
-<li>code with Python</li>
-<li>titile number： 60</li>
-</ul>
-<br>
-
-<h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
-<li>给定一个包含<code>n</code>个整数的排序数组，找出给定目标值<code>target</code>的起始和结束位置</li>
-<li>如果目标值不再数组中，则返回<code>[-1, -1]</code></li>
-<li>示例：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[5, 7, 7, 8, 8, 10], 8</span><br><span class="line">输出：[3, 4]</span><br><span class="line">解释：返回的是数组中目标值出现的起始位置的下标</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
-<li>有序数组中的查找，最先想到的是二分查找</li>
-<li>通过两次二分查找分别得到<code>target</code>的两个边界</li>
-<li>值得注意的是，两个边界要么都存在，要么都不存在</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">searchRange</span><span class="params">(self, A: List[int], target: int)</span> -&gt; List[int]:</span></span><br><span class="line">    <span class="keyword">if</span> len(A) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> [<span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line">    </span><br><span class="line">    result = []</span><br><span class="line">    </span><br><span class="line">    start, end = <span class="number">0</span>, len(A) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> start + <span class="number">1</span> &lt; end:</span><br><span class="line">        mid = int(start + (end - start) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> A[mid] &gt; target:</span><br><span class="line">            end = mid</span><br><span class="line">        <span class="keyword">elif</span> A[mid] &lt; target:</span><br><span class="line">            start = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            end = mid </span><br><span class="line">    <span class="comment"># 查找左边界</span></span><br><span class="line">    <span class="keyword">if</span> A[start] == target:</span><br><span class="line">        result.append(start)</span><br><span class="line">    <span class="keyword">elif</span> A[end] == target:</span><br><span class="line">        result.append(end)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result.append(<span class="number">-1</span>)</span><br><span class="line">        result.append(<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    start, end = <span class="number">0</span>, len(A) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> start + <span class="number">1</span> &lt; end:</span><br><span class="line">        mid = int(start + (end - start) / <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> A[mid] &gt; target:</span><br><span class="line">            end = mid</span><br><span class="line">        <span class="keyword">elif</span> A[mid] &lt; target:</span><br><span class="line">            start = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            start = mid </span><br><span class="line">    <span class="comment"># 查找右边界</span></span><br><span class="line">    <span class="keyword">if</span> A[end] == target:</span><br><span class="line">        result.append(end)</span><br><span class="line">    <span class="keyword">elif</span> A[start] == target:</span><br><span class="line">        result.append(start)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result.append(<span class="number">-1</span>)</span><br><span class="line">        result.append(<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> result   </span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-
-
+        <p>Search For Range</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/passages/lintcode-zhi-sou-suo-qu-jian/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -798,16 +780,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
