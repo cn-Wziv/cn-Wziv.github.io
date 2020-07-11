@@ -513,7 +513,7 @@
 </ul>
 <h3 id="解决方案or模型"><a href="#解决方案or模型" class="headerlink" title="解决方案or模型"></a>解决方案or模型</h3><ul>
 <li><p>先来看一下模型的结构图</p>
-<p><img src="%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5Cparsing_model.png" alt="model"></p>
+<p><img src="/passages/ji-yu-attention-de-fen-ceng-shen-jing-wang-luo-de-pian-zhang-fen-xi/%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5Cparsing_model.png" alt="model"></p>
 <blockquote>
 <p>我们来看一下模型的结构</p>
 <p>首先，最下面的<strong>分层双向LSTM</strong>，分别是EDU级别的Bi-LSTM和Span级别的Bi-LSTM</p>
@@ -528,7 +528,7 @@
 </blockquote>
 </li>
 <li><p>人工特征</p>
-<p><img src="%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5Cbase_feature.png" alt="handfeature"></p>
+<p><img src="/passages/ji-yu-attention-de-fen-ceng-shen-jing-wang-luo-de-pian-zhang-fen-xi/%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5Cbase_feature.png" alt="handfeature"></p>
 <blockquote>
 <p>之前的工作主要是通过使用特征来完成的</p>
 <p>并且之前Li的工作也显示一些<strong>基本的特征</strong>仍然是有效的</p>
@@ -549,8 +549,8 @@
 </blockquote>
 </li>
 <li><p>为什么使用双向LSTM</p>
-<p><img src="%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5CBiLSTM_EDU.png" alt="bi-lstm1"></p>
-<p><img src="%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5CBiLSTM_Span.png" alt="bi-lstm2"></p>
+<p><img src="/passages/ji-yu-attention-de-fen-ceng-shen-jing-wang-luo-de-pian-zhang-fen-xi/%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5CBiLSTM_EDU.png" alt="bi-lstm1"></p>
+<p><img src="/passages/ji-yu-attention-de-fen-ceng-shen-jing-wang-luo-de-pian-zhang-fen-xi/%E5%9F%BA%E4%BA%8EAttention%E7%9A%84%E5%88%86%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%AF%87%E7%AB%A0%E5%88%86%E6%9E%90%5CBiLSTM_Span.png" alt="bi-lstm2"></p>
 <blockquote>
 <p>discourse marker通常出现在文本单元的beginning和end，所以需要从两个方向来捕获</p>
 <p>LSTM虽然记忆能力比较强，但是序列末尾的token由于经过更少的遗忘，所以对整个表征的影响更大</p>

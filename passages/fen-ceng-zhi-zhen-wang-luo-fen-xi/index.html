@@ -493,7 +493,7 @@
 <li>对树结构中父节点和同层的兄弟节点之间的关系建模，以获得更合理的<code>decoder state</code></li>
 <li>同时指针网络能够捕获更长距离的依赖</li>
 </ul>
-<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><h4 id="Hierachical-Decoder"><a href="#Hierachical-Decoder" class="headerlink" title="Hierachical Decoder"></a>Hierachical Decoder</h4><p><img src="%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc3.png" alt="fc3"></p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><h4 id="Hierachical-Decoder"><a href="#Hierachical-Decoder" class="headerlink" title="Hierachical Decoder"></a>Hierachical Decoder</h4><p><img src="/passages/fen-ceng-zhi-zhen-wang-luo-fen-xi/%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc3.png" alt="fc3"></p>
 <ul>
 <li><p>相比于标准的<code>Pointer Networks</code>，这里的<code>decoder state</code>会更加合理</p>
 <blockquote>
@@ -503,7 +503,7 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="Dependency-Parsing"><a href="#Dependency-Parsing" class="headerlink" title="Dependency Parsing"></a>Dependency Parsing</h3><p><img src="%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc2.png" alt="fc2"></p>
+<h3 id="Dependency-Parsing"><a href="#Dependency-Parsing" class="headerlink" title="Dependency Parsing"></a>Dependency Parsing</h3><p><img src="/passages/fen-ceng-zhi-zhen-wang-luo-fen-xi/%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc2.png" alt="fc2"></p>
 <ul>
 <li><p>使用类似<code>Ma et al (2018)</code>工作中的encoder</p>
 <ul>
@@ -540,7 +540,7 @@
 <li><p>依存关系分析部分在此之前并无接触，所以总结可能存在问题</p>
 </li>
 </ul>
-<h4 id="Discourse-Parsing"><a href="#Discourse-Parsing" class="headerlink" title="Discourse Parsing"></a>Discourse Parsing</h4><p><img src="%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc4.png" alt="fc4"></p>
+<h4 id="Discourse-Parsing"><a href="#Discourse-Parsing" class="headerlink" title="Discourse Parsing"></a>Discourse Parsing</h4><p><img src="/passages/fen-ceng-zhi-zhen-wang-luo-fen-xi/%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc4.png" alt="fc4"></p>
 <ul>
 <li>模型的架构使用的是<code>Lin et al (2019)</code></li>
 <li>Encoder使用的5层的双向GRU，得到词的序列的<code>representation</code>，最后一个<code>hidden state</code>作为EDU的表征，最后得到输入句子的EDU表征的序列</li>
@@ -554,7 +554,7 @@
 <li>更进一步的说，2019年的两篇基于指针网络的论文的可测试level均为sentence level，说服性一般</li>
 <li>类似<code>encoder-decoder</code>形式的模型，可解释性一般</li>
 </ul>
-<h4 id="Dependency-Parsing与Discourse-Parsing"><a href="#Dependency-Parsing与Discourse-Parsing" class="headerlink" title="Dependency Parsing与Discourse Parsing"></a>Dependency Parsing与Discourse Parsing</h4><p><img src="%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc1.png" alt="fc1"></p>
+<h4 id="Dependency-Parsing与Discourse-Parsing"><a href="#Dependency-Parsing与Discourse-Parsing" class="headerlink" title="Dependency Parsing与Discourse Parsing"></a>Dependency Parsing与Discourse Parsing</h4><p><img src="/passages/fen-ceng-zhi-zhen-wang-luo-fen-xi/%E5%88%86%E5%B1%82%E6%8C%87%E9%92%88%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%5Cfc1.png" alt="fc1"></p>
 <ul>
 <li>相似之处是两者都是要建立树形结构</li>
 <li>不同之处<ul>

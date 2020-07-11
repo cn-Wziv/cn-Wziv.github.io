@@ -568,7 +568,7 @@
 <p>接上面的假设，对于第i个位置待预测的token，正常的情况下，前向AR可以看到的$[1, i-1]$的词。这里，我们的操作是，固定待预测的token，将其他的词进行排列。这样就可以用AR的单向方式来习得双向信息了</p>
 <p>这就是排列语言模型的含义</p>
 </blockquote>
-<p><img src="XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet2.png" alt="xlnet2"></p>
+<p><img src="/passages/xlnet-jian-dan-li-jie/XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet2.png" alt="xlnet2"></p>
 <ul>
 <li>尽管最为直接的方式是对序列进行排序之后挑选一部分作为输入，但实际上这样是不允许的，因为你不能在fine-tuning的时候对原始序列进行排序，所以输入的必须还是原始序列，所以我们选择在transformer的内部利用<code>attention mask</code></li>
 </ul>
@@ -579,7 +579,7 @@
 <p>以此类推，第二行中，2在第二个，只能看到3，所以三的位置未被mask</p>
 <p>。。。</p>
 </blockquote>
-<p><img src="XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet1.png" alt="xlnet1"></p>
+<p><img src="/passages/xlnet-jian-dan-li-jie/XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet1.png" alt="xlnet1"></p>
 <ul>
 <li>Two-stream Self-attention（双流自注意力机制）</li>
 </ul>
@@ -595,11 +595,11 @@
 <p>其中g中只有位置信息，作为self-attention中的Q</p>
 <p>h中包含内容信息，作为self-attention中的K和V</p>
 </blockquote>
-<p>  <img src="XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet3.png" alt="xlnet3"></p>
+<p>  <img src="/passages/xlnet-jian-dan-li-jie/XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet3.png" alt="xlnet3"></p>
 <blockquote>
 <p>如果模型只有一层的话，这样的Query stream就足够了，但是层数一旦多了之后，为了取得更高层的h，就需要Content Stream了。这时h同时作为Q、K、V</p>
 </blockquote>
-<p>  <img src="XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet4.png" alt="xlnet4"></p>
+<p>  <img src="/passages/xlnet-jian-dan-li-jie/XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet4.png" alt="xlnet4"></p>
 <blockquote>
 <p>对于上图，最下面的蓝色的content stream的输入是e(x)，就是x对应的词向量，不同的词对应不同的词向量</p>
 <p>旁边的query stream，这个和后面的Relative Segment Encoding有关，之后细讲</p>
@@ -629,7 +629,7 @@
 <p>首先因为训练transformer时，会将文本按一定长度处理成segment（段），这样的话，模型时无法学习到更长的上下文信息的。</p>
 <p>所以受RNN的启发，我们能否将前一段计算完成后，将其hidden state保存下来，在之后的分段计算时，将之前保存下来的hidden state和当前段的hidden state拼接起来作为Attention中的K和V，以此来获得更长的上下文信息</p>
 </blockquote>
-<p><img src="XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet5.png" alt="xlnet5"></p>
+<p><img src="/passages/xlnet-jian-dan-li-jie/XLNet%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cxlnet5.png" alt="xlnet5"></p>
 <blockquote>
 <p>对于上图，</p>
 <p>该段的前面隐藏层的输出，对应图上的灰色线</p>

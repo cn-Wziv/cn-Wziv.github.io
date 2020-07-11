@@ -527,7 +527,7 @@
 </blockquote>
 </li>
 <li><p>模型的结构图</p>
-<p><img src="ELMo%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Celmo1.jpg" alt="elmo1"></p>
+<p><img src="/passages/elmo-jian-dan-li-jie/ELMo%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Celmo1.jpg" alt="elmo1"></p>
 <blockquote>
 <p>最底层是单词的word embedding</p>
 <p>往上走是第一层双线LSTM中对应单词位置的embedding，这层编码单词的句法信息更多一些</p>
@@ -539,7 +539,7 @@
 </ul>
 <h4 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h4><ul>
 <li><p>对于每一个token，一个L层的BiLM要计算$2L+1$个表征</p>
-<p><img src="ELMo%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Celmo2.png" alt="elmo2"></p>
+<p><img src="/passages/elmo-jian-dan-li-jie/ELMo%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Celmo2.png" alt="elmo2"></p>
 </li>
 <li><p>在下游任务中，会把$R_k$压缩成一个向量：</p>
 <p>$ELMo_k^{task}$ = $E(R_k; \Theta^{task})$ = $\gamma^{task} \sum_{j=0}^L s_{j}^{task} h_{k, j}^{LM}$</p>

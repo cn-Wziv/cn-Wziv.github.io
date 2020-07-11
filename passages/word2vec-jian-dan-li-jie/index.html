@@ -606,7 +606,7 @@
 <blockquote>
 <p>CBOW就是使用中间词的上下文，使用上下文来预测中间的词，如图所示</p>
 </blockquote>
-<p><img src="word2vec%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cwv1.png" alt="wv1"></p>
+<p><img src="/passages/word2vec-jian-dan-li-jie/word2vec%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cwv1.png" alt="wv1"></p>
 <blockquote>
 <p>把中间词当作y，把窗口中的其他词当作x输入，x输入使用one-hot编码，</p>
 <p>通过一个隐层进行求和操作，之后通过激活函数softmax，计算每个单词的生成概率</p>
@@ -616,7 +616,7 @@
 </ul>
 <h5 id="skip-gram"><a href="#skip-gram" class="headerlink" title="skip-gram"></a>skip-gram</h5><ul>
 <li><p>与CBOW相反，使用当前词作为带有连续的投影层的对数线性分类器的输入，然后预测当前词之前和之后一定范围内的词。</p>
-<p><img src="word2vec%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cwv2.png" alt="wv2"></p>
+<p><img src="/passages/word2vec-jian-dan-li-jie/word2vec%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%5Cwv2.png" alt="wv2"></p>
 <blockquote>
 <p>把中间词作为x，把窗口中的其他词作为y，通过一个隐层接一个softmax激活函数来预测其他词的概率</p>
 </blockquote>

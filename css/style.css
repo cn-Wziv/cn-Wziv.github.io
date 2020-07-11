@@ -3383,7 +3383,7 @@ footer .copyright p {
 .l_main.no_sidebar {
   width: 100%;
   padding-right: 0;
-  max-width: 840px;
+  max-width: 1260px;
   margin: auto;
 }
 @media screen and (min-width: 2048px) {
@@ -3739,7 +3739,7 @@ footer .copyright p {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1500px;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -3891,7 +3891,7 @@ div.hoverbox:hover >div.target {
   height: 64px;
 }
 .l_header .nav-sub {
-  max-width: 1080px;
+  max-width: 1500px;
   margin: auto;
 }
 .l_header .nav-sub .title {
@@ -4277,7 +4277,7 @@ ul.list-v >li>a.active {
   right: calc(100% - 0.5 * 16px);
 }
 .l_header .wrapper {
-  max-width: 1080px;
+  max-width: 1500px;
   margin: auto;
 }
 @media screen and (min-width: 2048px) {

@@ -497,7 +497,7 @@
 <ul>
 <li>先进行一次对角线为轴的翻转，然后再进行一次以水平对称线为轴的翻转，即可</li>
 </ul>
-<p><img src="/.top//Leetcode%E4%B9%8B%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%5C1.png" alt> </p>
+<p><img src="/passages/leetcode-zhi-xuan-zhuan-tu-xiang/Leetcode%E4%B9%8B%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%5C1.png" alt> </p>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rotate</span><span class="params">(self, matrix: List[List[int]])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="comment"># 先沿着对角线翻转</span></span><br><span class="line">    n = len(matrix)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> (i, n):</span><br><span class="line">            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]</span><br><span class="line">    <span class="comment"># 再沿横对称线翻转</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> matrix:</span><br><span class="line">        m.reverse()</span><br></pre></td></tr></table></figure>

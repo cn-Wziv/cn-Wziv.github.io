@@ -507,7 +507,7 @@
 </li>
 <li><p>它的最大不同之处就在于它的连接存在着大量的环路，信息在传递的过程中有很大概率在网络中保留；而人工神经网络和卷积神经网络，它们工作的前提是：元素之间相互独立，输入输出之间互不干扰，因此相比于<code>CNN</code>等，<code>RNN</code>就具有了“记忆”的功能，也就拥有了处理对序列信息敏感的数据，例如音频、文本等</p>
 </li>
-<li><p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5CRNN.jpg" alt></p>
+<li><p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5CRNN.jpg" alt></p>
 <blockquote>
 <p>​    如上图所示，循环神经网络的最大特点就是它的隐含层中包含大量的循环连接</p>
 <p>​    也就是说输入t时刻的输入$X_t$经过输入层（变为$X_tW_{Xt}$）进入隐含层，而隐含层节点当前时刻的输出$h_t$并不是仅仅与输入层过来的$X_tW_{Xt}$有关，还与上一时刻的输出$h_{t-1}$有关，也就是说这两项共同决定了隐藏层的输出</p>
@@ -533,16 +533,16 @@
 <li><p>下面对<code>LSTM</code>的具体内部细节做一下讲解。</p>
 </li>
 <li><p>下面是简单<code>RNN</code>网络的架构图</p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm1.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm1.png" alt></p>
 </li>
 <li><p><code>LSTM</code>在<code>RNN</code>的基础上引入节点状态信息，并通过遗忘门和输入们更新节点状态，最后通过输出门控制更新后的节点状态信息输出，如下图</p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm2.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm2.png" alt></p>
 <blockquote>
 <p>贯穿在图上方的水平线为细胞状态，黄色的矩形是学习得到的网络层，粉色圈表示运算操作，黑色的箭头表示向量的传输</p>
 </blockquote>
 </li>
 <li><p>首先看一下<strong>遗忘门</strong></p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm3.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm3.png" alt></p>
 <blockquote>
 <p>​    遗忘门决定哪些信息需要从细胞状态中被遗忘</p>
 <p>​    遗忘门以上一层的输出$h_{t-1}$和本层的输入$x_t$作为输入，通过一个<code>sigmod</code>函数，得到输出$f_t$，输出值表示的是上一层的状态被遗忘的概率</p>
@@ -550,7 +550,7 @@
 </blockquote>
 </li>
 <li><p>之后是<strong>输入门</strong></p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm4.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm4.png" alt></p>
 <blockquote>
 <p>​    输入门包含两部分，第一部分使用<code>sigmod</code>函数，输出为$i_t$；第二部分使用<code>tanh</code>函数，输出为$C_t$</p>
 <p>​    可以理解成$C^{“}_t$是网络中本层的输出，$i_t$是概率，表示的是$C^{“}_t$在网络中被保留的程度</p>
@@ -560,7 +560,7 @@
 </blockquote>
 </li>
 <li><p>最后的是输出门</p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm6.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm6.png" alt></p>
 <blockquote>
 <p>​    输出门用来控制该层的细胞状态有多少被过滤。</p>
 <p>​    首先使用<code>sigmod</code>函数得到一个[0, 1]之间的概率$o_t$，接着将细胞状态$C_t$通过<code>tanh</code>函数处理后与$o_t$相乘，得到本层的输出（输出会传入下一个细胞作为下个细胞的一个输入，也会直接输出到下一层）</p>
@@ -569,7 +569,7 @@
 </blockquote>
 </li>
 <li><p>另外</p>
-<p><img src="/.top//RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm5.png" alt></p>
+<p><img src="/passages/rnn-ji-lstm-li-jie/RNN%E5%8F%8ALSTM%E7%90%86%E8%A7%A3%5Clstm5.png" alt></p>
 <blockquote>
 <p>​    接上面的知识，$f_t$是遗忘门的输出，控制着上层细胞状态$C_{t-1}$被遗忘的程度，即$f_t*C_{t-1}$表示上一个细胞状态在本细胞状态中的角色</p>
 <p>​    另外，$i_t * C_t$表示的是本细胞状态的另一部分</p>

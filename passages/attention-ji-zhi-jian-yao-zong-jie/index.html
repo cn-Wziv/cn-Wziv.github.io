@@ -506,13 +506,13 @@
 <li><p>在Encoder-Decoder结构中，Encoder会把所有的输入序列编码成统一的语义特征C在进行解码，因此，C中必须包含原始序列的全部信息，而它的长度就限制了存储信息的能力，也就限制了翻译的质量。</p>
 </li>
 <li><p>Attention机制在其中的应用方式就是，在每个时刻输入不同的C（不同的加权和）来解决只有一个C时<strong>信息存储能力不足</strong>的问题</p>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention1.jpg" alt="attention1"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention1.jpg" alt="attention1"></p>
 </li>
 <li><blockquote>
 <p>对于上图来说，就是在Encoder和hidden之间了一层Attention，每一个$c_i$都会自动选取与当前索要输出的y最和是的上下文信息</p>
 <p>而如何来选择合适的上下文信息呢，这就直接与权重（姑且以$a_{ij}$来表示）相关了，而权重是通过模型训练得到的</p>
 </blockquote>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention2.png" alt="attention2"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention2.png" alt="attention2"></p>
 </li>
 </ul>
 <ul>
@@ -530,7 +530,7 @@
 </ul>
 <h3 id="Attention机制的诸多变体"><a href="#Attention机制的诸多变体" class="headerlink" title="Attention机制的诸多变体"></a>Attention机制的诸多变体</h3><h4 id="Self-attention"><a href="#Self-attention" class="headerlink" title="Self-attention"></a>Self-attention</h4><ul>
 <li><p>出自《Attention is all you need》，该文章还提出了tranformer模型，我会尝试在<a href="http://www.zivblog.top/passages/transformer-jian-dan-li-jie/" target="_blank" rel="noopener">另一篇文章</a>中简单介绍一下</p>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention3.png" alt="attention3"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention3.png" alt="attention3"></p>
 </li>
 </ul>
 <blockquote>
@@ -552,7 +552,7 @@
 </blockquote>
 <blockquote>
 <p><strong>2019.11.29 更新</strong></p>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Csf.png" alt="sf"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Csf.png" alt="sf"></p>
 <ul>
 <li>对于每一个<code>self-attention</code>，均有独立维护的的三个线性映射矩阵$（W_i^V, W_i^K, W_i^Q）$</li>
 <li>将输入的矩阵X与三个映射矩阵相乘，得到self-attention的三个输入Querys、Keys、Values</li>
@@ -583,7 +583,7 @@
 <p>$$Attention(Q, K, V) = softmax(\frac{QK^T}{\sqrt{d_k}})V$$</p>
 </li>
 <li><p>而Multi-head Attention是，从一个向量$q_t$出发</p>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention4.png" alt></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention4.png" alt></p>
 <p>$$Attention(q_t, K, V) = \sum^m_{s=1} \frac{1}{z}exp(\frac{&lt;q_t, k_s&gt;}{\sqrt{s_k}})v_s$$</p>
 <p>$$head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)$$</p>
 <p>$$MultiHead(Q, K, V) = Concat(head_1, …, head_h)$$</p>
@@ -629,14 +629,14 @@
 <li>区别与Soft Attention，静态Attention只计算一个得到句子的向量表示</li>
 </ul>
 <h3 id="后面想到的"><a href="#后面想到的" class="headerlink" title="后面想到的"></a>后面想到的</h3><p><strong>2019.11.1更新</strong></p>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention6.jpg" alt="attention6"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention6.jpg" alt="attention6"></p>
 <blockquote>
 <p>浅析一下attention的本质思想：</p>
 <p>将source中的构成元素想象成是由一系列&lt;key, value&gt;数据对组成</p>
 <p>如上图所示，给定target中的某个元素的Query，通过计算Query与各个key（K）的相似性与相关性，得到每个key对应value的权重稀疏，然后对value进行甲醛求和，即最终的attention值</p>
 <p>而对于attention计算的第一阶段，计算相似度的方式有多种，常见的有：点积、cosin相似性、MLP网络</p>
 </blockquote>
-<p><img src="/.top//Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention5.png" alt="attention5"></p>
+<p><img src="/passages/attention-ji-zhi-jian-yao-zong-jie/Attention%E6%9C%BA%E5%88%B6%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%5Cattention5.png" alt="attention5"></p>
 <blockquote>
 <p>Attention的计算过程如上图所示，</p>
 <ul>

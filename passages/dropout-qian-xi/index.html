@@ -521,20 +521,20 @@
 </blockquote>
 </li>
 <li><p>下面通过图片来直观感受一下</p>
-<p><img src="/.top//Dropout%E6%B5%85%E6%9E%90%5Cd4.png" alt="d4"></p>
+<p><img src="/passages/dropout-qian-xi/Dropout%E6%B5%85%E6%9E%90%5Cd4.png" alt="d4"></p>
 <blockquote>
 <p>本图表示的是完整的神经网络</p>
 <p>画红X的表示这部分神经元会在本轮训练中暂时“失效”</p>
 </blockquote>
-<p><img src="/.top//Dropout%E6%B5%85%E6%9E%90%5Cd1.png" alt="d1"></p>
+<p><img src="/passages/dropout-qian-xi/Dropout%E6%B5%85%E6%9E%90%5Cd1.png" alt="d1"></p>
 <blockquote>
 <p>本图表示的是不同的训练轮次中，由于“丢弃”不同的神经元而导致神经网络变化成的不同的形状</p>
 </blockquote>
-<p><img src="/.top//Dropout%E6%B5%85%E6%9E%90%5Cd2.png" alt="d2"></p>
+<p><img src="/passages/dropout-qian-xi/Dropout%E6%B5%85%E6%9E%90%5Cd2.png" alt="d2"></p>
 <blockquote>
 <p>测试过程中，由于不使用dropout，神经网络又变成了完整的形状</p>
 </blockquote>
-<p><img src="/.top//Dropout%E6%B5%85%E6%9E%90%5Cd3.png" alt="d3"></p>
+<p><img src="/passages/dropout-qian-xi/Dropout%E6%B5%85%E6%9E%90%5Cd3.png" alt="d3"></p>
 <blockquote>
 <p>这张图回答了之前留下的小问题：为什么要乘(1-p)%</p>
 <p>直观的就是，之前参与训练的都是保留下来的神经元（被保留的概率是(1-p)%），所以求loss和反向传播的时候都是(1-p)%z，为了保证输出期望一致，在启用所有神经元的时候也要乘(1-p)%</p>
