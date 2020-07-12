@@ -509,6 +509,47 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findMin</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">    l, r = <span class="number">0</span>, len(nums) - <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> l &lt; r:</span><br><span class="line">        mid = int(l + (r - l) / <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> nums[mid] &lt; nums[len(nums)<span class="number">-1</span>]:</span><br><span class="line">            r = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> nums[r]</span><br></pre></td></tr></table></figure>
 
+<br>
+
+<h4 id="深入讨论"><a href="#深入讨论" class="headerlink" title="深入讨论"></a>深入讨论</h4><ul>
+<li><p>使用二分法查找的主要思路是什么？</p>
+<ul>
+<li>使用二分法的目的是通过不断收缩走右边界，将目标值始终包含在<code>[left, right]</code>区间内</li>
+<li>当左右边界重合之后，就完成了目标的查找</li>
+</ul>
+</li>
+<li><p>旋转后的数组有什么特性？</p>
+<ul>
+<li>特性很明显，旋转之后，左半部分的数组<strong>始终大于</strong>右半部分数组中的值</li>
+</ul>
+</li>
+<li><p>为什么通过比较<code>nums[mid]</code>与<code>nums[right]</code>之间的大小关系而不是比较<code>nums[mid]</code>与<code>nums[left]</code>之间的关系来确定区间的收缩方式呢？</p>
+<ul>
+<li>我们可以穷举所有可能的情况</li>
+</ul>
+<img src="/passages/leetcode-zhi-xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-de-zui-xiao-zhi/1.png" style="zoom:75%;">
+
+<ul>
+<li><p>在前面三种情况中，情况1、2同属一类，第三种属于第二类</p>
+<ul>
+<li><p>如果中值 &lt; 右值，则最小值在左半边，可以收缩右边界。</p>
+</li>
+<li><p>如果中值 &gt; 右值，则最小值在右半边，可以收缩左边界。</p>
+</li>
+<li><p>通过比较中值与右值，可以确定最小值的位置范围，从而决定边界收缩的方向</p>
+</li>
+</ul>
+</li>
+<li><p>而如果进行中值与左值的比较：</p>
+<ul>
+<li>在第三种情况中，均为左值小于中值，但是最小值的范围却不相同</li>
+<li>即不能确定区间边界的收缩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​      </p>
 
           
             <div class='article_footer'>
@@ -596,10 +637,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-11T13:54:50+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-12T10:02:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 11, 2020</p>
+    <p>更新于：Jul 12, 2020</p>
   </a>
 </div>
 
@@ -673,6 +714,16 @@
         
         
           <div class="prev-next">
+            
+              <a class='prev' href='/passages/leetcode-zhi-xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-de-zui-xiao-zhi-ii/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Leetcode之寻找旋转排序数组中的最小值Ⅱ</p>
+                <p class='content'>Find Minimum in Rotated Sorted Array Ⅱ
+
+
+Find Minimum in Rotated Sorted Array Ⅱ
+code with Python
+...</p>
+              </a>
             
             
               <a class='next' href='/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/'>
@@ -759,7 +810,7 @@ title number：278
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Minimum-in-Rotated-Sorted-Array"><span class="toc-text">Find Minimum in Rotated Sorted Array</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Minimum-in-Rotated-Sorted-Array"><span class="toc-text">Find Minimum in Rotated Sorted Array</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#深入讨论"><span class="toc-text">深入讨论</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -838,16 +889,16 @@ title number：278
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

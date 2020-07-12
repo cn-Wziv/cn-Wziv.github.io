@@ -417,6 +417,105 @@
         
           
   <h2 class="title">
+    <a href="/passages/ubuntu-xia-an-zhuang-docker/">
+      ubuntu下安装docker
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>工具配置</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 16, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ubuntu &amp; docker</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/passages/ubuntu-xia-an-zhuang-docker/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/passages/xshell-lian-jie-xu-ni-ji/">
       xshell连接虚拟机
     </a>
@@ -1547,165 +1646,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/su-zhou-da-xue-2016-nian-fu-shi-shang-ji-ti/">
-      苏州大学2016年复试上机题
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>研究生复试</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 8, 2019</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><ul>
-<li>文本文件<code>input.txt</code>由若干英文单词和分隔符（空格、回车、换行）组成，根据如下说明编写程序统计不同单词出现的次数（频度）。将统计结果按出现频度从高到低排序，并将出现频度大于5的单词及其频度输出到文件<code>output.txt</code>中。</li>
-<li>文件格式<code>单词,次数</code>，每个单词占一行</li>
-<li>多个连续分隔符被视为一个分隔符</li>
-<li>大小写敏感，即大小写不同的为两个单词</li>
-<li>每个单词长度不超过20个字符</li>
-<li>单词的数量未知，使用静态大数组将扣5分</li>
-</ul>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><ul>
-<li><p>不允许使用静态大数组，先读取一遍文件，统计单词个数；或者每发现一个新单词，动态申请空间</p>
-</li>
-<li><p>分割符不用处理，使用以下函数按单词读取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fscanf(fp, &quot;%s&quot;, buf);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义结构体，存储单词及其频度</p>
-</li>
-<li><p>根据频度降序排序</p>
-</li>
-</ul>
-<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><ul>
-<li><p><code>struct Word</code>：</p>
-<ul>
-<li>单词，频度结构体</li>
-</ul>
-</li>
-<li><p><code>int compare(const Word* lhs, const Word* rhs)</code>：</p>
-<ul>
-<li>比较传入的两个字符的出现次数</li>
-</ul>
-</li>
-<li><p><code>void swap(Word* a, Word* b)</code>：</p>
-<ul>
-<li>交换传入的两个字母的顺序</li>
-</ul>
-</li>
-<li><p><code>void insertion_sort(Word* ptr, int count)</code></p>
-<ul>
-<li>插入排序</li>
-</ul>
-</li>
-<li><p><code>int find(Word* words, int count, char* str)</code></p>
-<ul>
-<li>在words中查找str，并返回下标</li>
-<li>若没有则返回数组的长度</li>
-</ul>
-</li>
-<li><p><code>int main()</code>：</p>
-<ul>
-<li>打开文件</li>
-<li>统计文件中的单词个数</li>
-<li>申请存储空间</li>
-<li>读取文件内容，并统计相同单词的个数</li>
-<li>按单词的出现频度排序</li>
-<li>输出单词及其频度，并输出到文件</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> freq;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">&#125;Word;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> Word* lhs, <span class="keyword">const</span> Word* rhs)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        比较传入的两个字符的出现次数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span>(lhs-&gt;freq &gt; rhs-&gt;freq)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(lhs-&gt;freq &lt; rhs-&gt;freq)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Word* a, Word* b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        交换传入的两个字母的顺序</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    Word temp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertion_sort</span><span class="params">(Word* ptr, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        插入排序</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; count; i++)&#123;</span><br><span class="line">        j = i;</span><br><span class="line">        Word ref = ptr[i];</span><br><span class="line">        <span class="keyword">while</span>(j &gt; <span class="number">0</span> &amp;&amp; compare(&amp;ptr[j - <span class="number">1</span>], &amp;ref) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            ptr[j] = ptr[j - <span class="number">1</span>];</span><br><span class="line">            j --;</span><br><span class="line">        &#125;</span><br><span class="line">        ptr[j] = ref;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(Word* words, <span class="keyword">int</span> count, <span class="keyword">char</span>* str)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 在words中查找str，并返回下标</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count; i++)&#123;</span><br><span class="line">        <span class="comment">// 比较两个单词是否相等</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(words[i].str, str) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    FILE* fpr = fopen(<span class="string">"input_2016.txt"</span>, <span class="string">"r"</span>);</span><br><span class="line">    FILE* fpw = fopen(<span class="string">"output_2016.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Word* words;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 统计该文件中共有多少单词</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">fscanf</span>(fpr, <span class="string">"%s"</span>, buf) != EOF)&#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 申请空间</span></span><br><span class="line">    words = (Word*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Word)*count);</span><br><span class="line">    rewind(fpr);</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按单词读取文件内容，并统计个数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">fscanf</span>(fpr, <span class="string">"%s"</span>, buf) != EOF)&#123;</span><br><span class="line">        <span class="comment">// 判断之前的单词中是否有与当前单词相同的</span></span><br><span class="line">        i = <span class="built_in">find</span>(words, count, buf);</span><br><span class="line">        <span class="keyword">if</span>(i == count)&#123;</span><br><span class="line">            <span class="comment">// 复制</span></span><br><span class="line">            <span class="built_in">strcpy</span>(words[count].str, buf);</span><br><span class="line">            words[count].freq = <span class="number">0</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        words[i].freq++;</span><br><span class="line">    &#125;</span><br><span class="line">    insertion_sort(words, count);</span><br><span class="line">    <span class="comment">// 将频度大于5的单词写入文件并输出</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count &amp;&amp; words[i].freq &gt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(fpw, <span class="string">"%s, %d\n"</span>, words[i].str, words[i].freq);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s, %d\n"</span>, words[i].str, words[i].freq);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(words);</span><br><span class="line">    fclose(fpr);</span><br><span class="line">    fclose(fpw);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>欢迎来信交流||指教。</p>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1715,7 +1655,7 @@
         
           <a class="prev" rel="prev" href="/page/24/">
             <section class="post prev white-box floatable" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一頁&nbsp;
             </section>
           </a>
         
@@ -1725,7 +1665,7 @@
         
           <a class="next" rel="next" href="/page/26/">
             <section class="post next white-box floatable">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -1879,7 +1819,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(160)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(161)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2049,16 +1989,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
