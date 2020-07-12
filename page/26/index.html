@@ -417,6 +417,206 @@
         
           
   <h2 class="title">
+    <a href="/passages/su-zhou-da-xue-2017-nian-fu-shi-shang-ji-ti/">
+      苏州大学2017年复试上机题
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>研究生复试</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 9, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><ul>
+<li><p>二进制数据文件<code>data.bin</code>中存放了若干整数，编写程序：</p>
+</li>
+<li><p>读取所有数据。</p>
+</li>
+<li><p>每相邻的两个整数为一对坐标，构成二维平面上的坐标点</p>
+</li>
+<li><p>以每个坐标点为圆心，以该点与其后面第一个点的欧氏距离为半径r，计算每个圆包含的坐标点数，计算最后一个点时以其和第一个点的<strong>欧式距离</strong>为半径。</p>
+</li>
+<li><p>计算所有圆的点密度值，输出密度值最大的5个坐标点，以及院中包含的点数和点密度值</p>
+<table>
+<thead>
+<tr>
+<th>坐标点</th>
+<th>包含点数</th>
+<th>点密度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(x坐标, y坐标)</td>
+<td>(占5列, 右对齐)</td>
+<td>(占7列, 右对齐, 保留2位小数)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>圆的点密度为：圆包含的点除以圆面积，在圆上也包含该点，$\pi = 3.14$</p>
+</li>
+</ul>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><ul>
+<li>二进制文件读取时用<code>fread(data, sizeof(int), count, fp)</code>函数每四位读做一个整数</li>
+<li>每两个整数为一个坐标</li>
+<li>定义结构体存储坐标和密度值</li>
+<li>利用文件位置标记计算文件中的整数个数，申请整数数组、坐标数组的空间</li>
+<li>按密度值按降序排序</li>
+</ul>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><ul>
+<li><p><code>struct Coordinate</code></p>
+<ul>
+<li>坐标点结构体</li>
+</ul>
+</li>
+<li><p><code>struct Circle</code></p>
+<ul>
+<li>圆结构体</li>
+<li>包含：圆心坐标、半径、圆中点的个数、点密度</li>
+</ul>
+</li>
+<li><p><code>static int compare(const Circle* a, const Circle* b)</code></p>
+<ul>
+<li>比较传入的圆的点密度</li>
+</ul>
+</li>
+<li><p><code>static void swap(Circle* a, Circle* b)</code></p>
+<ul>
+<li>交换传入的两个圆的位置</li>
+</ul>
+</li>
+<li><p><code>void selection_sort(Circle *ptr, int count)</code></p>
+<ul>
+<li>跟据圆的点密度进行选择排序</li>
+</ul>
+</li>
+<li><p><code>int read_file(const char* filename, const char* mode, int* data)</code></p>
+<ul>
+<li>根据文件中的点的个数申请空间</li>
+<li>读取文件内容</li>
+</ul>
+</li>
+<li><p><code>double distance(Coordinate* a, Coordinate* b)</code></p>
+<ul>
+<li>计算两个点之间的距离</li>
+</ul>
+</li>
+<li><p><code>double area(Circle* a)</code></p>
+<ul>
+<li>计算圆的面积</li>
+</ul>
+</li>
+<li><p><code>void display(Circle* circles, int count)</code></p>
+<ul>
+<li>输出圆的圆心坐标，圆中包含的点的个数，点密度</li>
+</ul>
+</li>
+<li><p><code>int create_circles(int * data, int coune, Circle* circles)</code></p>
+<ul>
+<li>初始化圆的信息，包括圆心坐标、圆中点的个数、点密度</li>
+</ul>
+</li>
+<li><p><code>int main()</code></p>
+<ul>
+<li>读取文件</li>
+<li>输出坐标点</li>
+<li>计算圆的相关属性</li>
+<li>按照点密度排序</li>
+<li>输出点密度最高的5个</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125;Coordinate;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">double</span> r;   <span class="comment">// 半径</span></span><br><span class="line">    Coordinate <span class="built_in">point</span>;   <span class="comment">// 坐标</span></span><br><span class="line">    <span class="keyword">int</span> points_num;  <span class="comment">// 范围内坐标点个数</span></span><br><span class="line">    <span class="keyword">double</span> density; <span class="comment">// 圆密度</span></span><br><span class="line">&#125;Circle;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> Circle* a, <span class="keyword">const</span> Circle* b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        比较传入的圆的圆密度</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span>(a-&gt;density &gt; b-&gt;density)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a-&gt;density &lt; b-&gt;density)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Circle* a, Circle* b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        交换传入的两个圆</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    Circle temp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selection_sort</span><span class="params">(Circle *ptr, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        根据圆密度进行选择排序</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j = i + <span class="number">1</span>; j &lt; count; j++)</span><br><span class="line">            <span class="keyword">if</span>(compare(&amp;ptr[i], &amp;ptr[j]) &gt; <span class="number">0</span>)</span><br><span class="line">                swap(&amp;ptr[i], &amp;ptr[j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read_file</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* filename, <span class="keyword">const</span> <span class="keyword">char</span>* mode, <span class="keyword">int</span>* data)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        读取文件</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    FILE* fp = fopen(filename, mode);</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!fp)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"failes to open file.\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算文件中的整数个数，申请内存空间</span></span><br><span class="line">    fseek(fp, <span class="number">0</span>, SEEK_END);</span><br><span class="line">    count = ftell(fp) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    data = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*count);</span><br><span class="line">    rewind(fp);</span><br><span class="line"></span><br><span class="line">    fread(data, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), count, fp);</span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(Coordinate* a, Coordinate* b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        计算两个坐标之间的距离</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    val = (a-&gt;x - b-&gt;x) * (a-&gt;x - b-&gt;x) +</span><br><span class="line">        (a-&gt;y - b-&gt;y) * (a-&gt;y - b-&gt;y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((<span class="keyword">double</span>)val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">(Circle* c)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 计算圆的面积</span></span><br><span class="line">    <span class="keyword">return</span> (c-&gt;r * c-&gt;r) *PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(Circle* circles, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        输出传入的圆</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"(%d, %d) %5d %7.2f\n"</span>,</span><br><span class="line">               circles[i].<span class="built_in">point</span>.x,</span><br><span class="line">               circles[i].<span class="built_in">point</span>.y,</span><br><span class="line">               circles[i].points_num,</span><br><span class="line">               circles[i].density);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">create_circles</span><span class="params">(<span class="keyword">int</span>* data, <span class="keyword">int</span> count, Circle* circles)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> circles_num = count - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 申请存储圆的数组空间</span></span><br><span class="line">    circles = (Circle*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Circle) * circles_num);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化圆数组</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; circles_num; i++)&#123;</span><br><span class="line">        circles[i].<span class="built_in">point</span>.x = data[i];</span><br><span class="line">        circles[i].<span class="built_in">point</span>.y = data[i + <span class="number">1</span>];</span><br><span class="line">        circles[i].points_num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算圆的半径（与后面点之间的距离为r）</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; circles_num; i++)&#123;</span><br><span class="line">        circles[i].r = distance(&amp;circles[i].<span class="built_in">point</span>, &amp;circles[(i+<span class="number">1</span>)%circles_num].<span class="built_in">point</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 统计在圆内的点的个数（与该点之间距离小于半径）</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; circles_num; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; circles_num; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(distance(&amp;circles[i].<span class="built_in">point</span>, &amp;circles[j].<span class="built_in">point</span>) &lt;= circles[i].r)</span><br><span class="line">                circles[i].points_num++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 计算圆的圆密度</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; circles_num; i++)&#123;</span><br><span class="line">        circles[i].density = circles[i].points_num / area(&amp;circles[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> circles_num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *data = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> circles_num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Circle* circles = <span class="literal">NULL</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 读取文件，返回圆的个数</span></span><br><span class="line">    count = read_file(<span class="string">"data_2017.bin"</span>, <span class="string">"rb"</span>, data);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"data:\n"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 输出坐标点</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 计算圆的半径，圆中的坐标点个数，圆密度</span></span><br><span class="line">    circles_num = create_circles(data, count, circles);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 按圆密度排序</span></span><br><span class="line">    selection_sort(circles, circles_num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"result:\n"</span>);</span><br><span class="line">    <span class="comment">// 输出密度最高的前五个</span></span><br><span class="line">    <span class="built_in">display</span>(circles, <span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>欢迎来信交流||指教。</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/passages/su-zhou-da-xue-2016-nian-fu-shi-shang-ji-ti/">
       苏州大学2016年复试上机题
     </a>
@@ -1495,105 +1695,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/matplotlib-shi-jian/">
-      matplotlib实践
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>编程语言</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 3, 2019</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>折线图&amp;散点图</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/matplotlib-shi-jian/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1603,7 +1704,7 @@
         
           <a class="prev" rel="prev" href="/page/25/">
             <section class="post prev white-box floatable" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一頁&nbsp;
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
             </section>
           </a>
         
@@ -1613,7 +1714,7 @@
         
           <a class="next" rel="next" href="/page/27/">
             <section class="post next white-box floatable">
-              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -1767,7 +1868,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(161)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(162)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -1937,16 +2038,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
