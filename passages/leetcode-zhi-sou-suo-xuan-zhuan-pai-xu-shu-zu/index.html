@@ -503,7 +503,7 @@
 <li>首先通过观察得到，这个数组包含<strong>两个有序子数组</strong>（前面的子数组整体大于后面的子数组），并且肯定会有一个子数组的长度是大于等于<code>数组长度/2</code></li>
 <li>这样就是一种很好的性质了，假设我们要找的<code>target=6</code></li>
 <li>首先计算<code>mid=(start+end)/2=3</code>，</li>
-<li>比较<code>nums[mid]</code>与<code>nums[start]</code>的大小关系足以令我们确定我们现在 是位于哪一部分，之后就可以舍弃另一部分了（这和二分搜索一致）<ul>
+<li>比较<code>nums[mid]</code>与<code>nums[start]</code>的大小关系足以令我们确定我们现在是位于哪一部分，之后就可以舍弃另一部分了（这和二分搜索一致）<ul>
 <li>如果<code>nums[mid]&gt;=nums[start]</code>，则<code>nums[mid]</code>位于左边的有序子数组中</li>
 <li>如果<code>nums[mid]&lt;nums[start]</code>，则<code>nums[mid]</code>位于右边的有序子数组中</li>
 </ul>
@@ -603,10 +603,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:27:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-13T19:36:19+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 6, 2020</p>
+    <p>更新于：Jul 13, 2020</p>
   </a>
 </div>
 
