@@ -514,6 +514,8 @@
 <li>交换时需要一个暂存空间</li>
 </ul>
 </li>
+<li><p><strong>不稳定</strong>的排序算法</p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HeapSort</span><span class="params">(self, nums: List[int])</span> -&gt; List[int]:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapAdjust</span><span class="params">(arr, start, end)</span>:</span></span><br><span class="line">        temp = arr[start]</span><br><span class="line">        </span><br><span class="line">        son = <span class="number">2</span> * start + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> son &lt; end:</span><br><span class="line">            <span class="comment"># 找到左右孩子中较大的节点</span></span><br><span class="line">            <span class="keyword">if</span> son &lt; end <span class="keyword">and</span> arr[son] &lt; arr[son + <span class="number">1</span>]:</span><br><span class="line">                son += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 判断是否符合大顶堆</span></span><br><span class="line">            <span class="keyword">if</span> temp &gt;= arr[son]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="comment"># 子节点上移</span></span><br><span class="line">            arr[start] = arr[son]</span><br><span class="line">            <span class="comment"># 继续向下比较</span></span><br><span class="line">            start = son</span><br><span class="line">            son = <span class="number">2</span> * son + <span class="number">1</span></span><br><span class="line">		<span class="comment"># 将原堆顶插入正确位置</span></span><br><span class="line">        arr[start] = temp</span><br><span class="line">   </span><br><span class="line">	n = len(nums)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line">    <span class="comment"># 完全二叉树中的最后一个非叶子节点</span></span><br><span class="line">    root = n // <span class="number">2</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> root &gt;= <span class="number">0</span>:</span><br><span class="line">        heapAdjust(nums, root, n<span class="number">-1</span>)</span><br><span class="line">        root -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    i = n <span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> i &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># 交换堆顶与第i个元素</span></span><br><span class="line">        nums[<span class="number">0</span>], nums[i] = nums[i], nums[<span class="number">0</span>]</span><br><span class="line">        heapAdjust(nums, <span class="number">0</span>, i<span class="number">-1</span>)</span><br><span class="line">        i -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
 
@@ -604,10 +606,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-14T15:01:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T16:05:09+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 14, 2020</p>
+    <p>更新于：Jul 15, 2020</p>
   </a>
 </div>
 
@@ -681,6 +683,22 @@
         
         
           <div class="prev-next">
+            
+              <a class='prev' href='/passages/zhi-jie-cha-ru-pai-xu/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>直接插入排序</p>
+                <p class='content'>直接插入排序
+
+
+直接插入排序
+初始状态，将第一个元素是做已经被排序的元素
+
+取出下一个元素，在已经排序的元素序列中从前向后扫描
+
+如果该元素大于新元素，则将该元素移到下一位置
+
+
+知道找到已排...</p>
+              </a>
             
             
               <a class='next' href='/passages/jian-dan-xuan-ze-pai-xu/'>
@@ -849,16 +867,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
