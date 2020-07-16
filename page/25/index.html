@@ -417,6 +417,107 @@
         
           
   <h2 class="title">
+    <a href="/passages/numpy-xue-xi-bi-ji-ji-chu/">
+      Numpy学习笔记（基础）
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>编程语言</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 14, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>笔记</p>
+<p>学习笔记</p>
+<p>参考资料：Numpy官方文档</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/passages/numpy-xue-xi-bi-ji-ji-chu/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/passages/wu-he-zhi-zhong/">
       乌合之众
     </a>
@@ -1296,172 +1397,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/su-zhou-da-xue-2018-nian-fu-shi-shang-ji-ti/">
-      苏州大学2018年复试上机题
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>研究生复试</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 19, 2019</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><ul>
-<li>读取文件中的20000个数字，求其最大子集</li>
-<li>子集中的数字互不为倍数，互不为因数，最大公约数为1</li>
-<li>不允许使用预设的排序函数<code>qsort()</code></li>
-</ul>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><ul>
-<li><p>从二进制文件中读取数据（wb，rb）</p>
-</li>
-<li><p>排序（任意，这里使用的是选择排序）</p>
-</li>
-<li><p>首先判断是否为素数，加入结果集</p>
-</li>
-<li><p>对于非素数的数字，求其与结果集中的各个数字是否最大公约数全为1，加入结果集</p>
-</li>
-<li><p>将结果集写入文件中</p>
-</li>
-</ul>
-<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><ul>
-<li><p><code>void make_data()</code></p>
-<ul>
-<li>生成数据集（1~500，排除3,5,7）</li>
-</ul>
-</li>
-<li><p><code>void swap(int *a, int *b)</code></p>
-<ul>
-<li>交换传入的两个整数</li>
-</ul>
-</li>
-<li><p><code>int compare(int a, int b)</code></p>
-<ul>
-<li>比较两个整数的大小</li>
-</ul>
-</li>
-<li><p><code>int selection_sort(int *ptr)</code></p>
-<ul>
-<li>选择排序</li>
-</ul>
-</li>
-<li><p><code>int is_prime(int n)</code></p>
-<ul>
-<li>判断传入的数字是否为素数</li>
-</ul>
-</li>
-<li><p><code>int gcd(int a, int b)</code></p>
-<ul>
-<li>求两个数的最大公约数</li>
-</ul>
-</li>
-<li><p><code>void filter_data(int *data, int *result)</code></p>
-<ul>
-<li>筛选符合条件的数据</li>
-</ul>
-</li>
-<li><p><code>void display(int *ptr, int n)</code></p>
-<ul>
-<li>输出传入的数据集</li>
-</ul>
-</li>
-<li><p><code>void output(int *result, int count)</code></p>
-<ul>
-<li>将结果集输出到文件</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="comment">// 数据文件路径</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DATA_PATH <span class="meta-string">"C://Users//Y//Desktop//data.dat"</span></span></span><br><span class="line"><span class="comment">// 输出文件路径</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OUTPUT_PATH <span class="meta-string">"C://Users//Y//Desktop//output.txt"</span></span></span><br><span class="line"><span class="comment">// 文件中共20000条数据</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 20000</span></span><br><span class="line"><span class="comment">// 文件中数据的值位于1~500之间</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 500</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_data</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        生成数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">// 申请数据空间</span></span><br><span class="line">    <span class="keyword">int</span> *num = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*N);</span><br><span class="line">    <span class="keyword">int</span> i, n = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    FILE *fp = fopen(DATA_PATH, <span class="string">"wb"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成20000条数据</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &gt; <span class="number">500</span>)</span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">3</span> || n == <span class="number">5</span> || n == <span class="number">7</span>)</span><br><span class="line">            n++;</span><br><span class="line"></span><br><span class="line">        num[i] = n;</span><br><span class="line">        <span class="comment">// debug</span></span><br><span class="line">        <span class="comment">// printf("%d ", num[i]);</span></span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// printf("source:\n");</span></span><br><span class="line">    <span class="comment">// display(num, N);</span></span><br><span class="line">    <span class="comment">// 将数据写入文件中</span></span><br><span class="line">    fwrite(num, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), N, fp);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(num);</span><br><span class="line">    fclose(fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        交换传入的两个数字</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> temp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        比较传入的两个数字的大小</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span>(a &lt; b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(a == b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selection_sort</span><span class="params">(<span class="keyword">int</span> *ptr)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        选择排序</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j = i + <span class="number">1</span>; j &lt; N; j++)</span><br><span class="line">            <span class="keyword">if</span>(compare(ptr[i], ptr[j]) &gt; <span class="number">0</span>)</span><br><span class="line">                swap(&amp;ptr[i], &amp;ptr[j]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        判断传入的数字是否为素数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">2</span>; i*i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        求两个数字的最大公约数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(a % b == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">filter_data</span><span class="params">(<span class="keyword">int</span> *data, <span class="keyword">int</span> *result)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        筛选数据</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> result_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        <span class="comment">// printf("data[%d] = %d\n", i, data[i]);</span></span><br><span class="line">        <span class="keyword">if</span>(data[i] &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(is_prime(data[i]))&#123;</span><br><span class="line">            <span class="comment">// 素数，且未在结果集中</span></span><br><span class="line">            <span class="comment">// printf("\nis prime\n");</span></span><br><span class="line">            <span class="keyword">for</span>(j = result_count - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(data[i] == result[j])</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(j == <span class="number">-1</span>)</span><br><span class="line">                <span class="comment">// debug</span></span><br><span class="line">                <span class="comment">// printf("result_count = %d", result_count);</span></span><br><span class="line"></span><br><span class="line">                result[result_count++] = data[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 是否与结果集最大公约均数为1</span></span><br><span class="line">            <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; result_count; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(gcd(data[i], result[j]) != <span class="number">1</span>)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(j == result_count)</span><br><span class="line">                result[result_count++] = data[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result_count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> *data, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        输出传入的整数集</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; count; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> *result, <span class="keyword">int</span> result_count)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        将结果集输出到文件中</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    FILE *fp = fopen(OUTPUT_PATH, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; result_count; i++)&#123;</span><br><span class="line">        <span class="comment">// printf("%d ", result[i]);</span></span><br><span class="line">        <span class="built_in">fprintf</span>(fp, <span class="string">"%d "</span>, result[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(fp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *data, *result;</span><br><span class="line">    <span class="keyword">int</span> result_count;</span><br><span class="line">    FILE* fp;</span><br><span class="line"></span><br><span class="line">    data = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*N);</span><br><span class="line">    result = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成数据</span></span><br><span class="line">    make_data();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取数据</span></span><br><span class="line">    fp = fopen(DATA_PATH, <span class="string">"rb"</span>);</span><br><span class="line">    fread(data, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), N, fp);</span><br><span class="line">    <span class="comment">// 输出读取的数据</span></span><br><span class="line">    <span class="comment">// printf("\ndata: \n");</span></span><br><span class="line">    <span class="comment">// display(data, N);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 排序</span></span><br><span class="line">    selection_sort(data);</span><br><span class="line">    <span class="comment">// 排序后的数据</span></span><br><span class="line">    <span class="comment">// printf("\nsort:\n");</span></span><br><span class="line">    <span class="comment">// display(data, N);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 筛选数据，返回数据个数</span></span><br><span class="line">    result_count = filter_data(data, result);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nresult_count: %d\n"</span>, result_count);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结果输出到文件</span></span><br><span class="line">    output(result, result_count);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    display(result, result_count);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(result);</span><br><span class="line">    <span class="built_in">free</span>(data);</span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>欢迎来信交流||指教。</p>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1489,59 +1424,6 @@
     
     <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
-    
-      <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
     
 
   
@@ -1635,7 +1517,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(163)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(164)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
