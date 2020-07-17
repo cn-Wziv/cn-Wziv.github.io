@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：leetcode - Ziv（瓶子）</title>
+    <title>標籤：leetcode - Ziv（瓶子）</title>
   
   
 
@@ -437,6 +437,142 @@
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/leetcode-zhi-zui-xiao-lu-jing-he/">
+      Leetcode之最小路径和
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Leetcode/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Leetcode</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 17, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="Minimum-Path-Sum"><a href="#Minimum-Path-Sum" class="headerlink" title="Minimum Path Sum"></a>Minimum Path Sum</h3><ul>
+<li>code with Python</li>
+<li>title number：64</li>
+</ul>
+<br>
+
+<h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
+<li>给定一个包含非负整数的<code>m * n</code>的网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小</li>
+<li>每次只能向下或向右移动一步</li>
+</ul>
+<br>
+
+<h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
+<li>使用<code>dp</code>数组保存由左上角到当前位置的最小值<ul>
+<li>由于当前位置只能由左侧和上方的位置到达，只需要比较两者所保存的<code>dp</code>值的大小，加上<code>grid</code>当前位置的大小</li>
+<li><code>dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]</code></li>
+<li>最终结果保存在<code>dp[m-1][n-1]</code>中</li>
+</ul>
+</li>
+<li>由于需要通过访问每个位置的前一行和前一列的元素，有两个位置需要单独处理<ul>
+<li>第一行中的元素只能由左侧位置到达，<code>dp[i][j] = dp[i][j-1] + grid[i][j]</code></li>
+<li>第一列中的元素只能由上方位置到达，<code>dp[i][j] = dp[i-1][j] + grid[i][j]</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minPathSum</span><span class="params">(self, grid: List[List[int]])</span> -&gt; int:</span></span><br><span class="line">    m, n = len(grid), len(grid[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    dp[[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(m)]</span><br><span class="line">    </span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">        <span class="comment"># 第一行</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, n):</span><br><span class="line">	            dp[i][j] = dp[i][j<span class="number">-1</span>] + grid[i][j]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                <span class="comment"># 第一列</span></span><br><span class="line">                <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j] + grid[i][j]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i][j] = min(dp[i][j<span class="number">-1</span>], dp[i<span class="number">-1</span>][j]) + grid[i][j]</span><br><span class="line">                    </span><br><span class="line">    <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="优化一下代码结构"><a href="#优化一下代码结构" class="headerlink" title="优化一下代码结构"></a>优化一下代码结构</h4><ul>
+<li><p>与思路一的主体思路相同，改变一下数据结构</p>
+<ul>
+<li><p>直接在<code>grid</code>上进行修改，不使用额外的数据结构保存中间结果</p>
+</li>
+<li><p>通过<code>grid[-1][-1]</code>访问最终结果</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minPathSum</span><span class="params">(self, grid: List[List[int]])</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(grid):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(grid[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> i == j == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">0</span>:</span><br><span class="line">                grid[i][j] = grid[i][j<span class="number">-1</span>] + grid[i][j]</span><br><span class="line">            <span class="keyword">elif</span> j == <span class="number">0</span>:</span><br><span class="line">                grid[i][j] = grid[i<span class="number">-1</span>][j] + grid[i][j]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                grid[i][j] = min(grid[i<span class="number">-1</span>][j], grid[i][j<span class="number">-1</span>]) + grid[i][j]</span><br><span class="line">                </span><br><span class="line">    <span class="keyword">return</span> grid[<span class="number">-1</span>][<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1824,105 +1960,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/leetcode-zhi-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao/">
-      Leetcode之复制带随机指针的链表
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 30, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Copy List with Random Pointer</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/leetcode-zhi-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1931,12 +1968,12 @@
       <div class="prev-next">
         
         <p class="current">
-          1 / 11
+          1 / 12
         </p>
         
           <a class="next" rel="next" href="/tags/leetcode/page/2/">
             <section class="post next white-box floatable">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -2039,7 +2076,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(164)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(165)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2209,14 +2246,14 @@
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
         本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作为主题，总访问量为
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
           次
         
