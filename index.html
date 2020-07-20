@@ -1160,9 +1160,162 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/leetcode-zhi-pa-lou-ti/">
+      Leetcode之爬楼梯
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Leetcode/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Leetcode</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 20, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="Climbing-Stairs"><a href="#Climbing-Stairs" class="headerlink" title="Climbing Stairs"></a>Climbing Stairs</h3><ul>
+<li>code with Python</li>
+<li>title number：70</li>
+</ul>
+<br>
+
+<h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
+<li>假设你需要爬<code>n</code>阶楼梯才能到达楼顶</li>
+<li>每次你可以爬<code>1</code>或<code>2</code>个台阶，试计算可以有多少中方式爬到楼顶</li>
+<li><code>n</code>总不为<code>0</code>，是一个正整数</li>
+</ul>
+<br>
+
+<h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
+<li>动态规划<ul>
+<li>使用<code>dp</code>数组记录到达当前位置的方法数</li>
+<li>通过题目描述可以发现，到达任意位置的方法数仅与其前面的两个台阶有关（每次只能选择爬一个或两个台阶）<ul>
+<li>需要特殊处理前两个台阶（如果存在两个）：<code>dp[0], dp[1] = 1, 2</code></li>
+</ul>
+</li>
+<li>返回数组中最后一个台阶对应的值即可</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    dp = [<span class="number">0</span>] * n</span><br><span class="line">    dp[<span class="number">0</span>], dp[<span class="number">1</span>] = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n):</span><br><span class="line">        dp[i] = dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>因为当前位置的值至于前面两个位置的值有关，所以可以减少对空间的使用——仅使用两个变量存储前两个位置的值即可</li>
+<li>整体思路同上，仅做代码复杂度优化</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    r表示当前位置的值</span></span><br><span class="line"><span class="string">    p是前两位的值</span></span><br><span class="line"><span class="string">    q是前一位的值</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">	p, q, r = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        p = q</span><br><span class="line">        q = r</span><br><span class="line">        r = p + q</span><br><span class="line">    <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
+
+
+
+<br>
+
+<h4 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h4><ul>
+<li><p>这是一道动态规划的简单题，尝试使用数学的方法解答</p>
+</li>
+<li><p>该问题的递推方程为$f(n) = f(n-1) + f(n-2)$</p>
+<ul>
+<li><p>写出其特征方程：$x^2 = x + 1$</p>
+</li>
+<li><p>求得：$x_1 = \frac{1+\sqrt{5}}{2}, x_2 = \frac{1 - \sqrt{5}}{2}$</p>
+</li>
+<li><p>设通解为：$f(n) = c_1x_1 + c_2x_2$</p>
+</li>
+<li><p>将初始值<code>f(1) = 1, f(2)=2</code>带入通解中，解得：$c_1 = \frac{1}{\sqrt{5}}, c_2 = -\frac{1}{\sqrt{5}}$</p>
+</li>
+<li><p>最终的通解为：<br>$$<br>f(n) = \frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^2 - (\frac{1-\sqrt{5}}{2})^2]<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">    sqrt_5 = sqrt(<span class="number">5</span>)</span><br><span class="line">    fib_n = ((<span class="number">1</span>+sqrt_5)/<span class="number">2</span>)** (n+<span class="number">1</span>) - ((<span class="number">1</span>-sqrt_5)/<span class="number">2</span>)**(n+<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> int(fib_n / sqrt_5)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2055,105 +2208,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/zhi-jie-cha-ru-pai-xu/">
-      直接插入排序
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E7%AE%97%E6%B3%95/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>算法</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 15, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>直接插入排序</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/zhi-jie-cha-ru-pai-xu/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -2268,7 +2322,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(167)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(168)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
