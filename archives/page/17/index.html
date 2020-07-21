@@ -474,6 +474,20 @@
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
+	            <a href="/passages/leetcode-zhi-zui-chang-shang-sheng-zi-xu-lie/">
+	              <time>07-21</time>
+	              <span class="title">
+	                
+	                  Leetcode之最长上升子序列
+	                
+	                
+									
+									
+	              </span>
+	            </a>
+	          </div>
+	      
+	          <div class="archive-item archive-post mark">
 	            <a href="/passages/leetcode-zhi-pa-lou-ti/">
 	              <time>07-20</time>
 	              <span class="title">
@@ -4496,11 +4510,11 @@
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/passages/su-zhou-da-xue-2005-nian-fu-shi-bian-cheng-ti/">
+	            <a href="/passages/c-yu-yan-zhi-wen-jian-cao-zuo/">
 	              <time>03-02</time>
 	              <span class="title">
 	                
-	                  苏州大学2005年复试编程题
+	                  C语言文件操作
 	                
 	                
 									
@@ -4510,11 +4524,11 @@
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/passages/c-yu-yan-zhi-wen-jian-cao-zuo/">
+	            <a href="/passages/su-zhou-da-xue-2005-nian-fu-shi-bian-cheng-ti/">
 	              <time>03-02</time>
 	              <span class="title">
 	                
-	                  C语言文件操作
+	                  苏州大学2005年复试编程题
 	                
 	                
 									
@@ -4538,11 +4552,11 @@
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/passages/su-zhou-da-xue-2006-nian-fu-shi-bian-cheng-ti/">
+	            <a href="/passages/su-zhou-da-xue-2008-nian-fu-shi-bian-cheng-ti/">
 	              <time>03-02</time>
 	              <span class="title">
 	                
-	                  苏州大学2006年复试编程题
+	                  苏州大学2008年复试编程题
 	                
 	                
 									
@@ -4552,11 +4566,11 @@
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/passages/su-zhou-da-xue-2008-nian-fu-shi-bian-cheng-ti/">
+	            <a href="/passages/su-zhou-da-xue-2006-nian-fu-shi-bian-cheng-ti/">
 	              <time>03-02</time>
 	              <span class="title">
 	                
-	                  苏州大学2008年复试编程题
+	                  苏州大学2006年复试编程题
 	                
 	                
 									
@@ -4656,7 +4670,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(168)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(169)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -4855,59 +4869,6 @@
 
 	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
 	
-
-	
-	    <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 	
 
