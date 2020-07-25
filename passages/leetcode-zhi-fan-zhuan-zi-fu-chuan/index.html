@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>歸檔：2020/1 - Ziv（瓶子）</title>
+    <title>Leetcode之反转字符串 - Ziv（瓶子）</title>
   
+    <meta name="keywords" content="leetcode,Algorithm">
+  
+  
+    <meta name="description" content="Reverse String">
   
 
   <!-- feed -->
@@ -72,75 +74,7 @@
 
 <body>
   
-  <div class="cover-wrapper">
-    
-      <cover class='cover  half'>
-        <div class='cover-body'>
-  <div class='a'>
-    
-    
-      <p class="title">Ziv's blog</p>
-    
-    
-      <p class="subtitle">Get busy living, or get busy dying</p>
-    
-  </div>
-  <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation'>
-      <ul class='cover-list-h'>
-        
-          
-            <li>
-              <a class="nav home"
-                href="http://zivblog.top"
-                
-                
-                id="http:zivblogtop">
-                <i class='fas fa-rss fa-fw'></i>博文
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="https://github.com/cn-Wziv?tab=repositories"
-                
-                  rel="external nofollow noopener noreferrer"
-                
-                
-                  target="_blank"
-                
-                id="https:githubcomcn-Wziv?tab=repositories">
-                <i class='fas fa-file-code fa-fw'></i>Github
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="https://volantis.js.org/contributors/"
-                
-                
-                id="https:volantisjsorgcontributors">
-                <i class='fas fa-handshake fa-fw'></i>鸣谢
-              </a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-      </cover>
-    
-    <div id="loading-bar-wrapper">
+  <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow">
@@ -457,30 +391,18 @@
 
 <script>setLoadingBarProgress(40);</script>
 
-  </div>
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper'>
       
 
 <div class='l_main'>
-	
-		
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
   
+
+  
+    <article id="post" class="post white-box reveal floatable article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -490,11 +412,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/passages/bei-tao-yan-de-yong-qi/">
-      被讨厌的勇气
+  <h1 class="title">
+    <a href="/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/">
+      Leetcode之反转字符串
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -517,9 +439,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/' rel="nofollow">
+    <a href='/categories/Leetcode/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>读书&电影</p>
+      <p>Leetcode</p>
     </a>
   </div>
 
@@ -530,14 +452,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jan 4, 2020</p>
+    <p>发布于：Jul 25, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -555,101 +472,87 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>世界很单纯，人生也人生也一样。 不是世界复杂， 而是你把世界变复杂了。没有一个人是住在客观的世界里， 我们都居住在一个各自赋予其意义的主观的世界。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/bei-tao-yan-de-yong-qi/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>Reverse String</p>
+<a id="more"></a>
 
-          </div>
-        
-      
-    
-  </section>
+<h3 id="Reverse-String"><a href="#Reverse-String" class="headerlink" title="Reverse String"></a>Reverse String</h3><ul>
+<li>code with Python</li>
+<li>title number：344</li>
+</ul>
+<br>
+
+<h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
+<li>编写函数，将给定的字符串反转</li>
+<li>不能额外为数组分配空间，必须原地修改数组，可使用<code>O(1)</code>的额外空间</li>
+</ul>
+<br>
+
+<h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
+<li>递归<ul>
+<li>如果<code>left &lt; right</code>，则交换两指针指向的元素</li>
+<li>再次调用函数本身，传入的<code>left</code>和<code>right</code>要分别右移和左移</li>
+</ul>
+</li>
+<li>递归的好处在于代码比较简单，但是由于函数需要不断调用自身，所需要的堆栈空间比较多（<code>O(n)</code>），并且花费的时间比较多</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s: List[int])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(left, right)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> left &lt; right:</span><br><span class="line">            s[left], s[right] = s[right], s[left]</span><br><span class="line">            </span><br><span class="line">            helper(left+<span class="number">1</span>, right<span class="number">-1</span>)</span><br><span class="line">        </span><br><span class="line">    helper(<span class="number">0</span>, len(s)<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h4><ul>
+<li>双指针<ul>
+<li>设置两个指针分别指向字符串的首部的尾部</li>
+<li>在两指针相遇之前，交换两指针指向的元素，同时指针想内侧移动</li>
+</ul>
+</li>
+<li>使用双指针替代递归，空间复杂度达到了<code>O(1)</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s: List[int])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    left, right = <span class="number">0</span>, len(s)<span class="number">-1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        s[left], s[right] = s[right], s[left]</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+          
+            <div class='article_footer'>
+              
+                
   
     
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
-    
+
+
 
   
 
-
-	
-</div>
-<aside class='l_side'>
-  
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='images/hm.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Ziv（瓶子）</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:jfwang9@stu.suda.edu.cn"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/>http://zivblog.top/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/</a></p>
           
         
-          
-            <a href="https://github.com/cn-Wziv"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=287121670"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -659,118 +562,211 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-25T09:57:26+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 25, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/leetcode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>leetcode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Algorithm/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Algorithm</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/&title=Leetcode之反转字符串 - Ziv（瓶子）&summary=Reverse String"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/&title=Leetcode之反转字符串 - Ziv（瓶子）&summary=Reverse String"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/leetcode-zhi-fan-zhuan-zi-fu-chuan/&title=Leetcode之反转字符串 - Ziv（瓶子）&summary=Reverse String"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/passages/lintcode-zhi-bei-bao-wen-ti-iandii/'>
+                <p class='title'>Lintcode之背包问题（ⅠandⅡ）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>背包问题，标准的01背包和完全背包问题，动态规划中有详细思路，此处仅做记录
+
+
+Backpack
+code with Python
+title number：92
+
+
+
+题目
+在n个物品中挑选若...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments floatable">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Leetcode之反转字符串',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Leetcode/" href="/categories/Leetcode/"
-            id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(172)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Lintcode/" href="/categories/Lintcode/"
-            id="categoriesLintcode"
-            ><div class='name'>Lintcode</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Sword-Offer/" href="/categories/Sword-Offer/"
-            id="categoriesSword-Offer"
-            ><div class='name'>Sword Offer</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"
-            id="categoriesE58D9AE5AEA2E79BB8E585B3"
-            ><div class='name'>博客相关</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" href="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"
-            id="categoriesE591A8E79FA5E8AF86E680BBE7BB93"
-            ><div class='name'>周知识总结</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"
-            id="categoriesE5B7A5E585B7E9858DE7BDAE"
-            ><div class='name'>工具配置</div><div class='badge'>(18)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
-            ><div class='name'>机器学习</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/"
-            id="categoriesE7A094E7A9B6E7949FE5A48DE8AF95"
-            ><div class='name'>研究生复试</div><div class='badge'>(19)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            id="categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(15)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"
-            id="categoriesE7BC96E7A88BE8AFADE8A880"
-            ><div class='name'>编程语言</div><div class='badge'>(21)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BD%AE%E9%A1%B6/" href="/categories/%E7%BD%AE%E9%A1%B6/"
-            id="categoriesE7BDAEE9A1B6"
-            ><div class='name'>置顶</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"
-            id="categoriesE887AAE784B6E8AFADE8A880E5A484E79086"
-            ><div class='name'>自然语言处理</div><div class='badge'>(15)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/" href="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/"
-            id="categoriesE8AFBBE4B9A6-E794B5E5BDB1"
-            ><div class='name'>读书&电影</div><div class='badge'>(5)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reverse-String"><span class="toc-text">Reverse String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路二"><span class="toc-text">思路二</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Algorithm/" style="font-size: 24px; color: #555">Algorithm</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 21.78px; color: #646464">Artificial Intelligence</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/NLP/" style="font-size: 17.33px; color: #828282">NLP</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Tools/" style="font-size: 21.78px; color: #646464">Tools</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 18.44px; color: #7b7b7b">c语言</a> <a href="/tags/leetcode/" style="font-size: 22.89px; color: #5d5d5d">leetcode</a> <a href="/tags/lintcode/" style="font-size: 15.11px; color: #919191">lintcode</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" style="font-size: 19.56px; color: #737373">研究生复试</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" style="font-size: 17.33px; color: #828282">论文笔记</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 16.22px; color: #8a8a8a">读书笔记</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -869,14 +865,6 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -994,6 +982,60 @@
 
 
 
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "PwSLYbui2ApW0Rvu1hJu8ylp-gzGzoHsz",
+    appKey: "H14C8D8IArWii8sXghM7JHfc",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
