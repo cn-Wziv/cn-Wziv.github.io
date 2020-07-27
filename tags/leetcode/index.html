@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>標籤：leetcode - Ziv（瓶子）</title>
+    <title>Tag: leetcode - Ziv（瓶子）</title>
   
   
 
@@ -437,6 +437,254 @@
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/leetcode-zhi-fei-bo-na-qi-shu/">
+      Leetcode之斐波那契数
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Leetcode/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Leetcode</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 27, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="Fibonacci-Number"><a href="#Fibonacci-Number" class="headerlink" title="Fibonacci Number"></a>Fibonacci Number</h3><ul>
+<li>code with Python</li>
+<li>title number：509</li>
+</ul>
+<br>
+
+<h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
+<li><p>斐波那契数，通常使用<code>F(n)</code>表示，形成的序列成为<strong>斐波那契数</strong>。</p>
+</li>
+<li><p>该数列有<code>0</code>和<code>1</code>开始，后面的每一项数字都是前面两项数字的和</p>
+</li>
+<li><p>即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(0) &#x3D; 0, F(1) &#x3D; 1</span><br><span class="line">F(N) &#x3D; F(N-1) + F(N-2), N &gt; 1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<br>
+
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul>
+<li>递归<ul>
+<li>当<code>N=0</code>或<code>N=1</code>时，返回设定值</li>
+<li>其他情况下的<code>N</code>返回<code>F(N-1)</code>和<code>F(N-2)</code>的和</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(self, N: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> N == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> N == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> fib(N<span class="number">-1</span>) + fib(N<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h4><ul>
+<li>递归的时间复杂度太高了</li>
+<li>采取记忆化的方式，存储前面已经计算过的值，减少递归带来的重复计算</li>
+<li>首先是<strong>自底向上</strong>的方法<ul>
+<li>当<code>N &lt;= 1</code>时，返回<code>N</code></li>
+<li>否则<strong>迭代</strong>计算<code>N</code>，并存储在数组中</li>
+<li>直接从记忆数组中读取<code>N</code>对应的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(self, N: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> N &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> N</span><br><span class="line">    <span class="keyword">return</span> self.memorize(N)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">memorize</span><span class="params">(self, N)</span>:</span></span><br><span class="line">    cache = &#123;<span class="number">0</span>:<span class="number">0</span>, <span class="number">1</span>:<span class="number">1</span>&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, N+<span class="number">1</span>):</span><br><span class="line">        cache[i] = cache[i<span class="number">-1</span>] + cache[i<span class="number">-2</span>]</span><br><span class="line">    <span class="keyword">return</span> cache[N]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="思路三"><a href="#思路三" class="headerlink" title="思路三"></a>思路三</h4><ul>
+<li>仍然是记忆化的思路，这次是自顶向下的方法<ul>
+<li>如果<code>N &lt;= 1</code>，返回<code>N</code></li>
+<li>调用和返回<code>memorize(N)</code></li>
+<li>如果<code>N</code>对应的值存在，则直接返回</li>
+<li>否则通过公式<code>memorize(N-1) + memorize(N-2)</code>，计算<code>N</code>对应的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(self, N: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> N &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> N</span><br><span class="line">    self.cache = &#123;<span class="number">0</span>:<span class="number">0</span>, <span class="number">1</span>:<span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> self.memorize(N)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">memorize</span><span class="params">(self, N)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> N <span class="keyword">in</span> self.cache:</span><br><span class="line">        <span class="keyword">return</span> self.cache[N]</span><br><span class="line">    self.cache[N] = self.memorize(N<span class="number">-1</span>) + self.memorize(N<span class="number">-2</span>)</span><br><span class="line">    <span class="keyword">return</span> self.memorize(N)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/leetcode-zhou-sai-199/">
+      Leetcode周赛（199）
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Leetcode/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Leetcode</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 26, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Leetcode第199场周赛</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/passages/leetcode-zhou-sai-199/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1725,204 +1973,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/">
-      Leetcode之第一个错误的版本
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 10, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>First Bad Version</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/leetcode-zhi-di-yi-ge-cuo-wu-de-ban-ben/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/leetcode-zhi-sou-suo-er-wei-ju-zhen/">
-      Leetcode之搜索二维矩阵
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 9, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Search a 2D Matrix</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/leetcode-zhi-sou-suo-er-wei-ju-zhen/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1936,7 +1986,7 @@
         
           <a class="next" rel="next" href="/tags/leetcode/page/2/">
             <section class="post next white-box floatable">
-              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -2039,7 +2089,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(172)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(174)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2209,16 +2259,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
