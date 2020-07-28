@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Leetcode之01矩阵 - Ziv（瓶子）</title>
+    <title>Leetcode之字符串的排列 - Ziv（瓶子）</title>
   
     <meta name="keywords" content="leetcode,Algorithm">
   
   
-    <meta name="description" content="01 Matrix">
+    <meta name="description" content="Permutation in String">
   
 
   <!-- feed -->
@@ -413,8 +413,8 @@
         
           
   <h1 class="title">
-    <a href="/passages/leetcode-zhi-01-ju-zhen/">
-      Leetcode之01矩阵
+    <a href="/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/">
+      Leetcode之字符串的排列
     </a>
   </h1>
 
@@ -452,7 +452,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 4, 2020</p>
+    <p>发布于：Jul 28, 2020</p>
   </a>
 </div>
 
@@ -476,50 +476,55 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <p>01 Matrix</p>
+          <p>Permutation in String</p>
 <a id="more"></a>
 
-<h3 id="01-Matrix"><a href="#01-Matrix" class="headerlink" title="01 Matrix"></a>01 Matrix</h3><ul>
+<h3 id="Permutation-in-String"><a href="#Permutation-in-String" class="headerlink" title="Permutation in String"></a>Permutation in String</h3><ul>
 <li>code with Python</li>
-<li>title number：542</li>
+<li>title number：567</li>
 </ul>
 <br>
 
 <h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><ul>
-<li>给定一个由<code>0, 1</code>组成的矩阵，找出每个元素到最近的<code>0</code>的距离</li>
-<li>两个相邻元素间的距离为<code>1</code></li>
-<li>例如：</li>
-</ul>
-<img src="/passages/leetcode-zhi-01-ju-zhen/ZivBlog\source\_posts\Leetcode之01矩阵\example.png" style="zoom:75%;">
-
-<ul>
-<li>矩阵元素只能在四个方向上相邻：上、下、左、右</li>
+<li>给定两个字符串<code>s1</code>和<code>s2</code>，判断<code>s2</code>是否包含<code>s1</code>的排列</li>
+<li>即：<code>s1</code>的排列之一是否是第二个字符串的子串</li>
 </ul>
 <br>
 
 <h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h4><ul>
-<li>由题意可知，所求距离为曼哈顿距离，即方向上只能沿这横、竖到达下一个位置</li>
-<li>在一个图中，从一个点出发求<strong>最短距离</strong>，首先想到的是<strong>广度优先遍历</strong><ul>
-<li>广度优先遍历会优先将最近的一圈搜索完之后，再去搜索下一圈</li>
+<li>滑动窗口+哈希表<ul>
+<li>由于判断的是<code>s1</code>的排列是否为<code>s2</code>的子串，可以等价于<code>s1</code>中的元素是无序的，我们可以只统计字母出现的频次</li>
+<li>使用滑动窗口遍历<code>s2</code>，并统计其中字母出现的频次<ul>
+<li>当子串长度不够时，向右移动滑动窗口的右边界，将最右边的字母的频次<code>+1</code></li>
+<li>当子串长度超过<code>s1</code>时，向右移动滑动窗口的左边界，并将左边的字母的频次<code>-1</code></li>
 </ul>
 </li>
-<li>所以在本题中，第<code>i</code>圈对应的就是距离为<code>i</code></li>
-<li>题目给出了多个<code>1</code>，要求找到每个<code>1</code>到<code>0</code>的最近曼哈顿距离。而<code>0</code>到<code>1</code>的距离和<code>1</code>到<code>0</code>的距离是相同的<ul>
-<li>故我们可以将问题转化为:<strong>每个0到1距离</strong></li>
-<li>问题抽象为:<strong>多个起始点的广度优先搜索</strong></li>
+<li>当子串与<code>s1</code>的哈希表相同时，则说明<code>s2</code>包含<code>s1</code>的排列</li>
 </ul>
 </li>
-<li>接下来是广度优先搜索：<ul>
-<li>将每个还未搜索到的点依次放入队列，再弹出队列的头部元素作为当前的遍历点</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkInclusion</span><span class="params">(self, s1: str, s2: str)</span> -&gt; bool:</span></span><br><span class="line">    l1, l2 = len(s1), len(s2)</span><br><span class="line">    </span><br><span class="line">    c1, c2 = collections.Counter(s1), collections.Counter()</span><br><span class="line">    </span><br><span class="line">    p, q = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> q &lt; l2:</span><br><span class="line">        c2[s2[q]] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> c2 == c1:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        q += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 当子串长度超过s1的长度</span></span><br><span class="line">        <span class="keyword">if</span> q - p + <span class="number">1</span> &gt; l1:</span><br><span class="line">            c2[s2[p]] -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> c2[s2[p]] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">del</span> c2[s2[p]]</span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h4><ul>
+<li>字符哈希 + 滑动窗口<ul>
+<li>整体思路同思路一，优化哈希表结构</li>
+<li>由于字母的数量是有限的，使用数组来存储字母出现的频次</li>
+<li>使用<code>s[i]-&#39;a&#39;</code>的值作为数组下标</li>
 </ul>
 </li>
-<li>要确定遍历到哪一层，需要加一个<code>level</code>记录遍历的层数<ul>
-<li>访问完每层的元素之后，<code>level+1</code></li>
 </ul>
-</li>
-<li>具体算法细节，请结合代码和注释理解</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkInclusion</span><span class="params">(self, s1: str, s2: str)</span> -&gt; bool:</span>	</span><br><span class="line">	l1, l2 = len(s1), len(s2)</span><br><span class="line">    c1, c2 = [<span class="number">0</span>]*<span class="number">26</span>, [<span class="number">0</span>]*<span class="number">26</span></span><br><span class="line">    p, q = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 统计s1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> s1:</span><br><span class="line">        c1[ord(i)-ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q &lt; l2:</span><br><span class="line">        c2[ord(s2[q])-ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> c2 == c1:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        q += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> q - p + <span class="number">1</span> &gt; l1:</span><br><span class="line">            c2[ord(s2[p])-ord(<span class="string">'a'</span>)] -= <span class="number">1</span></span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="思路三"><a href="#思路三" class="headerlink" title="思路三"></a>思路三</h4><ul>
+<li>其实在做比较时，我们无需每次都比较两个哈希表</li>
+<li>维护一个变量，用来统计滑动窗口中频次与<code>s1</code>中相同的字母的个数</li>
+<li>当滑动窗口中符合条件的字母的个数与<code>s1</code>中字母的个数相同，则返回<code>True</code></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateMatrix</span><span class="params">(self, matrix: List[List[int]])</span> -&gt; List[List[int]]:</span></span><br><span class="line">    M, N = len(matrix), len(matrix[<span class="number">0</span>])</span><br><span class="line">    queue = collections.deque()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 记录已访问过的位置</span></span><br><span class="line">    visited = [[<span class="number">0</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(M)]</span><br><span class="line">    <span class="comment"># 结果</span></span><br><span class="line">    res = [[<span class="number">0</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(M)]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将所有的0添加到队列中</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(M):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] == <span class="number">0</span>:</span><br><span class="line">                queue.append((i, j))</span><br><span class="line">                visited[i][j] = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 四个方向</span></span><br><span class="line">    dirs = [(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>)]</span><br><span class="line">    <span class="comment"># 距离 = 层数</span></span><br><span class="line">    step = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 出队所有元素</span></span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        size = len(queue)</span><br><span class="line">        <span class="comment"># 当前元素所有邻居</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(size):</span><br><span class="line">            x, y = queue.popleft()</span><br><span class="line">            <span class="keyword">if</span> matrix[x][y] == <span class="number">1</span>:</span><br><span class="line">                res[x][y] = step</span><br><span class="line">            <span class="comment"># 广度优先遍历，四个方向</span></span><br><span class="line">            <span class="keyword">for</span> dx, dy <span class="keyword">in</span> dirs:</span><br><span class="line">                newx, newy = x + dx, y + dy</span><br><span class="line">                <span class="keyword">if</span> newx &lt; <span class="number">0</span> <span class="keyword">or</span> newx &gt;= M <span class="keyword">or</span> newy &lt; <span class="number">0</span> <span class="keyword">or</span> newy &gt;= N <span class="keyword">or</span> visited[newx][newy] == <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="comment"># 新节点入队</span></span><br><span class="line">                queue.append((newx, newy))</span><br><span class="line">                visited[newx][newy] = <span class="number">1</span></span><br><span class="line">       	<span class="comment"># 下一层</span></span><br><span class="line">        step += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countInclusion</span><span class="params">(self, s1: str, s2: str)</span> -&gt; bool:</span></span><br><span class="line">    l1, l2 = len(s1), len(s2)</span><br><span class="line">    </span><br><span class="line">    c1, c2 = collections.Counter(s1), collections.Counter()</span><br><span class="line">	</span><br><span class="line">    <span class="comment"># 统计变量，全26个字母，频率相同的个数</span></span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 滑动窗口的左右边界</span></span><br><span class="line">    p, q = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">while</span> q &lt; l2:</span><br><span class="line">        c2[s2[q]] += <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> c2[s2[q]] == c1[s2[q]]:</span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> cnt == len(c1):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        q += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> q - p + <span class="number">1</span> &gt; l1:</span><br><span class="line">            <span class="keyword">if</span> c1[s2[p]] == c2[s2[p]]:</span><br><span class="line">                cnt -= <span class="number">1</span></span><br><span class="line">            c2[s2[p]] -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> c2[s2[p]] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">del</span> c2[s2[p]]</span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
 
           
@@ -557,7 +562,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://zivblog.top/passages/leetcode-zhi-01-ju-zhen/>http://zivblog.top/passages/leetcode-zhi-01-ju-zhen/</a></p>
+            <p>本文永久链接是：<a href=http://zivblog.top/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/>http://zivblog.top/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/</a></p>
           
         
       </blockquote>
@@ -608,10 +613,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:08:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T09:33:32+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 6, 2020</p>
+    <p>更新于：Jul 28, 2020</p>
   </a>
 </div>
 
@@ -638,7 +643,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/leetcode-zhi-01-ju-zhen/&title=Leetcode之01矩阵 - Ziv（瓶子）&summary=01 Matrix"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zivblog.top/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/&title=Leetcode之字符串的排列 - Ziv（瓶子）&summary=Permutation in String"
           
           >
           
@@ -650,7 +655,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/leetcode-zhi-01-ju-zhen/&title=Leetcode之01矩阵 - Ziv（瓶子）&summary=01 Matrix"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zivblog.top/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/&title=Leetcode之字符串的排列 - Ziv（瓶子）&summary=Permutation in String"
           
           >
           
@@ -662,7 +667,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/leetcode-zhi-01-ju-zhen/&title=Leetcode之01矩阵 - Ziv（瓶子）&summary=01 Matrix"
+          href="http://service.weibo.com/share/share.php?url=http://zivblog.top/passages/leetcode-zhi-zi-fu-chuan-de-pai-lie/&title=Leetcode之字符串的排列 - Ziv（瓶子）&summary=Permutation in String"
           
           >
           
@@ -686,31 +691,20 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/passages/leetcode-zhi-zhi-chu-xian-yi-ci-de-shu-zi-ii/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Leetcode之只出现一次的数字Ⅱ</p>
-                <p class='content'>Single Number Ⅱ
+            
+              <a class='next' href='/passages/leetcode-zhi-fei-bo-na-qi-shu/'>
+                <p class='title'>Leetcode之斐波那契数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Fibonacci Number
 
 
-Single Number Ⅱ
+Fibonacci Number
 code with Python
-title number：137
+title number：509
 
 
 
 读题
-给定一个非空整数数组，除了某个元素只出现一次之...</p>
-              </a>
-            
-            
-              <a class='next' href='/passages/leetcode-zhi-zhu-zhuang-tu-zhong-zui-da-de-ju-xing/'>
-                <p class='title'>Leetcode之柱状图中最大的矩形<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>Largest Rectangle in Histogram
-
-
-Largest Rectangle in Histogram
-code with Python
-title number：84
-...</p>
+斐波那契数，通常使用F(n)表示，形成的序...</p>
               </a>
             
           </div>
@@ -755,7 +749,7 @@ title number：84
 
   <script>
     window.subData = {
-      title: 'Leetcode之01矩阵',
+      title: 'Leetcode之字符串的排列',
       tools: true
     }
   </script>
@@ -782,7 +776,7 @@ title number：84
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-Matrix"><span class="toc-text">01 Matrix</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Permutation-in-String"><span class="toc-text">Permutation in String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路二"><span class="toc-text">思路二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路三"><span class="toc-text">思路三</span></a></li></ol></li></ol>
     </div>
   </section>
 
