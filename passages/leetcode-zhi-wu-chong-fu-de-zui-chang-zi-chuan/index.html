@@ -520,11 +520,15 @@
 
 
 <h4 id="思路三"><a href="#思路三" class="headerlink" title="思路三"></a>思路三</h4><ul>
-<li>思路二实际上还存在重复判断的现象，例如<ul>
+<li><p>滑动窗口</p>
+</li>
+<li><p>思路二实际上还存在重复判断的现象，例如</p>
+<ul>
 <li><code>s[i:j]</code>和<code>s[i+1, j+1]</code>这两种左端点不同的子串就存在重复部分<code>s[i+1,j]</code></li>
 </ul>
 </li>
-<li>所以我们使用字典来建立字符到索引的映射，而不是使用集合来判断字符是否存在于子串中<ul>
+<li><p>所以我们使用字典来建立字符到索引的映射，而不是使用集合来判断字符是否存在于子串中</p>
+<ul>
 <li>具体的，当<code>s[i,j)</code>中存在<code>s[j&#39;]==s[j]</code>，即使逐渐增加左端点<code>i</code>，在<code>i</code>到达<code>j&#39;+1</code>之前，<code>j&#39;+1</code>仍会是到<code>j</code>就停止的阻碍</li>
 <li>所以我们选择不逐渐增加左端点，而是直接跳过<code>s[i, j&#39;]</code>范围内的元素，令<code>i=j&#39;+1</code></li>
 </ul>
@@ -532,6 +536,18 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(self, s: str)</span> -&gt; int:</span></span><br><span class="line">	n, res = len(s), <span class="number">0</span></span><br><span class="line">    i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    temp = &#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">if</span> s[j] <span class="keyword">in</span> temp:</span><br><span class="line">            i = max(temp[s[j]], i)</span><br><span class="line">        </span><br><span class="line">        res = max(res, j-i+<span class="number">1</span>)</span><br><span class="line">        temp[s[j]] = j+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 
+<br>
+
+<h4 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h4><ul>
+<li>与双指针类似，都是由两个边界指针进行问题的求解</li>
+<li>滑动窗口的核心点时维护一个窗口集，其核心步骤是：<ul>
+<li>右指针右移</li>
+<li>收缩</li>
+<li>做指针右移</li>
+<li>得到结果</li>
+</ul>
+</li>
+</ul>
 
           
             <div class='article_footer'>
@@ -619,10 +635,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-06T13:28:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-30T09:51:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 6, 2020</p>
+    <p>更新于：Jul 30, 2020</p>
   </a>
 </div>
 
@@ -788,7 +804,7 @@ Leetcode精刷题目
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="toc-text">Longest Substring Without Repeating Characters</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路二"><span class="toc-text">思路二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路三"><span class="toc-text">思路三</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="toc-text">Longest Substring Without Repeating Characters</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路一"><span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路二"><span class="toc-text">思路二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路三"><span class="toc-text">思路三</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写在后面"><span class="toc-text">写在后面</span></a></li></ol></li></ol>
     </div>
   </section>
 
