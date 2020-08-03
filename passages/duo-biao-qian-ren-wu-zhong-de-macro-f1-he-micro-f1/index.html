@@ -502,7 +502,7 @@
 </tr>
 <tr>
 <td><strong>预测输出</strong></td>
-<td><strong>P‘</strong></td>
+<td><strong>P’</strong></td>
 <td>TP，实际为正预测为正（真阳性）</td>
 <td>FP，实际为负，预测为正（假阳性）</td>
 </tr>
@@ -520,7 +520,7 @@
 </li>
 <li><p>召回率，表示的是正确预测为正的样本占<strong>全部实际为正</strong>的样本的比例<br>$$<br>Recall=\frac{TP}{TP+FN}<br>$$</p>
 </li>
-<li><p><code>F1</code>值，表示的是精确率和召回率的加权<br>$$<br>F1-Score=\frac{2<em>Precision</em>Recall}{Precision+Recall}<br>$$</p>
+<li><p><code>F1</code>值，表示的是精确率和召回率的加权<br>$$<br>F1-Score=\frac{2*Precision*Recall}{Precision+Recall}<br>$$</p>
 </li>
 </ul>
 <br>
@@ -623,23 +623,10 @@
 <td>1</td>
 <td>~</td>
 </tr>
-<tr>
-<td>- $$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Precison_B = \frac{TP}{TP+FP}=\frac{2}{2+2}=50%</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 <ul>
+<li><p>$$<br>Precison_B = \frac{TP}{TP+FP}=\frac{2}{2+2}=50%<br>$$</p>
+</li>
 <li><p>$$<br>Recall_B = \frac{TP}{TP+FN} = \frac{2}{2+1} = 67%<br>$$</p>
 </li>
 <li><p>$$<br>F1-Score_B = \frac{2<em>Precision</em>Recall}{Precision+Recall} = \frac{2<em>0.5</em>0.67}{0.5+0.67}=57%<br>$$</p>
@@ -665,23 +652,10 @@
 <td>1</td>
 <td>~</td>
 </tr>
-<tr>
-<td>- $$</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Precison_C = \frac{TP}{TP+FP}=\frac{1}{1+2}=33%</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$$</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 <ul>
+<li><p>$$<br>Precison_C = \frac{TP}{TP+FP}=\frac{1}{1+2}=33%<br>$$</p>
+</li>
 <li><p>$$<br>Recall_C = \frac{TP}{TP+FN} = \frac{1}{1+1} = 50%<br>$$</p>
 </li>
 <li><p>$$<br>F1-Score_C = \frac{2<em>Precision</em>Recall}{Precision+Recall} = \frac{2<em>0.33</em>0.5}{0.33+0.5}=40%<br>$$</p>
@@ -803,7 +777,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-03T11:38:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-03T12:00:30+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 3, 2020</p>
@@ -1045,16 +1019,16 @@ title number：450
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作为主题，总访问量为
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
@@ -1232,7 +1206,7 @@ title number：450
     lang:'zh-cn',
     visitor: 'true',
     highlight: 'true',
-    mathJax: 'false',
+    mathJax: 'true',
     enableQQ: 'true',
     requiredFields: requiredFields,
     emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
