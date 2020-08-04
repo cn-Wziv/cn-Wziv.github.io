@@ -1092,7 +1092,7 @@
   <div class="new-meta-item top-post">
     <a class='notlink'>
       <i class="fas fa-angle-double-up fa-fw" aria-hidden="true"></i>
-      <p>Top</p>
+      <p>置頂</p>
     </a>
   </div>
 
@@ -1184,9 +1184,150 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/leetcode-zhi-shu-zu-yu-zi-fu-chuan/">
+      Leetcode之数组与字符串
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Leetcode/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Leetcode</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 4, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="数组简介"><a href="#数组简介" class="headerlink" title="数组简介"></a>数组简介</h3><h4 id="集合、列表和数组"><a href="#集合、列表和数组" class="headerlink" title="集合、列表和数组"></a>集合、列表和数组</h4><ul>
+<li>集合：由一个或多个确定的元素所构成的整体<ul>
+<li>集合里的元素类型不一定相同</li>
+<li>集合里的元素没有顺序</li>
+</ul>
+</li>
+<li>列表（线性列表）：按照一定的线性顺序，排列而成的数据项的集合<ul>
+<li>包括数组和链表</li>
+</ul>
+</li>
+<li>Python中的List不是数组，包含的元素的数据类型不一定相同</li>
+</ul>
+<h4 id="寻找数组的中心索引"><a href="#寻找数组的中心索引" class="headerlink" title="寻找数组的中心索引"></a>寻找数组的中心索引</h4><ul>
+<li>对应Leetcode第724题</li>
+<li>给定一个整数类型的数组，返回中心索引<ul>
+<li>中心索引：数组中心索引的左侧所有元素相加的和<strong>等于</strong>右侧所有元素相加的和</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pivotIndex</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    先计算出数组所有元素之和</span></span><br><span class="line"><span class="string">    遍历数组，计算当前位置左边的元素之和</span></span><br><span class="line"><span class="string">    当左边元素之和*2+当前元素=数组之和时，返回当前位置</span></span><br><span class="line"><span class="string">    特殊处理：</span></span><br><span class="line"><span class="string">    	数组长度为0时，返回-1</span></span><br><span class="line"><span class="string">    	数组长度为1时，返回nums[0]</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">if</span> len(nums) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    sum_ = sum(nums)</span><br><span class="line">    left_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> idx, num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        <span class="keyword">if</span> left_sum*<span class="number">2</span>+num == sum_:</span><br><span class="line">            <span class="keyword">return</span> idx</span><br><span class="line">        left_sum += num</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="搜索插入位置"><a href="#搜索插入位置" class="headerlink" title="搜索插入位置"></a>搜索插入位置</h4><p>对应leetcode第35题</p>
+<ul>
+<li>给定一个排序数组（无重复元素）和一个目标值</li>
+<li>在数组中找到目标值，并返回其索引</li>
+<li>如果目标值不存在于数组中，返回它将被插入的位置</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">searchInsert</span><span class="params">(self, nums: List, target: int)</span> -&gt; int:</span></span><br><span class="line">	<span class="string">'''</span></span><br><span class="line"><span class="string">	遍历有序数组，若当前位置的元素大于或等于目标值，则返回当前位置的下标</span></span><br><span class="line"><span class="string">	特殊处理：</span></span><br><span class="line"><span class="string">		当数组为空时，返回0</span></span><br><span class="line"><span class="string">		当数组中无插入位置，返回len(nums)，即数组最后一个位置的下一个位置</span></span><br><span class="line"><span class="string">	'''</span></span><br><span class="line">    <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> idx, num <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">        <span class="keyword">if</span> num &gt;= target:</span><br><span class="line">            <span class="keyword">return</span> idx</span><br><span class="line">    <span class="keyword">return</span> len(nums)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="合并区间"><a href="#合并区间" class="headerlink" title="合并区间"></a>合并区间</h4><p>对应leetcode第56题</p>
+<ul>
+<li>解析见<a href="http://www.zivblog.top/passages/leetcode-zhi-he-bing-qu-jian/" target="_blank" rel="noopener">合并区间</a></li>
+</ul>
+<br>
+
+<h3 id="二维数组简介"><a href="#二维数组简介" class="headerlink" title="二维数组简介"></a>二维数组简介</h3><h4 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h4><ul>
+<li>给定一幅由<code>N*N</code>矩阵表示的图像，其中的像素大小为4字节</li>
+<li>将图像旋转90度</li>
+<li>能够不使用额外的内存空间（原地）解决吗？</li>
+</ul>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2079,105 +2220,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/leetcode-zhi-fen-ge-hui-wen-chuan-ii/">
-      Leetcode之分割回文串Ⅱ
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 22, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>palindrome partitioning Ⅱ</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/leetcode-zhi-fen-ge-hui-wen-chuan-ii/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -2191,7 +2233,7 @@
         
           <a class="next" rel="next" href="/page/2/">
             <section class="post next white-box floatable">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -2292,7 +2334,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(177)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(178)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2462,16 +2504,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
