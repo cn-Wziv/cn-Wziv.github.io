@@ -515,12 +515,18 @@
 </tbody></table>
 <br>
 
-<h4 id="精确度和召回值"><a href="#精确度和召回值" class="headerlink" title="精确度和召回值"></a>精确度和召回值</h4><ul>
+<h4 id="精确度和召回率"><a href="#精确度和召回率" class="headerlink" title="精确度和召回率"></a>精确度和召回率</h4><ul>
 <li><p>精确率，表示的是<strong>正确预测为正</strong>的样本占<strong>全部预测为正</strong>的样本的比例<br>$$<br>Precision=\frac{TP}{TP+FP}<br>$$</p>
 </li>
 <li><p>召回率，表示的是正确预测为正的样本占<strong>全部实际为正</strong>的样本的比例<br>$$<br>Recall=\frac{TP}{TP+FN}<br>$$</p>
 </li>
 <li><p><code>F1</code>值，表示的是精确率和召回率的加权<br>$$<br>F1-Score=\frac{2*Precision*Recall}{Precision+Recall}<br>$$</p>
+</li>
+<li><p><strong>感性认识</strong></p>
+<ul>
+<li>召回率：真正的正样本有多少被你猜出来了</li>
+<li>精确率：你认为的正样本有多少猜对了</li>
+</ul>
 </li>
 </ul>
 <br>
@@ -777,10 +783,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-03T12:00:30+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-12T10:48:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 3, 2020</p>
+    <p>更新于：Aug 12, 2020</p>
   </a>
 </div>
 
@@ -857,7 +863,7 @@
             
               <a class='prev' href='/passages/leetcode-zhi-shu-zu-yu-zi-fu-chuan/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Leetcode之数组与字符串</p>
-                <p class='content'>数组与字符串（2020.8.4~2020.8.）
+                <p class='content'>数组与字符串（2020.8.4~2020.8.18）
 
 
 
@@ -865,7 +871,7 @@
 数组简介集合、列表和数组
 集合：由一个或多个确定的元素所构成的整体
 集合里的元素类型不一定相同
-集合里的元素没有顺...</p>
+集合里的元素没...</p>
               </a>
             
             
@@ -953,7 +959,7 @@ title number：450
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多标签任务中的Macro-F1和Micro-F1"><span class="toc-text">多标签任务中的Macro-F1和Micro-F1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#混淆矩阵"><span class="toc-text">混淆矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#精确度和召回值"><span class="toc-text">精确度和召回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Macro-F1和Micro-F1"><span class="toc-text">Macro-F1和Micro-F1</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多标签任务中的Macro-F1和Micro-F1"><span class="toc-text">多标签任务中的Macro-F1和Micro-F1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#混淆矩阵"><span class="toc-text">混淆矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#精确度和召回率"><span class="toc-text">精确度和召回率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Macro-F1和Micro-F1"><span class="toc-text">Macro-F1和Micro-F1</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1032,16 +1038,16 @@ title number：450
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
