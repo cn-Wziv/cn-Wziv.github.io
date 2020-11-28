@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>分類：编程语言 - Ziv（瓶子）</title>
+    <title>Category: 编程语言 - Ziv（瓶子）</title>
   
   
 
@@ -1322,50 +1322,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<ul>
-<li>什么是匿名函数？</li>
-</ul>
-<p>匿名函数，顾名思义就是具体的函数名但是有函数功能的函数或子程序。lambda函数可以接收任意多个参数并且返回单个表达式的值。</p>
-<ul>
-<li>为什么要使用匿名函数？</li>
-</ul>
-<p>在函数功能不是很复杂的情况下，如果不想去费神命名一个函数时，可以使用匿名函数。也就是说匿名函数可以使代码变得更简洁，但是相对应的会增加阅读代码时的难度，所以不要盲目的使用匿名函数。</p>
-<ul>
-<li><p>使用ambda定义匿名函数有什么要注意的？</p>
-<ul>
-<li>lambda函数不能包含命令</li>
-<li>包含的表达式不能超过一个</li>
-</ul>
-</li>
-<li><p>使用lambda定义匿名函数的格式？</p>
-</li>
-</ul>
-<p>lambda 参数列表 : 表达式</p>
-<ul>
-<li>使用lambda定义匿名函数和常规函数定义的区别？</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 常规函数定义</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用lambda定义</span></span><br><span class="line">add = <span class="keyword">lambda</span> x, y : x + y</span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>lambda的用法</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 将<span class="keyword">lambda</span>函数赋值给一个变量，通过这个变量简洁调用<span class="keyword">lambda</span>函数</span><br><span class="line">add = <span class="keyword">lambda</span> x, y : x + y</span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 将<span class="keyword">lambda</span>函数赋值给其他函数，从而将其他函数用该<span class="keyword">lambda</span>函数替换</span><br><span class="line"><span class="comment"># 例如对标准库中的函数time.sleep，可以使用lambda将其覆盖掉，下一次调用sleep的使用就是定义的lambda函数的内容了</span></span><br><span class="line">time.sleep = <span class="keyword">lambda</span> x:<span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 将<span class="keyword">lambda</span>函数作为其他函数的返回值</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x, y : x + y</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 将<span class="keyword">lambda</span>函数作为参数传递给其他函数</span><br><span class="line"><span class="comment"># 部分Python内置函数接收函数作为参数，例如：</span></span><br><span class="line">filter函数</span><br><span class="line">sorted函数</span><br><span class="line">map函数</span><br><span class="line">reduce函数</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>另外，lambda是Python的关键字，Python的关键字还有：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line">keyword.kwlist</span><br><span class="line"></span><br><span class="line">[<span class="string">'False'</span>, <span class="string">'None'</span>, <span class="string">'True'</span>, <span class="string">'and'</span>, <span class="string">'as'</span>, <span class="string">'assert'</span>, <span class="string">'break'</span>, <span class="string">'class'</span>, <span class="string">'continue'</span>, <span class="string">'def'</span>, <span class="string">'del'</span>, <span class="string">'elif'</span>, <span class="string">'else'</span>, <span class="string">'except'</span>, <span class="string">'finally'</span>, <span class="string">'for'</span>, <span class="string">'from'</span>, <span class="string">'global'</span>, <span class="string">'if'</span>, <span class="string">'import'</span>, <span class="string">'in'</span>, <span class="string">'is'</span>, <span class="string">'lambda'</span>, <span class="string">'nonlocal'</span>, <span class="string">'not'</span>, <span class="string">'or'</span>, <span class="string">'pass'</span>, <span class="string">'raise'</span>, <span class="string">'return'</span>, <span class="string">'try'</span>, <span class="string">'while'</span>, <span class="string">'with'</span>, <span class="string">'yield'</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<p>欢迎转载交流，拒绝一切形式的复制抄袭。</p>
-<p>欢迎来信交流||指教。</p>
-
+        <p>匿名函数</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/passages/python-zhi-lambda-ni-ming-han-shu/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1985,7 +1951,7 @@
         
           <a class="next" rel="next" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/page/2/">
             <section class="post next white-box floatable">
-              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -2089,7 +2055,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(178)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(177)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2107,24 +2073,19 @@
             ><div class='name'>博客相关</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" href="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"
-            id="categoriesE591A8E79FA5E8AF86E680BBE7BB93"
-            ><div class='name'>周知识总结</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"
             id="categoriesE5B7A5E585B7E9858DE7BDAE"
             ><div class='name'>工具配置</div><div class='badge'>(18)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
-            ><div class='name'>机器学习</div><div class='badge'>(8)</div></a></li>
+            title="/categories/%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/" href="/categories/%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/"
+            id="categoriesE695B0E68DAEE7AB9EE8B59B"
+            ><div class='name'>数据竞赛</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(7)</div></a></li>
+            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
+            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
+            ><div class='name'>机器学习</div><div class='badge'>(7)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/"
@@ -2149,12 +2110,7 @@
           <li><a class="flat-box"
             title="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"
             id="categoriesE887AAE784B6E8AFADE8A880E5A484E79086"
-            ><div class='name'>自然语言处理</div><div class='badge'>(16)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/" href="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/"
-            id="categoriesE8AFBBE4B9A6-E794B5E5BDB1"
-            ><div class='name'>读书&电影</div><div class='badge'>(5)</div></a></li>
+            ><div class='name'>自然语言处理</div><div class='badge'>(3)</div></a></li>
         
       </ul>
     </div>
@@ -2178,7 +2134,7 @@
 
 
     <div class='content'>
-      <a href="/tags/Algorithm/" style="font-size: 24px; color: #555">Algorithm</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 22px; color: #636363">Artificial Intelligence</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/NLP/" style="font-size: 18px; color: #7e7e7e">NLP</a> <a href="/tags/Python/" style="font-size: 21px; color: #696969">Python</a> <a href="/tags/Tools/" style="font-size: 22px; color: #636363">Tools</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 19px; color: #777">c语言</a> <a href="/tags/leetcode/" style="font-size: 23px; color: #5c5c5c">leetcode</a> <a href="/tags/lintcode/" style="font-size: 15px; color: #929292">lintcode</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" style="font-size: 20px; color: #707070">研究生复试</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" style="font-size: 17px; color: #858585">论文笔记</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 16px; color: #8b8b8b">读书笔记</a>
+      <a href="/tags/AI/" style="font-size: 17.33px; color: #828282">AI</a> <a href="/tags/Algorithm/" style="font-size: 24px; color: #555">Algorithm</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/NLP/" style="font-size: 16.22px; color: #8a8a8a">NLP</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Tools/" style="font-size: 21.78px; color: #646464">Tools</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 18.44px; color: #7b7b7b">c语言</a> <a href="/tags/leetcode/" style="font-size: 22.89px; color: #5d5d5d">leetcode</a> <a href="/tags/lintcode/" style="font-size: 15.11px; color: #919191">lintcode</a> <a href="/tags/%E7%82%BC%E4%B8%B9%E6%89%8B%E5%86%8C/" style="font-size: 14px; color: #999">炼丹手册</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" style="font-size: 19.56px; color: #737373">研究生复试</a>
     </div>
   </section>
 
@@ -2259,16 +2215,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     

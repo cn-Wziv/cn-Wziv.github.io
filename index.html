@@ -1009,20 +1009,6 @@
           
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
             
               <div class='post-wrapper'>
                 <article class="post white-box floatable reveal ">
@@ -1092,7 +1078,7 @@
   <div class="new-meta-item top-post">
     <a class='notlink'>
       <i class="fas fa-angle-double-up fa-fw" aria-hidden="true"></i>
-      <p>置頂</p>
+      <p>Top</p>
     </a>
   </div>
 
@@ -1132,63 +1118,201 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box floatable reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/passages/mo-xing-rong-he/">
+      模型融合
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
+    <p>瓶子</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>数据竞赛</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Nov 28, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>为什么要进行模型融合?</p>
+<ul>
+<li><p>试想一下生活中的某个场景, 在你想买一个比较贵重的物品时, 你一般会询问周围的许多朋友, 听听他们的意见, 或许还会百度一下, 知乎查一下, 最后综合上述的所有信息来决定要买哪种</p>
+</li>
+<li><p>模型融合正是基于这种思想和假设—-“多个模型的组合决策可以提高决策的质量”</p>
+</li>
+<li><p>模型融合是数据竞赛后期比较重要的一种上分手段, 大体来说会有以下几种方式:</p>
+<ul>
+<li>加权融合</li>
+<li>stacking or blending</li>
+<li>boosting or bagging</li>
+</ul>
+</li>
+</ul>
+<h4 id="加权融合"><a href="#加权融合" class="headerlink" title="加权融合"></a>加权融合</h4><h5 id="平均法"><a href="#平均法" class="headerlink" title="平均法"></a>平均法</h5><ul>
+<li><p>对于<strong>回归问题</strong>, 最暴力的思路就是对多个模型的结果进行平均, 又分为简单平均和加权平均<br>$$<br>y = \frac{1}{n}\sum w_i y_i<br>$$</p>
+</li>
+<li><p>其中简单平均可以是做加权平均的一种特殊情况 (权重相同)</p>
+</li>
+<li><p>权重的设置基本按照单个模型的性能进行设置, 单模型效果越好, 话语权(权重)越高</p>
+</li>
+<li><p>对于分类问题也可以使用在转化为label之前的概率进行加和求平均</p>
+</li>
+</ul>
+<h5 id="投票法"><a href="#投票法" class="headerlink" title="投票法"></a>投票法</h5><ul>
+<li>对于分类问题, 将多个模型的结果进行投票, 将投票结果根据一定规则得到最终的预测结果. 又根据不同的规则分为: 绝对多数投票, 相对多数投票, 加权投票, 硬投票<ul>
+<li><strong>绝对多数投票</strong>: 当某个结果的票数超过总票数的一半以上时, 以该结果作为最终结果</li>
+<li><strong>相对多数投票</strong>: 取投票结果中票数最多的作为最终结果</li>
+<li><strong>加权投票</strong>: 对不同的模型的结果赋予一定的权重, 取投票结果中得票数最高的</li>
+</ul>
+</li>
+<li>根据是否可对参与投票的模型赋予权重, 还可分为<strong>硬投票</strong>和<strong>软投票</strong><ul>
+<li><strong>硬投票</strong>: 多个模型的重要性相同, 将最终票数最多的类作为最终结果</li>
+<li><strong>软投票</strong>: 可以对不同的模型赋予不同的权重</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h4><ul>
+<li>集成学习分为多种: stacking, boosting, bagging, blending</li>
+</ul>
+<h5 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h5><ul>
+<li>用初始训练数据学习出若干基学习器, 将这些基学习器的预测结果作为特征再训练一个分类器, 作为最终的预测结果</li>
+<li>保留基学习器在训练集上的预测结果, 这部分结果作为特征进行新模型的训练, </li>
+<li>还要保留基学习器在测试集上的预测结果作为特征来进行最终的预测. 如果是k折的话, 对于每个基学习器, 需要保留所有dev上的预测结果并拼接才是在训练集上的预测结果</li>
+<li>至于多少个基学习器, 当然是越多越好</li>
+<li>并且对于构造出来的特征也要进行降维, 或者简单的保留相关性较高的特征列中的一列即可</li>
+</ul>
+<h5 id="Blending"><a href="#Blending" class="headerlink" title="Blending"></a>Blending</h5><ul>
+<li>与stacking相思, 也是两层的架构, 不同之处在于<ul>
+<li>将训练集划分为train和dev, 仅用train训练多个分类器, 分别预测dev和test</li>
+<li>将dev的预测结果作为特征进行第二层分类器的训练数据, 预测test作为最终结果</li>
+</ul>
+</li>
+<li>这种方式笔者并未尝试过, 在这里仅作简单介绍</li>
+</ul>
+<h5 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h5><ul>
+<li>采用有放回的采样方式(自采样, bootstrap), 训练子集的大小与原始数据相同, 但是存在重复样本</li>
+<li>基于这些训练子集相互独立<strong>并行</strong>的训练不同的模型, 最终的预测结果由多个模型共同决策得到</li>
+<li>random forest就是一种典型的使用bagging思想的集成学习模型</li>
+</ul>
+<h5 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h5><ul>
+<li>不同于bagging的并行, boosting是一种串行的工作机制. 各个学习器之间的训练存在依赖关系, 后续模型会纠正前面模型的错误</li>
+<li>通过增加前一个学习器在训练过程中预测错误的样本的权重, 后续学习器可以更加关注这些样本, 从而在一定程度上进行纠错</li>
+<li>然后再对串行的多个基学习器进行加权投票</li>
+</ul>
+<h4 id="构造模型差异性"><a href="#构造模型差异性" class="headerlink" title="构造模型差异性"></a>构造模型差异性</h4><ul>
+<li>使用模型融合的关键在于两点<ul>
+<li>较好的投票参与者 (基础模型的效果不能太差)</li>
+<li>投票参与者之间的差异 (模型之间的差异性要足够显著), 毕竟结合不同的人的意见才能得到更合理的决定</li>
+</ul>
+</li>
+<li>下面主要说一下模型的差异性体现在那些方面<ul>
+<li>相同的模型结构, 不同的随机数种子</li>
+<li>相同的参数, 不同的网络初始化方式</li>
+<li>不同的参数, 通过交叉验证选取最好的模型</li>
+<li>相同的参数, 模型的不同训练阶段</li>
+<li>不同的模型结构</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<p>最后, 根据笔者的经验来看, </p>
+<ul>
+<li>简单的平均效果提升比较稳定, 可能多次尝试之后该方法上分最明显</li>
+<li>加权平均受权重的影响比较大</li>
+<li>集成学习的方法受不同基学习器产生的结果影响较大</li>
+<li>一定要做相关性分析, 集成相关性低的模型可以增加纠错能力</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><p><a href="https://mp.weixin.qq.com/s/fsT6rzpL5cuzh2usNjzzbA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/fsT6rzpL5cuzh2usNjzzbA</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26890738" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26890738</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2081,105 +2205,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box floatable reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/passages/leetcode-zhi-bian-ji-ju-chi/">
-      Leetcode之编辑距离
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://ziv_blog.top" target="_blank" rel="nofollow noopener">
-    <img src="https://github.com/cn-Wziv/image_repo/blob/master/%E6%B4%AA%E7%8C%AB.jpg">
-    <p>瓶子</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Leetcode/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Leetcode</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 23, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Edit Distance</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/passages/leetcode-zhi-bian-ji-ju-chi/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -2188,12 +2213,12 @@
       <div class="prev-next">
         
         <p class="current">
-          1 / 31
+          1 / 27
         </p>
         
           <a class="next" rel="next" href="/page/2/">
             <section class="post next white-box floatable">
-              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -2294,7 +2319,7 @@
           <li><a class="flat-box"
             title="/categories/Leetcode/" href="/categories/Leetcode/"
             id="categoriesLeetcode"
-            ><div class='name'>Leetcode</div><div class='badge'>(178)</div></a></li>
+            ><div class='name'>Leetcode</div><div class='badge'>(177)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/Lintcode/" href="/categories/Lintcode/"
@@ -2312,24 +2337,19 @@
             ><div class='name'>博客相关</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" href="/categories/%E5%91%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"
-            id="categoriesE591A8E79FA5E8AF86E680BBE7BB93"
-            ><div class='name'>周知识总结</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
             title="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"
             id="categoriesE5B7A5E585B7E9858DE7BDAE"
             ><div class='name'>工具配置</div><div class='badge'>(18)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
-            ><div class='name'>机器学习</div><div class='badge'>(8)</div></a></li>
+            title="/categories/%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/" href="/categories/%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/"
+            id="categoriesE695B0E68DAEE7AB9EE8B59B"
+            ><div class='name'>数据竞赛</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(7)</div></a></li>
+            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
+            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
+            ><div class='name'>机器学习</div><div class='badge'>(7)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/"
@@ -2354,12 +2374,7 @@
           <li><a class="flat-box"
             title="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"
             id="categoriesE887AAE784B6E8AFADE8A880E5A484E79086"
-            ><div class='name'>自然语言处理</div><div class='badge'>(16)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/" href="/categories/%E8%AF%BB%E4%B9%A6-%E7%94%B5%E5%BD%B1/"
-            id="categoriesE8AFBBE4B9A6-E794B5E5BDB1"
-            ><div class='name'>读书&电影</div><div class='badge'>(5)</div></a></li>
+            ><div class='name'>自然语言处理</div><div class='badge'>(3)</div></a></li>
         
       </ul>
     </div>
@@ -2383,7 +2398,7 @@
 
 
     <div class='content'>
-      <a href="/tags/Algorithm/" style="font-size: 24px; color: #555">Algorithm</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 22px; color: #636363">Artificial Intelligence</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/NLP/" style="font-size: 18px; color: #7e7e7e">NLP</a> <a href="/tags/Python/" style="font-size: 21px; color: #696969">Python</a> <a href="/tags/Tools/" style="font-size: 22px; color: #636363">Tools</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 19px; color: #777">c语言</a> <a href="/tags/leetcode/" style="font-size: 23px; color: #5c5c5c">leetcode</a> <a href="/tags/lintcode/" style="font-size: 15px; color: #929292">lintcode</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" style="font-size: 20px; color: #707070">研究生复试</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" style="font-size: 17px; color: #858585">论文笔记</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 16px; color: #8b8b8b">读书笔记</a>
+      <a href="/tags/AI/" style="font-size: 17.33px; color: #828282">AI</a> <a href="/tags/Algorithm/" style="font-size: 24px; color: #555">Algorithm</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/NLP/" style="font-size: 16.22px; color: #8a8a8a">NLP</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Tools/" style="font-size: 21.78px; color: #646464">Tools</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 18.44px; color: #7b7b7b">c语言</a> <a href="/tags/leetcode/" style="font-size: 22.89px; color: #5d5d5d">leetcode</a> <a href="/tags/lintcode/" style="font-size: 15.11px; color: #919191">lintcode</a> <a href="/tags/%E7%82%BC%E4%B8%B9%E6%89%8B%E5%86%8C/" style="font-size: 14px; color: #999">炼丹手册</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95/" style="font-size: 19.56px; color: #737373">研究生复试</a>
     </div>
   </section>
 
@@ -2464,16 +2479,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Ziv</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
